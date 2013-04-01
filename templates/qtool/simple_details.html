@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html data-require="math">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<title>{{title}}</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+<script src="http://localhost:8000/qtool/ODSAkhan-exercises/khan-exercise.js"></script>
+ <script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/1.1-latest/MathJax.js?config=http://algoviz.org/OpenDSA/dev/OpenDSA/ODSAkhan-exercises/KAthJax-77111459c7d82564a705f9c5480e2c88.js">
+</script>
+
+
+</head>
+<body>
+
+	<div class="exercise">
+		<div class="vars">
+	
+	</div>
+	<div class="problems">
+	       	<div id="problem-type-or-description">
+
+<p class="question">
+
+{{question.question}}
+
+</p>
+<div class="solution">
+	<var>"{{solution.solution}}"</var> </div>
+<ul class="choices" data-category="true"> 
+	<ul class ="choices" >
+	{% for c in p.choice_set.all %}
+	<li><var>"{{c.choice}}"</var> </li>
+	{% endfor %}
+</ul>
+
+
+
+<div class="hints">
+	{% for h in p.hint_set.all %}
+	<p><var>{{h.hint}}</var> </p>
+	{% endfor %}
+</div>
+
+</div>
+
+</div>
+
+</div>
+</body>
+</html>
+
+
+
