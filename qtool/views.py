@@ -153,6 +153,13 @@ def problems(request):
 	return render_to_response('qtool/problems.html', context)
 
 
+
+def problems_Summary(request):
+	problems = Problem.objects.all()
+	context = Context({'problems':problems})
+	return render_to_response('qtool/problems_Summary.html', context)
+
+
 def ka_details(request, problem_id):
 	p = get_object_or_404(Problem, id=problem_id)
 	q = ProblemTemplate.objects.get(problem = p)
@@ -378,6 +385,36 @@ def range(request):
 
 
 
+
+
+def summative(request):
+    # This class is used to make empty formset forms required
+    # See http://stackoverflow.com/questions/2406537/django-formsets-make-first-required/4951032#4951032
+	class RequiredFormSet(BaseFormSet):
+		def __init__(self, *args, **kwargs):
+			super(RequiredFormSet, self).__init__(*args, **kwargs)
+			for form in self.forms:
+				form.empty_permitted = True
+	ProblemTemplateFormSet = formset_factory(ProblemTemplateForm, max_num = 10, formset = RequiredFormSet)
+	if request.method == 'POST': # If the form has been submitted...
+		problem_form = ListProblemForm(request.POST)
+		problem_template_formset = ProblemTemplateFormSet(request.POST, request.FILES, prefix='template')
+		if problem_form.is_valid() and problem_template_formset.is_valid():
+			problem = problem_form.save()
+
+			for form in problem_template_formset.forms:
+				problem_template = form.save(commit = False)
+				problem_template.problem = problem
+				problem_template.save() # Redirect to a 'success' page
+			return HttpResponseRedirect('/qtool/problems')
+	else:
+	   	problem_form = ProblemForm()
+		problem_template_formset = ProblemTemplateFormSet(prefix='template')
+	c = {'problem_form' : problem_form,
+	     'problem_template_formset' : problem_template_formset,
+	}
+	c.update(csrf(request))
+	return render_to_response('qtool/summative.html', c)
 
 
 

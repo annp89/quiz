@@ -15,7 +15,7 @@ class Problem(models.Model):
 	difficulty_level = models.CharField(max_length=255,
                                       choices=DIFFICULTY,
                                       default='EASY')
-	type = model.CharField(max_length = 255)
+	type = models.CharField(max_length = 255)
 	
 	def __unicode__(self):
 	        return self.title

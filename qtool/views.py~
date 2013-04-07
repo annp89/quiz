@@ -152,11 +152,10 @@ def problems(request):
 	context = Context({'problems':problems})
 	return render_to_response('qtool/problems.html', context)
 
-
-def problems_Summary(request):
+def summative(request):
 	problems = Problem.objects.all()
 	context = Context({'problems':problems})
-	return render_to_response('qtool/problems_Summary.html', context)
+	return render_to_response('qtool/summative.html', context)
 
 
 def ka_details(request, problem_id):
@@ -383,6 +382,9 @@ def range(request):
 	return render_to_response('qtool/range.html', c)
 
 
+
+
+
 def summative(request):
     # This class is used to make empty formset forms required
     # See http://stackoverflow.com/questions/2406537/django-formsets-make-first-required/4951032#4951032
@@ -397,7 +399,7 @@ def summative(request):
 		problem_template_formset = ProblemTemplateFormSet(request.POST, request.FILES, prefix='template')
 		if problem_form.is_valid() and problem_template_formset.is_valid():
 			problem = problem_form.save()
-		           	
+
 			for form in problem_template_formset.forms:
 				problem_template = form.save(commit = False)
 				problem_template.problem = problem
@@ -411,9 +413,6 @@ def summative(request):
 	}
 	c.update(csrf(request))
 	return render_to_response('qtool/summative.html', c)
-
-
-
 
 
 

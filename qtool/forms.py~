@@ -82,3 +82,11 @@ class RangeProblemForm(ModelForm):
 	class Meta:
 		model = Problem
 		exclude = ('script', 'choice','hint')
+
+
+		
+class SummativeProblemForm(ModelForm):
+	type = forms.CharField(widget = forms.HiddenInput(), initial ='Summative')
+	class Meta:
+		model = Problem
+		exclude = ('script', 'choice','hint', 'answer', 'variable')

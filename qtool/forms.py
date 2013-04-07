@@ -13,6 +13,13 @@ class VariableForm(ModelForm):
 			}
 		exclude = ('problem',)
 
+class CommonIntroductionForm(ModelForm):
+        class Meta:
+	        model = CommonIntroduction
+		widgets = {
+          		'common_intro': forms.Textarea(attrs={'class' : 'myfieldclass'}),
+        	}
+		exclude = ('problem',)
 
 class ProblemTemplateForm(ModelForm):
         class Meta:

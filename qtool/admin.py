@@ -10,9 +10,15 @@ admin.site.register(Script)
 
 admin.site.register(Variable)
 
+admin.site.register(CommonIntroduction)
+
 
 class VariableAdmin(admin.TabularInline):
 	model = Variable
+	extra =0
+	
+class CommonIntroAdmin(admin.TabularInline):
+	model = CommonIntroduction
 	extra =0
 
 class ChoiceAdmin(admin.TabularInline):
@@ -36,7 +42,7 @@ class ScriptAdmin(admin.TabularInline):
 	extra = 0
 
 class ProblemAdmin(admin.ModelAdmin):
-	inlines = [VariableAdmin, ProblemTemplateAdmin, ChoiceAdmin, HintAdmin, AnswerAdmin, ScriptAdmin]
+	inlines = [VariableAdmin, CommonIntroAdmin, ProblemTemplateAdmin, ChoiceAdmin, HintAdmin, AnswerAdmin, ScriptAdmin]
 
 admin.site.register(Problem, ProblemAdmin)
 

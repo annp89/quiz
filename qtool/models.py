@@ -20,6 +20,12 @@ class Problem(models.Model):
 	def __unicode__(self):
 	        return self.title
 
+class CommonIntroduction(models.Model):
+	common_intro = models.TextField(verbose_name="Introduction")
+	problem = models.ForeignKey(Problem)
+	def __unicode__(self):
+		return self.var_id + "(" + str(self.problem) + ")"
+
 class Variable(models.Model):
 	var_id = models.CharField(max_length = 255, verbose_name="Variable Name")
 	var_value = models.TextField(verbose_name="Variable Value")

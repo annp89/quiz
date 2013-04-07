@@ -6,6 +6,8 @@ admin.site.register(ProblemTemplate)
 admin.site.register(Answer)
 admin.site.register(Hint)
 
+admin.site.register(Script)
+
 admin.site.register(Variable)
 
 
