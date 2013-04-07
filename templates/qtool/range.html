@@ -325,6 +325,126 @@ a:active{color:#B22222}}
       $("#dialog").fadeOut(300);
    } 
         
+   $(".btnShowSimple1").click(function (e)
+      	{
+         ShowDialog1(false);
+         e.preventDefault();
+      	});
+
+     
+      	$("#btnClose1").click(function (e)
+      	{
+         HideDialog1();
+         e.preventDefault();
+      	});
+
+     
+
+
+ function ShowDialog1(modal)
+   {
+      $("#overlay1").show();
+      $("#dialog1").fadeIn(300);
+
+      if (modal)
+      {
+         $("#overlay1").unbind("click");
+      }
+      else
+      {
+         $("#overlay1").click(function (e)
+         {
+            HideDialog1();
+         });
+      }
+   }
+
+   function HideDialog1()
+   {
+      $("#overlay1").hide();
+      $("#dialog1").fadeOut(300);
+   } 
+
+   	$(".btnShowSimple2").click(function (e)
+      	{
+         ShowDialog2(false);
+         e.preventDefault();
+      	});
+
+     
+      	$("#btnClose2").click(function (e)
+      	{
+         HideDialog2();
+         e.preventDefault();
+      	});
+
+     
+
+
+ function ShowDialog2(modal)
+   {
+      $("#overlay2").show();
+      $("#dialog2").fadeIn(300);
+
+      if (modal)
+      {
+         $("#overlay2").unbind("click");
+      }
+      else
+      {
+         $("#overlay2").click(function (e)
+         {
+            HideDialog2();
+         });
+      }
+   }
+
+   function HideDialog2()
+   {
+      $("#overlay2").hide();
+      $("#dialog2").fadeOut(300);
+   } 
+
+   	$(".btnShowSimple3").click(function (e)
+      	{
+         ShowDialog3(false);
+         e.preventDefault();
+      	});
+
+     
+      	$("#btnClose3").click(function (e)
+      	{
+         HideDialog3();
+         e.preventDefault();
+      	});
+
+     
+
+
+ function ShowDialog3(modal)
+   {
+      $("#overlay3").show();
+      $("#dialog3").fadeIn(300);
+
+      if (modal)
+      {
+         $("#overlay3").unbind("click");
+      }
+      else
+      {
+         $("#overlay3").click(function (e)
+         {
+            HideDialog3();
+         });
+      }
+   }
+
+   function HideDialog3()
+   {
+      $("#overlay3").hide();
+      $("#dialog3").fadeOut(300);
+   } 
+       
       
 
 
@@ -580,6 +700,50 @@ a:active{color:#B22222}}
 		{% csrf_token %}
 		<div class="section_a">
 			<div class ="item_a">
+					<span style="float:right">
+				<input type="button" id="btnShowSimple"  class="btnShowSimple" value="What's this?" />
+				<br /><br />       
+    
+				<div id="output"></div>
+    
+				<div id="overlay" class="web_dialog_overlay"></div>
+    
+				<div id="dialog" class="web_dialog">
+				<table style="width: 100%; border: 0px;" cellpadding="3" cellspacing="0">
+				<tr>
+         			<td class="web_dialog_title">Help</td>
+         			<td class="web_dialog_title align_right">
+            			<a href="#" id="btnClose">Close</a>
+        			</td>
+      				</tr>
+      				<tr>
+				         <td>&nbsp;</td>
+				         <td>&nbsp;</td>
+			      	</tr>
+			     	 <tr>
+         			<td colspan="2" style="padding-left: 15px;">
+            			<b>Problem title </b>
+         			</td>
+      				</tr>
+      				<tr>
+         			<td>&nbsp;</td>
+         			<td>&nbsp;</td>
+     				 </tr>
+      				<tr>
+         			<td colspan="2" style="padding-left: 15px;">
+		            <div id="brands">
+		        	Filename used to save files on the database and to refer to it.
+		            </div>
+			         </td>
+				      </tr>
+				      <tr>
+			         <td>&nbsp;</td>
+         			<td>&nbsp;</td>
+     				 </tr>
+      
+  			 </table>
+			</div>
+		</span>
 				{{ problem_form.as_p }}
 			</div>
 		</div>
@@ -588,6 +752,50 @@ a:active{color:#B22222}}
 	<div class="section_c">
 		<h2>Problem Template </h2>
 		<div class ="item_c">
+				<span style="float:right">
+				<input type="button" id="btnShowSimple1"  class="btnShowSimple1" value="What's this?" />
+				<br /><br />       
+    
+				<div id="output1"></div>
+    
+				<div id="overlay1" class="web_dialog_overlay"></div>
+    
+				<div id="dialog1" class="web_dialog">
+				<table style="width: 100%; border: 0px;" cellpadding="3" cellspacing="0">
+				<tr>
+         			<td class="web_dialog_title">Help</td>
+         			<td class="web_dialog_title align_right">
+            			<a href="#" id="btnClose1">Close</a>
+        			</td>
+      				</tr>
+      				<tr>
+				         <td>&nbsp;</td>
+				         <td>&nbsp;</td>
+			      	</tr>
+			     	 <tr>
+         			<td colspan="2" style="padding-left: 15px;">
+            			<b> Write a question with the variables  </b>
+         			</td>
+      				</tr>
+      				<tr>
+         			<td>&nbsp;</td>
+         			<td>&nbsp;</td>
+     				 </tr>
+      				<tr>
+         			<td colspan="2" style="padding-left: 15px;">
+		            <div id="brands">
+				    Specify the variables in the &lt;var&gt; &lt;/var&gt; delimiters.
+		            </div>
+			         </td>
+				      </tr>
+				      <tr>
+			         <td>&nbsp;</td>
+         			<td>&nbsp;</td>
+     				 </tr>
+      
+  			 </table>
+			</div>
+		</span>
 			{{problem_template_form.as_p }}
 			{{ problem_template_formset.management_form }}
 			{% for form in problem_template_formset.forms %}
@@ -650,19 +858,19 @@ a:active{color:#B22222}}
 		{% for form in variable_formset.forms %}
 		<div class="item">
 				<span style="float:right">
-				<input type="button" id="btnShowSimple" class="btnShowSimple" value="What's this?" />
+				<input type="button" id="btnShowSimple2" class="btnShowSimple2" value="What's this?" />
 				<br /><br />       
     
-				<div id="output"></div>
+				<div id="output2"></div>
     
-				<div id="overlay" class="web_dialog_overlay"></div>
+				<div id="overlay2" class="web_dialog_overlay"></div>
     
-				<div id="dialog" class="web_dialog">
+				<div id="dialog2" class="web_dialog">
 				<table style="width: 100%; border: 0px;" cellpadding="3" cellspacing="0">
 				<tr>
          			<td class="web_dialog_title">Help</td>
          			<td class="web_dialog_title align_right">
-            			<a href="#" id="btnClose">Close</a>
+            			<a href="#" id="btnClose2">Close</a>
         			</td>
       				</tr>
       				<tr>
@@ -671,7 +879,7 @@ a:active{color:#B22222}}
 			      	</tr>
 			     	 <tr>
          			<td colspan="2" style="padding-left: 15px;">
-            			<b>Attrbute types and values </b>
+            			<b>Variables </b>
          			</td>
       				</tr>
       				<tr>
@@ -680,12 +888,9 @@ a:active{color:#B22222}}
      				 </tr>
       				<tr>
          			<td colspan="2" style="padding-left: 15px;">
-		            <div id="brands">
-				    <p>data-require = "math"</p>
-				    <p>data-require = "math graphie graphie-helpers"</p>
-				    <p>data-ensure = "A != 0"</p>
-				    <p> data-type = "multiple"</p>
-				    <p> data-require = "math math-format" data-type ="radical"</p>
+					<div id="brands">
+						The value for the variables has to be specified with randRange(min, max);
+						<br>where min in the start value and max is the maximum value bounds <br>for the range of values a specific variable can take.
 				   
 				    
 		            </div>
@@ -701,7 +906,7 @@ a:active{color:#B22222}}
 		</span>
 		<p>Variable name:{{form.var_id}}
 		</p>	
-		<p>Variable name:{{form.var_value}}
+		<p>Variable value:{{form.var_value}}
 		<span class="helptext">Use randRange(min,max)</span>
 		</p>
 		
@@ -715,19 +920,19 @@ a:active{color:#B22222}}
 	  <h2>Solution </h2>
 	  <div class ="item_b">
 		  <span style="float:right">
-				<input type="button" id="btnShowSimple"  class="btnShowSimple" value="What's this?" />
+				<input type="button" id="btnShowSimple3"  class="btnShowSimple3" value="What's this?" />
 				<br /><br />       
     
-				<div id="output"></div>
+				<div id="output3"></div>
     
-				<div id="overlay" class="web_dialog_overlay"></div>
+				<div id="overlay3" class="web_dialog_overlay"></div>
     
-				<div id="dialog" class="web_dialog">
+				<div id="dialog3" class="web_dialog">
 				<table style="width: 100%; border: 0px;" cellpadding="3" cellspacing="0">
 				<tr>
          			<td class="web_dialog_title">Help</td>
          			<td class="web_dialog_title align_right">
-            			<a href="#" id="btnClose">Close</a>
+            			<a href="#" id="btnClose3">Close</a>
         			</td>
       				</tr>
       				<tr>
@@ -736,7 +941,7 @@ a:active{color:#B22222}}
 			      	</tr>
 			     	 <tr>
          			<td colspan="2" style="padding-left: 15px;">
-            			<b>Attrbute types and values </b>
+            			<b>Answer</b>
          			</td>
       				</tr>
       				<tr>
@@ -746,9 +951,8 @@ a:active{color:#B22222}}
       				<tr>
          			<td colspan="2" style="padding-left: 15px;">
 		            <div id="brands">
-		               <input id="brand1" name="brand" type="radio" checked="checked" value="Nokia" />data-require
-		               <input id="brand2" name="brand" type="radio" value="Sony" />data-ensure 
-		               <input id="brand3" name="brand" type="radio" value="Motorola" />data-forms
+				    This type of question is tailored to be used for arithmetic problem authoring to vary the values the varibles can take<br>
+				    The answer is typicallly the aithemetic calculation within &lt;var&gt; &lt;/var&gt; delimiters. E.g. &lt;var&gt; A + B / 4.5 &lt;/var&gt;
 		            </div>
 			         </td>
 				      </tr>

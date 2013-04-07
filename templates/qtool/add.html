@@ -198,9 +198,250 @@ a:active{color:#B22222}}
       $("#dialog").fadeOut(300);
    } 
         
-      
+      	$(".btnShowSimple1").click(function (e)
+      	{
+         ShowDialog1(false);
+         e.preventDefault();
+      	});
+
+     
+      	$("#btnClose1").click(function (e)
+      	{
+         HideDialog1();
+         e.preventDefault();
+      	});
+
+     
 
 
+ function ShowDialog1(modal)
+   {
+      $("#overlay1").show();
+      $("#dialog1").fadeIn(300);
+
+      if (modal)
+      {
+         $("#overlay1").unbind("click");
+      }
+      else
+      {
+         $("#overlay1").click(function (e)
+         {
+            HideDialog1();
+         });
+      }
+   }
+
+   function HideDialog1()
+   {
+      $("#overlay1").hide();
+      $("#dialog1").fadeOut(300);
+
+   }
+
+      	$(".btnShowSimple2").click(function (e)
+      	{
+         ShowDialog2(false);
+         e.preventDefault();
+      	});
+
+     
+      	$("#btnClose2").click(function (e)
+      	{
+         HideDialog2();
+         e.preventDefault();
+      	});
+
+     
+
+
+ function ShowDialog2(modal)
+   {
+      $("#overlay2").show();
+      $("#dialog2").fadeIn(300);
+
+      if (modal)
+      {
+         $("#overlay2").unbind("click");
+      }
+      else
+      {
+         $("#overlay2").click(function (e)
+         {
+            HideDialog2();
+         });
+      }
+   }
+
+   function HideDialog2()
+   {
+      $("#overlay2").hide();
+      $("#dialog2").fadeOut(300);
+   }
+
+      	$(".btnShowSimple3").click(function (e)
+      	{
+         ShowDialog3(false);
+         e.preventDefault();
+      	});
+
+     
+      	$("#btnClose3").click(function (e)
+      	{
+         HideDialog3();
+         e.preventDefault();
+      	});
+
+     
+
+
+ function ShowDialog3(modal)
+   {
+      $("#overlay3").show();
+      $("#dialog3").fadeIn(300);
+
+      if (modal)
+      {
+         $("#overlay3").unbind("click");
+      }
+      else
+      {
+         $("#overlay3").click(function (e)
+         {
+            HideDialog();
+         });
+      }
+   }
+
+   function HideDialog3()
+   {
+      $("#overlay3").hide();
+      $("#dialog3").fadeOut(300);
+
+   }
+      	$(".btnShowSimple4").click(function (e)
+      	{
+         ShowDialog4(false);
+         e.preventDefault();
+      	});
+
+     
+      	$("#btnClose4").click(function (e)
+      	{
+         HideDialog4();
+         e.preventDefault();
+      	});
+
+     
+
+
+ function ShowDialog4(modal)
+   {
+      $("#overlay4").show();
+      $("#dialog4").fadeIn(300);
+
+      if (modal)
+      {
+         $("#overlay4").unbind("click");
+      }
+      else
+      {
+         $("#overlay4").click(function (e)
+         {
+            HideDialog4();
+         });
+      }
+   }
+
+   function HideDialog4()
+   {
+      $("#overlay4").hide();
+      $("#dialog4").fadeOut(300);
+
+   }
+
+
+      	$(".btnShowSimple5").click(function (e)
+      	{
+         ShowDialog5(false);
+         e.preventDefault();
+      	});
+
+     
+      	$("#btnClose5").click(function (e)
+      	{
+         HideDialog5();
+         e.preventDefault();
+      	});
+
+     
+
+
+ function ShowDialog5(modal)
+   {
+      $("#overlay5").show();
+      $("#dialog5").fadeIn(300);
+
+      if (modal)
+      {
+         $("#overlay5").unbind("click");
+      }
+      else
+      {
+         $("#overlay5").click(function (e)
+         {
+            HideDialog5();
+         });
+      }
+   }
+
+   function HideDialog5()
+   {
+      $("#overlay5").hide();
+      $("#dialog5").fadeOut(300);
+
+   }
+
+      	$(".btnShowSimple6").click(function (e)
+      	{
+         ShowDialog6(false);
+         e.preventDefault();
+      	});
+
+     
+      	$("#btnClose6").click(function (e)
+      	{
+         HideDialog6();
+         e.preventDefault();
+      	});
+
+     
+
+
+ function ShowDialog6(modal)
+   {
+      $("#overlay6").show();
+      $("#dialog6").fadeIn(300);
+
+      if (modal)
+      {
+         $("#overlay6").unbind("click");
+      }
+      else
+      {
+         $("#overlay6").click(function (e)
+         {
+            HideDialog6();
+         });
+      }
+   }
+
+   function HideDialog6()
+   {
+      $("#overlay6").hide();
+      $("#dialog6").fadeOut(300);
+
+   }
 		function updateElementIndex(el, prefix, ndx) {
 			var id_regex = new RegExp('(' + prefix + '-\\d+-)');
 			var replacement = prefix + '-' + ndx + '-';
@@ -453,19 +694,8 @@ a:active{color:#B22222}}
 		{% csrf_token %}
 		<div class="section_a">
 			<div class ="item_a">
-				{{ problem_form.as_p }}
-			
-			</div>
-		</div>
-
-	
-		<div class ="section">
-		<h2>Variables</h2>
-		{{ variable_formset.management_form }}
-		{% for form in variable_formset.forms %}
-		<div class="item">
-				<span style="float:right">
-				<input type="button" id="btnShowSimple" class="btnShowSimple" value="What's this?" />
+					<span style="float:right">
+				<input type="button" id="btnShowSimple"  class="btnShowSimple" value="What's this?" />
 				<br /><br />       
     
 				<div id="output"></div>
@@ -486,7 +716,7 @@ a:active{color:#B22222}}
 			      	</tr>
 			     	 <tr>
          			<td colspan="2" style="padding-left: 15px;">
-            			<b>Attrbute types and values </b>
+					<b>Title and Difficulty </b>
          			</td>
       				</tr>
       				<tr>
@@ -496,6 +726,67 @@ a:active{color:#B22222}}
       				<tr>
          			<td colspan="2" style="padding-left: 15px;">
 		            <div id="brands">
+				    Title: Filename to be used to save onto database and refer to later<p>
+				    Difficulty: Pick a difficulty level
+		            </div>
+			         </td>
+				      </tr>
+				      <tr>
+			         <td>&nbsp;</td>
+         			<td>&nbsp;</td>
+     				 </tr>
+      
+  			 </table>
+			</div>
+		</span>
+				{{ problem_form.as_p }}
+			
+			</div>
+		</div>
+
+	
+		<div class ="section">
+		<h2>Variables</h2>
+		{{ variable_formset.management_form }}
+		{% for form in variable_formset.forms %}
+		<div class="item">
+				<span style="float:right">
+				<input type="button" id="btnShowSimple1" class="btnShowSimple1" value="What's this?" />
+				<br /><br />       
+    
+				<div id="output1"></div>
+    
+				<div id="overlay1" class="web_dialog_overlay"></div>
+    
+				<div id="dialog1" class="web_dialog">
+				<table style="width: 100%; border: 0px;" cellpadding="3" cellspacing="0">
+				<tr>
+         			<td class="web_dialog_title">Help</td>
+         			<td class="web_dialog_title align_right">
+            			<a href="#" id="btnClose1">Close</a>
+        			</td>
+      				</tr>
+      				<tr>
+				         <td>&nbsp;</td>
+				         <td>&nbsp;</td>
+			      	</tr>
+			     	 <tr>
+         			<td colspan="2" style="padding-left: 15px;">
+            			<b>Variable  and Attributes</b>
+         			</td>
+      				</tr>
+      				<tr>
+         			<td>&nbsp;</td>
+         			<td>&nbsp;</td>
+     				 </tr>
+      				<tr>
+         			<td colspan="2" style="padding-left: 15px;">
+					<div id="brands">
+
+					
+						Refer to KhanAcademy Exercise writing help for the values variables can take: <a href= "https://github.com/Khan/khan-exercises/wiki/Writing-Exercises:-Home"  target="_blank">Help page</a>	<p>
+						Some of the commonly used attributes are: 
+
 				    <p>data-require = "math"</p>
 				    <p>data-require = "math graphie graphie-helpers"</p>
 				    <p>data-ensure = "A != 0"</p>
@@ -529,6 +820,50 @@ a:active{color:#B22222}}
 	<div class="section_c">
 		<h2>Problem Template </h2>
 		<div class ="item_c">
+				<span style="float:right">
+				<input type="button" id="btnShowSimple2"  class="btnShowSimple2" value="What's this?" />
+				<br /><br />       
+    
+				<div id="output2"></div>
+    
+				<div id="overlay2" class="web_dialog_overlay"></div>
+    
+				<div id="dialog2" class="web_dialog">
+				<table style="width: 100%; border: 0px;" cellpadding="3" cellspacing="0">
+				<tr>
+         			<td class="web_dialog_title">Help</td>
+         			<td class="web_dialog_title align_right">
+            			<a href="#" id="btnClose2">Close</a>
+        			</td>
+      				</tr>
+      				<tr>
+				         <td>&nbsp;</td>
+				         <td>&nbsp;</td>
+			      	</tr>
+			     	 <tr>
+         			<td colspan="2" style="padding-left: 15px;">
+				<b>Question </b>
+         			</td>
+      				</tr>
+      				<tr>
+         			<td>&nbsp;</td>
+         			<td>&nbsp;</td>
+     				 </tr>
+      				<tr>
+         			<td colspan="2" style="padding-left: 15px;">
+		            <div id="brands">
+		             Write a question with text and include variables in &lt;var&gt; &lt;/var&gt; delimiters in order to make a question dynamic.
+		            </div>
+			         </td>
+				      </tr>
+				      <tr>
+			         <td>&nbsp;</td>
+         			<td>&nbsp;</td>
+     				 </tr>
+      
+  			 </table>
+			</div>
+		</span>
 			{{problem_template_form.as_p }}
 			{{ problem_template_formset.management_form }}
 			{% for form in problem_template_formset.forms %}
@@ -589,23 +924,20 @@ a:active{color:#B22222}}
   	<div class="section_b">
 	  <h2>Solution </h2>
 	  <div class ="item_b">
-		  {{answer_form.as_p }}
-		  {{ answer_formset.management_form }}
-		  {% for form in answer_formset.forms %}
-		  <span style="float:right">
-				<input type="button" id="btnShowSimple"  class="btnShowSimple" value="What's this?" />
+		  	<span style="float:right">
+				<input type="button" id="btnShowSimple3"  class="btnShowSimple3" value="What's this?" />
 				<br /><br />       
     
-				<div id="output"></div>
+				<div id="output3"></div>
     
-				<div id="overlay" class="web_dialog_overlay"></div>
+				<div id="overlay3" class="web_dialog_overlay"></div>
     
-				<div id="dialog" class="web_dialog">
+				<div id="dialog3" class="web_dialog">
 				<table style="width: 100%; border: 0px;" cellpadding="3" cellspacing="0">
 				<tr>
          			<td class="web_dialog_title">Help</td>
          			<td class="web_dialog_title align_right">
-            			<a href="#" id="btnClose">Close</a>
+            			<a href="#" id="btnClose3">Close</a>
         			</td>
       				</tr>
       				<tr>
@@ -614,7 +946,7 @@ a:active{color:#B22222}}
 			      	</tr>
 			     	 <tr>
          			<td colspan="2" style="padding-left: 15px;">
-            			<b>Attrbute types and values </b>
+            			<b>Answer </b>
          			</td>
       				</tr>
       				<tr>
@@ -624,9 +956,7 @@ a:active{color:#B22222}}
       				<tr>
          			<td colspan="2" style="padding-left: 15px;">
 		            <div id="brands">
-		               <input id="brand1" name="brand" type="radio" checked="checked" value="Nokia" />data-require
-		               <input id="brand2" name="brand" type="radio" value="Sony" />data-ensure 
-		               <input id="brand3" name="brand" type="radio" value="Motorola" />data-forms
+		              Specify the correct choice
 		            </div>
 			         </td>
 				      </tr>
@@ -638,6 +968,10 @@ a:active{color:#B22222}}
   			 </table>
 			</div>
 		</span>
+		  {{answer_form.as_p }}
+		  {{ answer_formset.management_form }}
+		  {% for form in answer_formset.forms %}
+		 
 		  	{{ form.as_p }}
 		  {% endfor %}
 	</div>
@@ -648,19 +982,19 @@ a:active{color:#B22222}}
 		 {{ choice_formset.management_form }}
 	         {% for form in choice_formset.forms %}
 	         <div class="item2"><span style="float:right">
-				<input type="button" id="btnShowSimple"  class="btnShowSimple" value="What's this?" />
+				<input type="button" id="btnShowSimple4"  class="btnShowSimple4" value="What's this?" />
 				<br /><br />       
     
-				<div id="output"></div>
+				<div id="output4"></div>
     
-				<div id="overlay" class="web_dialog_overlay"></div>
+				<div id="overlay4" class="web_dialog_overlay"></div>
     
-				<div id="dialog" class="web_dialog">
+				<div id="dialog4" class="web_dialog">
 				<table style="width: 100%; border: 0px;" cellpadding="3" cellspacing="0">
 				<tr>
          			<td class="web_dialog_title">Help</td>
          			<td class="web_dialog_title align_right">
-            			<a href="#" id="btnClose">Close</a>
+            			<a href="#" id="btnClose4">Close</a>
         			</td>
       				</tr>
       				<tr>
@@ -669,19 +1003,18 @@ a:active{color:#B22222}}
 			      	</tr>
 			     	 <tr>
          			<td colspan="2" style="padding-left: 15px;">
-            			<b>Attrbute types and values </b>
+            			<b>Choices</b>
          			</td>
       				</tr>
       				<tr>
          			<td>&nbsp;</td>
          			<td>&nbsp;</td>
      				 </tr>
-      				<tr>
+				 <tr>
+
          			<td colspan="2" style="padding-left: 15px;">
 		            <div id="brands">
-		               <input id="brand1" name="brand" type="radio" checked="checked" value="Nokia" />data-require
-		               <input id="brand2" name="brand" type="radio" value="Sony" />data-ensure 
-		               <input id="brand3" name="brand" type="radio" value="Motorola" />data-forms
+		              Include 3 or 4 choices of answers inclusive of the correct answer specified
 		            </div>
 			         </td>
 				      </tr>
@@ -707,19 +1040,19 @@ a:active{color:#B22222}}
 		 {{ hint_formset.management_form }}
 	         {% for form in hint_formset.forms %}
 	         <div class="item3"><span style="float:right">
-				<input type="button" id="btnShowSimple"  class="btnShowSimple" value="What's this?" />
+				<input type="button" id="btnShowSimple5"  class="btnShowSimple5" value="What's this?" />
 				<br /><br />       
     
-				<div id="output"></div>
+				<div id="output5"></div>
     
-				<div id="overlay" class="web_dialog_overlay"></div>
+				<div id="overlay5" class="web_dialog_overlay"></div>
     
-				<div id="dialog" class="web_dialog">
+				<div id="dialog5" class="web_dialog">
 				<table style="width: 100%; border: 0px;" cellpadding="3" cellspacing="0">
 				<tr>
          			<td class="web_dialog_title">Help</td>
          			<td class="web_dialog_title align_right">
-            			<a href="#" id="btnClose">Close</a>
+            			<a href="#" id="btnClose5">Close</a>
         			</td>
       				</tr>
       				<tr>
@@ -728,7 +1061,7 @@ a:active{color:#B22222}}
 			      	</tr>
 			     	 <tr>
          			<td colspan="2" style="padding-left: 15px;">
-            			<b>Attrbute types and values </b>
+            			<b>HInts </b>
          			</td>
       				</tr>
       				<tr>
@@ -738,9 +1071,7 @@ a:active{color:#B22222}}
       				<tr>
          			<td colspan="2" style="padding-left: 15px;">
 		            <div id="brands">
-		               <input id="brand1" name="brand" type="radio" checked="checked" value="Nokia" />data-require
-		               <input id="brand2" name="brand" type="radio" value="Sony" />data-ensure 
-		               <input id="brand3" name="brand" type="radio" value="Motorola" />data-forms
+		              1 or more hints with information related to the question
 		            </div>
 			         </td>
 				      </tr>
@@ -764,19 +1095,19 @@ a:active{color:#B22222}}
 		 {{ script_formset.management_form }}
 	         {% for form in script_formset.forms %}
 	         <div class="item4"><span style="float:right">
-				<input type="button" id="btnShowSimple"  class="btnShowSimple" value="What's this?" />
+				<input type="button" id="btnShowSimple6"  class="btnShowSimple6" value="What's this?" />
 				<br /><br />       
     
-				<div id="output"></div>
+				<div id="output6"></div>
     
-				<div id="overlay" class="web_dialog_overlay"></div>
+				<div id="overlay6" class="web_dialog_overlay"></div>
     
-				<div id="dialog" class="web_dialog">
+				<div id="dialog6" class="web_dialog">
 				<table style="width: 100%; border: 0px;" cellpadding="3" cellspacing="0">
 				<tr>
          			<td class="web_dialog_title">Help</td>
          			<td class="web_dialog_title align_right">
-            			<a href="#" id="btnClose">Close</a>
+            			<a href="#" id="btnClose6">Close</a>
         			</td>
       				</tr>
       				<tr>
@@ -785,7 +1116,7 @@ a:active{color:#B22222}}
 			      	</tr>
 			     	 <tr>
          			<td colspan="2" style="padding-left: 15px;">
-            			<b>Attrbute types and values </b>
+            			<b>Scripts</b>
          			</td>
       				</tr>
       				<tr>
@@ -795,9 +1126,7 @@ a:active{color:#B22222}}
       				<tr>
          			<td colspan="2" style="padding-left: 15px;">
 		            <div id="brands">
-		               <input id="brand1" name="brand" type="radio" checked="checked" value="Nokia" />data-require
-		               <input id="brand2" name="brand" type="radio" value="Sony" />data-ensure 
-		               <input id="brand3" name="brand" type="radio" value="Motorola" />data-forms
+				    Include scripts within &lt;script&gt; &lt;/script&gt; delimiters.
 		            </div>
 			         </td>
 				      </tr>
