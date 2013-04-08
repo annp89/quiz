@@ -344,6 +344,45 @@ button.onclick = function() {
       $("#dialog").fadeOut(300);
    } 
         
+	$(".btnShowSimple3").click(function (e)
+      	{
+         ShowDialog3(false);
+         e.preventDefault();
+      	});
+
+     
+      	$("#btnClose3").click(function (e)
+      	{
+         HideDialog3();
+         e.preventDefault();
+      	});
+
+     
+
+
+ function ShowDialog3(modal)
+   {
+      $("#overlay3").show();
+      $("#dialog3").fadeIn(300);
+
+      if (modal)
+      {
+         $("#overlay3").unbind("click");
+      }
+      else
+      {
+         $("#overlay3").click(function (e)
+         {
+            HideDialog3();
+         });
+      }
+   }
+
+   function HideDialog3()
+   {
+      $("#overlay3").hide();
+      $("#dialog3").fadeOut(300);
+   } 
       
 
 
@@ -651,6 +690,63 @@ button.onclick = function() {
 				{{ problem_form.as_p }}
 			</div>
 		</div>
+
+
+
+
+  	<div class="section_b">
+	  <h2>Common Introduction </h2>
+	  <div class ="item_b">
+		  	<span style="float:right">
+				<input type="button" id="btnShowSimple3"  class="btnShowSimple3" value="What's this?" />
+				<br /><br />       
+    
+				<div id="output3"></div>
+    
+				<div id="overlay3" class="web_dialog_overlay"></div>
+    
+				<div id="dialog3" class="web_dialog">
+				<table style="width: 100%; border: 0px;" cellpadding="3" cellspacing="0">
+				<tr>
+         			<td class="web_dialog_title">Help</td>
+         			<td class="web_dialog_title align_right">
+            			<a href="#" id="btnClose3">Close</a>
+        			</td>
+      				</tr>
+      				<tr>
+				         <td>&nbsp;</td>
+				         <td>&nbsp;</td>
+			      	</tr>
+			     	 <tr>
+         			<td colspan="2" style="padding-left: 15px;">
+            			<b>Common Introduction </b>
+         			</td>
+      				</tr>
+      				<tr>
+         			<td>&nbsp;</td>
+         			<td>&nbsp;</td>
+     				 </tr>
+      				<tr>
+         			<td colspan="2" style="padding-left: 15px;">
+					<div id="brands">
+						Use a common introduction for a bunch of questions that can be asked on the same topic -- Multi-part question
+		            </div>
+			         </td>
+				      </tr>
+				      <tr>
+			         <td>&nbsp;</td>
+         			<td>&nbsp;</td>
+     				 </tr>
+      
+  			 </table>
+			</div>
+		</span>
+		  {{common_introduction_form.as_p }}
+		 
+	</div>
+</div>
+
+
 
 	<center><input type='button' id='button' value="Browse/Hide Existing Problems"/></center>
 	<div id="browse" style = "display:none">

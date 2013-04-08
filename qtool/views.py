@@ -398,10 +398,13 @@ def summative(request):
 	ProblemTemplateFormSet = formset_factory(ProblemTemplateForm, max_num = 10, formset = RequiredFormSet)
 	if request.method == 'POST': # If the form has been submitted...
 		problem_form = ListProblemForm(request.POST)
+		common_introduction_form = CommonIntroductionForm(request.POST, prefix='common_intro')
 		problem_template_formset = ProblemTemplateFormSet(request.POST, request.FILES, prefix='template')
-		if problem_form.is_valid() and problem_template_formset.is_valid():
+		if problem_form.is_valid() and common_introduction_form.is_valid() and problem_template_formset.is_valid():
 			problem = problem_form.save()
-
+			common_intro = common_introduction_form.save(commit = False)
+			common_intro.problem = problem
+			common_intro.save()
 			for form in problem_template_formset.forms:
 				problem_template = form.save(commit = False)
 				problem_template.problem = problem
@@ -409,8 +412,10 @@ def summative(request):
 			return HttpResponseRedirect('/qtool/problems')
 	else:
 	   	problem_form = ProblemForm()
+		common_introduction_form = CommonIntroductionForm( prefix='common_intro')
 		problem_template_formset = ProblemTemplateFormSet(prefix='template')
 	c = {'problem_form' : problem_form,
+	     'common_introduction_form' : common_introduction_form,
 	     'problem_template_formset' : problem_template_formset,
 	}
 	c.update(csrf(request))

@@ -89,8 +89,7 @@ a:active{color:#B22222}}
                	<li >
                	   <a href="/qtool/problems">Find questions</a>
                	</li>
-               	
-                             	
+                            	
                	<li >
                	   <a href="/help"> Help</a>
                	</li>
@@ -111,50 +110,47 @@ a:active{color:#B22222}}
 <div style="padding-top: 30px;font-size:16px; width:696px; float:left">
 
 
-<table width="100%">
+<table width="80%"  style="text-align:left; margin-left:auto; margin-right:auto">
  
    <tr>
-	   <td nowrap style="text-align:center; width:225px;">
+	   <td nowrap>
 		   <div style="font-size:20px; padding-top: 10px; font-weight:bold;">
 			    Simple Question
 			   </div>
 		   </td>
-		   <td style="text-align:center; width:225px">
+		   <td>
       		 <div style="font-size:20px; padding-top: 10px; font-weight:bold;">
 		    Parameterised Question
 	      </div>
 	      </td>
-     
-      <td style="text-align:center; width:225px">
-	      <div style="font-size:20px; padding-top: 10px; font-weight:bold;">
-		    Domain Specific Question
-		      </div>
-	      </td>
-	      
       </tr>
 
+    
+   
+
       <tr>
-	   <td nowrap style="text-align:center; width:225px;">
-		   <div style="font-size:15px; padding-top: 10px">
+	   <td nowrap style=" width:225px;">
+		   <div style="font-size:15px;  width: 215px; padding-top: 10px">
 			   Write a simple, multiple choice question in any subject area</div>
 		   </td>
-		   <td style=" text-align: center; width:230px">
+		   <td style=" text-align: center; ">
 			   <div style="font-size:10px; float:left; width: 115px; padding-top:10px">
-				   Write a question specified with variables that can take  a list of values.
-	      </div>
-	      <div style="font-size:10px; float:right; width:115px; padding-top:10px">
+		
+		   Write a question specified with variables that can take  a list of values.
+	   </div>
+   	
+	      <div style="font-size:10px;float:right; width:115px; padding-top:10px">
 		      Write a question with variables that can take a range of values( Math problems)
 	      </div>
 	      </td>
-     
-      <td style="text-align:center; width:225px">
-	      <div style="font-size:15px; padding-top: 10px">
-		    Write a question that can be rendered into the Khan Academy Exercise format</div>
-	      </td>
+      </tr>   
+
+
+      
+   
 	      
-   </tr>
    <tr>
-	   <td nowrap style="text-align:center; width:225px;">
+	   <td nowrap style=" width:225px;">
 		   <div style="font-size:20px; padding-top: 10px;background:white" id="mydiv" onmouseover="this.style.background='#eeeeee';" onmouseout="this.style.background='white';">
 			   <a href="/qtool/simple"> Multiple Choice Question</a>
 			   </div>
@@ -164,16 +160,55 @@ a:active{color:#B22222}}
 		      <a href="/qtool/list">List</a>
 	      </div>
 	      <div style="font-size:20px; padding-right: 30px ; float:right; background:white" id="mydiv" onmouseover="this.style.background='#eeeeee';" onmouseout="this.style.background='white';">
-		      <a href="/qtool/list">Range</a>
+		      <a href="/qtool/range">Range</a>
 	      </div>
 	      </td>
-     
-      <td style="text-align:center; width:225px">
+      </tr>
+
+
+
+      <tr>
+	       <td nowrap>
+	      <div style="font-size:20px; padding-top: 10px; font-weight:bold;">
+		    Summative Question
+		      </div>
+	      </td>
+
+      <td nowrap>
+	      <div style="font-size:20px; padding-top: 10px; font-weight:bold;">
+		    Domain Specific Question
+		      </div>
+	      </td>
+	      
+      </tr>
+      <tr>
+ <td style=" width:225px">
+	      <div style="font-size:15px; width: 255px; padding-top: 10px">
+		    Grouping previously authored questions to form a bundle of random questions</div>
+	      </td>
+         <td style=" width:225px">
+	      <div style="font-size:15px; width: 215px; padding-top: 10px">
+		    Write a question that can be rendered into the Khan Academy Exercise format</div>
+    </td>
+    
+	      
+    
+	      </tr>
+        
+      
+	      <tr>
+		        <td style="width:225px">
+	      <div style="font-size:20px; padding-top: 10px; background:white" id="mydiv" onmouseover="this.style.background='#eeeeee';" onmouseout="this.style.background='white';">
+		      <a href="/qtool/summative"> MultiPart Question</a>
+		      </div>
+	      </td>
+	      
+      <td style="width:225px">
 	      <div style="font-size:20px; padding-top: 10px; background:white" id="mydiv" onmouseover="this.style.background='#eeeeee';" onmouseout="this.style.background='white';">
 		      <a href="/qtool/add"> Khan Academy Exercise Question</a>
 		      </div>
 	      </td>
-	      
+	     
    </tr>
    
    
