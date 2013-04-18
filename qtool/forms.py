@@ -14,16 +14,16 @@ class VariableForm(ModelForm):
 		exclude = ('problem',)
 
 class CommonIntroductionForm(ModelForm):
-        class Meta:
-	        model = CommonIntroduction
+	class Meta:
+		model = CommonIntroduction
 		widgets = {
           		'common_intro': forms.Textarea(attrs={'class' : 'myfieldclass'}),
         	}
 		exclude = ('problem',)
 
 class ProblemTemplateForm(ModelForm):
-        class Meta:
-	        model = ProblemTemplate
+	class Meta:
+		model = ProblemTemplate
 		widgets = {
           		'question': forms.Textarea(attrs={'class' : 'myfieldclass'}),
         	}
@@ -31,8 +31,8 @@ class ProblemTemplateForm(ModelForm):
 
 
 class AnswerForm(ModelForm):
-        class Meta:
-	        model = Answer
+	class Meta:
+		model = Answer
 		widgets = {
           		'solution': forms.Textarea(attrs={'class' : 'myfieldclass'}),
         	}
@@ -40,8 +40,8 @@ class AnswerForm(ModelForm):
 
 
 class ChoiceForm(ModelForm):
-        class Meta:
-	        model = Choice
+	class Meta:
+		model = Choice
 		widgets = {
           		'choice': forms.Textarea(attrs={'class' : 'myfieldclass'}),
         	}
@@ -49,16 +49,16 @@ class ChoiceForm(ModelForm):
 
 
 class HintForm(ModelForm):
-        class Meta:
-	        model = Hint
+	class Meta:
+		model = Hint
 		widgets = {
           		'hint': forms.Textarea(attrs={'class' : 'myfieldclass'}),
         	}
 		exclude = ('problem',)
 
 class ScriptForm(ModelForm):
-        class Meta:
-	        model = Script
+	class Meta:
+		model = Script
 		widgets = {
           		'script': forms.Textarea(attrs={'class' : 'myfieldclass'}),
         	}

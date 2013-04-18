@@ -671,7 +671,7 @@ a:active{color:#B22222}}
                	   <a href="/qtool/">Home</a>
                	</li>
                	<li >
-               	   <a href="/qtool/problems">Find questions</a>
+               	   <a href="/qtool/problems/">Find questions</a>
                	</li>
                             	
                	<li >
@@ -1021,7 +1021,118 @@ a:active{color:#B22222}}
 	</div>
 </div>
 
-	
+	<div class = "section2">
+		<h2>Choices</h2>
+		 {{ choice_formset.management_form }}
+	         {% for form in choice_formset.forms %}
+	         <div class="item2"><span style="float:right">
+				<input type="button" id="btnShowSimple4"  class="btnShowSimple4" value="What's this?" />
+				<br /><br />       
+    
+				<div id="output4"></div>
+    
+				<div id="overlay4" class="web_dialog_overlay"></div>
+    
+				<div id="dialog4" class="web_dialog">
+				<table style="width: 100%; border: 0px;" cellpadding="3" cellspacing="0">
+				<tr>
+         			<td class="web_dialog_title">Help</td>
+         			<td class="web_dialog_title align_right">
+            			<a href="#" id="btnClose4">Close</a>
+        			</td>
+      				</tr>
+      				<tr>
+				         <td>&nbsp;</td>
+				         <td>&nbsp;</td>
+			      	</tr>
+			     	 <tr>
+         			<td colspan="2" style="padding-left: 15px;">
+            			<b>Choices</b>
+         			</td>
+      				</tr>
+      				<tr>
+         			<td>&nbsp;</td>
+         			<td>&nbsp;</td>
+     				 </tr>
+				 <tr>
+
+         			<td colspan="2" style="padding-left: 15px;">
+		            <div id="brands">
+		              Include 3 or 4 choices of answers inclusive of the correct answer specified
+		            </div>
+			         </td>
+				      </tr>
+				      <tr>
+			         <td>&nbsp;</td>
+         			<td>&nbsp;</td>
+     				 </tr>
+      
+  			 </table>
+			</div>
+		</span>
+	                 {{ form.as_p }}
+	                 <p style=""><a class="delete2" href="#">Delete</a></p>
+		 </div>
+		 {% endfor %}
+		  <p><a id="add2" href="#">Add another Choice</a></p>
+		 </div>	
+
+
+
+		 <div class = "section3">
+		 <h2>Hints</h2>
+		 {{ hint_formset.management_form }}
+	         {% for form in hint_formset.forms %}
+	         <div class="item3"><span style="float:right">
+				<input type="button" id="btnShowSimple5"  class="btnShowSimple5" value="What's this?" />
+				<br /><br />       
+    
+				<div id="output5"></div>
+    
+				<div id="overlay5" class="web_dialog_overlay"></div>
+    
+				<div id="dialog5" class="web_dialog">
+				<table style="width: 100%; border: 0px;" cellpadding="3" cellspacing="0">
+				<tr>
+         			<td class="web_dialog_title">Help</td>
+         			<td class="web_dialog_title align_right">
+            			<a href="#" id="btnClose5">Close</a>
+        			</td>
+      				</tr>
+      				<tr>
+				         <td>&nbsp;</td>
+				         <td>&nbsp;</td>
+			      	</tr>
+			     	 <tr>
+         			<td colspan="2" style="padding-left: 15px;">
+            			<b>HInts </b>
+         			</td>
+      				</tr>
+      				<tr>
+         			<td>&nbsp;</td>
+         			<td>&nbsp;</td>
+     				 </tr>
+      				<tr>
+         			<td colspan="2" style="padding-left: 15px;">
+		            <div id="brands">
+		              1 or more hints with information related to the question
+		            </div>
+			         </td>
+				      </tr>
+				      <tr>
+			         <td>&nbsp;</td>
+         			<td>&nbsp;</td>
+     				 </tr>
+      
+  			 </table>
+			</div>
+		</span>
+	                 {{ form.as_p }}
+	                 <p style=""><a class="delete3" href="#">Delete</a></p>
+		 </div>
+		 {% endfor %}
+		  <p><a id="add3" href="#">Add another Hint</a></p>
+	  </div>
 		
 		
 		 <center>		

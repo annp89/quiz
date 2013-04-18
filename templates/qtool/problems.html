@@ -171,7 +171,7 @@ border: #777 1px solid;
                	   <a href="/qtool/">Home</a>
                	</li>
                	<li >
-               	   <a href="/qtool/index">Write a question!</a>
+               	   <a href="/qtool/index/">Write a question!</a>
                	</li>
                             	
                	<li >
@@ -195,12 +195,15 @@ border: #777 1px solid;
 
 		{% if p.type == 'Simple' %}
 		{{p.title}}  &nbsp; &nbsp;
-			<a href="/qtool/edit/{{p.id}}/" title="View">Edit </a>||
-			<a href="/qtool/delete/{{p.id}}/" title="Delete">Delete  </a> ||
-			<a href="/qtool/{{p.id}}/simple_details.html" title="View">Khan Academy View</a>
-		
-			<a title = "Exports in CSV format" id="CSV" href="/qtool/{{p.id}}/">Download</a>
-		
+			<a href="/qtool/edit/{{p.id}}/" title="View">Edit</a> ||
+			<a href="/qtool/delete/{{p.id}}/" title="Delete">Delete</a> ||
+			
+			<a href="/qtool/{{p.id}}/simple_details.html" title="Khan Academy Exercise">Generate KA Exercise</a>
+
+			<div id="CSV">
+			<a title = "Exports in CSV format"  href="/qtool/{{p.id}}/write_file">Download</a> 
+			 || <a target="_blank" href="/qtool/{{p.id}}/ka_gen.html" title="Khan Academy Exercise View">View</a>
+			</div>
 			<br>
 		
 			{% endif %}
@@ -213,9 +216,13 @@ border: #777 1px solid;
 			
 			<a href="/qtool/edit/{{p.id}}/" title="View">Edit</a> ||
 			<a href="/qtool/delete/{{p.id}}/" title="Delete">Delete</a> ||
-			<a href="/qtool/{{p.id}}/list_details.html" title="View">Khan Academy View</a>
-			<a title = "Exports in CSV format" id="CSV" href="/qtool/{{p.id}}/">Download</a>
-	
+			
+			<a href="/qtool/{{p.id}}/list_details.html" title="Khan Academy Exercise">Generate KA Exercise</a>
+
+			<div id="CSV">
+			<a title = "Exports in CSV format"  href="/qtool/{{p.id}}/write_file">Download</a> 
+			 || <a target="_blank" href="/qtool/{{p.id}}/ka_gen.html" title="Khan Academy Exercise View">View</a>
+			</div>
 			<br>
 			{% endif %}
 			{% endfor %}
@@ -224,10 +231,14 @@ border: #777 1px solid;
 		{% if p.type == 'Range' %}
 		{{p.title}}  &nbsp; &nbsp;
 			<a href="/qtool/edit/{{p.id}}/" title="View">Edit</a> ||
-			<a href="/qtool/delete/{{p.id}}/" title="Delete">Delete</a>||
+			<a href="/qtool/delete/{{p.id}}/" title="Delete">Delete</a> ||
 			
-			<a href="/qtool/{{p.id}}/range_details.html" title="View">Khan Academy View</a>
-			<a title = "Exports in CSV format" id="CSV" href="/qtool/{{p.id}}/">Download</a>
+			<a href="/qtool/{{p.id}}/range_details.html" title="Khan Academy Exercise">Generate KA Exercise</a>
+
+			<div id="CSV">
+			<a title = "Exports in CSV format"  href="/qtool/{{p.id}}/write_file">Download</a> 
+			 || <a target="_blank" href="/qtool/{{p.id}}/ka_gen.html" title="Khan Academy Exercise View">View</a>
+			</div>
 			<br>
 			
 			{% endif %}
@@ -242,13 +253,17 @@ border: #777 1px solid;
 			<a href="/qtool/edit/{{p.id}}/" title="View">Edit</a> ||
 			<a href="/qtool/delete/{{p.id}}/" title="Delete">Delete</a> ||
 			
-			<a href="/qtool/{{p.id}}/ka_details.html" title="View">Khan Academy View</a>
-			<a title = "Exports in CSV format" id="CSV" href="/qtool/{{p.id}}/">Download</a>
+			<a href="/qtool/{{p.id}}/ka_details.html" title="Khan Academy Exercise">Generate KA Exercise</a>
+
+			<div id="CSV">
+			<a title = "Exports in CSV format"  href="/qtool/{{p.id}}/write_file">Download</a> 
+			 || <a target="_blank" href="/qtool/{{p.id}}/ka_gen.html" title="Khan Academy Exercise View">View</a>
+			</div>
 			<br>
-			
 			{% endif %}
 			{% endfor %}
-				{% for p in problems %}
+				
+		{% for p in problems %}
 
 		{% if p.type == 'Summative' %}	
 			{{p.title}}  &nbsp; &nbsp;
@@ -256,8 +271,12 @@ border: #777 1px solid;
 			<a href="/qtool/edit/{{p.id}}/" title="View">Edit</a> ||
 			<a href="/qtool/delete/{{p.id}}/" title="Delete">Delete</a> ||
 			
-			<a href="/qtool/{{p.id}}/ka_details.html" title="View">Khan Academy View</a>
-			<a title = "Exports in CSV format" id="CSV" href="/qtool/{{p.id}}/">Download</a>
+			<a href="/qtool/{{p.id}}/summative_details.html" title="Khan Academy Exercise">Generate KA Exercise</a>
+
+			<div id="CSV">
+			<a title = "Exports in CSV format"  href="/qtool/{{p.id}}/write_file">Download</a> 
+			 || <a target="_blank" href="/qtool/{{p.id}}/ka_gen.html" title="Khan Academy Exercise View">View</a>
+			</div>
 			<br>
 			
 			{% endif %}

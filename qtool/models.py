@@ -3,19 +3,15 @@ from django.db import models
 # Create your models here.
 
 class Problem(models.Model):
-        title = models.CharField(max_length = 255)
-
- 	DIFFICULTY = (
-        	('EASY', 'EASY'),
-       		('MEDIUM', 'MEDIUM'),
-        	('HARD', 'HARD'),
-        	('VERY HARD', 'VERY HARD'),
-    	)
-	
-	difficulty_level = models.CharField(max_length=255,
-                                      choices=DIFFICULTY,
-                                      default='EASY')
+	title = models.CharField(max_length = 255)
 	type = models.CharField(max_length = 255)
+	DIFFICULTY = (
+		('EASY', 'EASY'),
+		('MEDIUM', 'MEDIUM'),
+		('HARD', 'HARD'),
+		('VERY HARD', 'VERY HARD'),
+	)
+	difficulty_level = models.CharField(max_length=255, choices=DIFFICULTY, default='EASY')
 	
 	def __unicode__(self):
 	        return self.title

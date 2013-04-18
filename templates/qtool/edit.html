@@ -158,11 +158,10 @@ a:active{color:#B22222}}
 <script type="text/javascript">
 	$(document).ready(function() {
 
-
-	if($('#id_variables-0-var_id').val()== ""){
-
-	$('.section').hide();
+	if($('#id_common_intro-0-common_intro').text() == ""){
+	$('.section_common').hide();
 	}
+
 	if($('#id_variables-0-var_id').val()== ""){
 
 	$('.section').hide();
@@ -179,7 +178,8 @@ a:active{color:#B22222}}
 
 	$('.section3').hide();
 	}
-		
+
+
 	$(".btnShowSimple").click(function (e)
       	{
          ShowDialog(false);
@@ -451,7 +451,7 @@ a:active{color:#B22222}}
                	   <a href="/qtool/">Home</a>
                	</li>
                	<li >
-               	   <a href="/qtool/problems">Find questions</a>
+               	   <a href="/qtool/problems/">Find questions</a>
                	</li>
                             	
                	<li >
@@ -466,6 +466,7 @@ a:active{color:#B22222}}
       </div>
 
     </div>
+    <center><h3>Editing a question</h3></center>
 	<h2>Problem</h2>
 	<form action="" method="POST" >
 		{% csrf_token %}
@@ -539,7 +540,69 @@ a:active{color:#B22222}}
 
 
 	</div>
-	
+
+	<div class="section_common">
+		<h2>Common Introduction</h2>
+		<div class ="item_c">
+			{{common_introduction_form.as_p }}
+			{{common_introduction_formset.management_form }}
+			{% for form in common_introduction_formset.forms %}
+			<span style="float:right">
+				<input type="button" id="btnShowSimple"  class="btnShowSimple" value="What's this?" />
+				<br /><br />       
+    
+				<div id="output"></div>
+    
+				<div id="overlay" class="web_dialog_overlay"></div>
+    
+				<div id="dialog" class="web_dialog">
+				<table style="width: 100%; border: 0px;" cellpadding="3" cellspacing="0">
+				<tr>
+         			<td class="web_dialog_title">Help</td>
+         			<td class="web_dialog_title align_right">
+            			<a href="#" id="btnClose">Close</a>
+        			</td>
+      				</tr>
+      				<tr>
+				         <td>&nbsp;</td>
+				         <td>&nbsp;</td>
+			      	</tr>
+			     	 <tr>
+         			<td colspan="2" style="padding-left: 15px;">
+            			<b>Attrbute types and values </b>
+         			</td>
+      				</tr>
+      				<tr>
+         			<td>&nbsp;</td>
+         			<td>&nbsp;</td>
+     				 </tr>
+      				<tr>
+         			<td colspan="2" style="padding-left: 15px;">
+		            <div id="brands">
+		               <input id="brand1" name="brand" type="radio" checked="checked" value="Nokia" />data-require
+		               <input id="brand2" name="brand" type="radio" value="Sony" />data-ensure 
+		               <input id="brand3" name="brand" type="radio" value="Motorola" />data-forms
+		            </div>
+			         </td>
+				      </tr>
+				      <tr>
+			         <td>&nbsp;</td>
+         			<td>&nbsp;</td>
+     				 </tr>
+      
+  			 </table>
+			</div>
+		</span>
+				{{ form.as_p }}
+			{% endfor %}
+
+		</div>		
+			
+		</div>
+
+
+
+
 	<div class="section_c">
 		<h2>Problem Template </h2>
 		<div class ="item_c">

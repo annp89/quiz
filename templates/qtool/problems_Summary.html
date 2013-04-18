@@ -156,6 +156,16 @@ border: #777 1px solid;
         padding: 4px;
 }
 </style>
+
+<script type="text/javascript">
+
+function addMsg(text,element_id) {
+
+document.getElementById(element_id).value += text;
+
+}
+</script>
+
 </head>
 <body >
    
@@ -166,13 +176,14 @@ border: #777 1px solid;
 		{% for p in problems %}
 
 		{% if p.type == 'Simple' %}
-		{{p.title}}  &nbsp; &nbsp;
+		<a href="#" onclick="addMsg('{{p.title}}','id_template-0-question'); return false;">{{p.title}}</a> &nbsp; &nbsp;
 			<a href="/qtool/edit/{{p.id}}/" title="View">Edit </a>||
 			<a href="/qtool/{{p.id}}/simple_details.html" title="View">Khan Academy View</a>
 		
 			<br>
 		
 			{% endif %}
+	
 			{% endfor %}
 
 		{% for p in problems %}
@@ -212,7 +223,7 @@ border: #777 1px solid;
 			{% endfor %}
 			{% for p in problems %}
 
-		{% if p.type == 'Summative' %}	
+			{% if p.type == 'Summative' %}	
 			{{p.title}}  &nbsp; &nbsp;
 	 
 			<a href="/qtool/edit/{{p.id}}/" title="View">Edit</a> ||
