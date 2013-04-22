@@ -160,21 +160,27 @@ a:active{color:#B22222}}
 
 	if($('#id_common_intro-0-common_intro').text() == ""){
 	$('.section_common').hide();
+
+
 	}
 
-	if($('#id_variables-0-var_id').val()== ""){
+	if($('#id_variables-0-var_id').text()== ""){
 
 	$('.section').hide();
+
 	}
-	if($('#id_scripts-0-script').val()== ""){
+      
+
+	if($('#id_scripts-0-script').text()== ""){
 
 	$('.section4').hide();
 	}
-	if($('#id_choices-0-choice').val()== ""){
+	if($('#id_choices-0-choice').text()== ""){
 
 	$('.section2').hide();
 	}
-	if($('#id_hints-0-hint').val()== ""){
+	
+	if($('#id_hints-0-hint').text()== ""){
 
 	$('.section3').hide();
 	}
@@ -273,6 +279,16 @@ a:active{color:#B22222}}
 			
 	}
 
+
+	function deleteCSS(btn, prefix){
+	
+	var formCount = parseInt($('#id_' + prefix + '-TOTAL_FORMS').val());
+var j=0;
+	while(j< formCount) {	
+document.getElementById('#id_' + prefix +j+ '-DELETE').style.display = 'none';
+i++;
+}
+}
 		function deleteForm3(btn, prefix) {
 			var formCount = parseInt($('#id_' + prefix + '-TOTAL_FORMS').val());
 			if (formCount > 1) {							        
@@ -311,6 +327,13 @@ a:active{color:#B22222}}
 			
 		}
 		function addForm(btn, prefix) {
+		
+if($('#id_variables-0-var_id').val()== ""){
+
+	$('.section').show();
+	}
+
+	
 			var formCount = parseInt($('#id_' + prefix + '-TOTAL_FORMS').val());
 			if (formCount < 10) {
 				var row = $(".item:first").clone(false).get(0);
@@ -414,7 +437,7 @@ a:active{color:#B22222}}
 					return addForm3(this, 'hints');
 					});
 			$("#add4").click(function() {
-					return addForm4(this, 'hints');
+					return addForm4(this, 'scripts');
 					});
 		
 		
@@ -428,7 +451,7 @@ a:active{color:#B22222}}
 			$(".delete3").click(function() {
 					return deleteForm3(this, 'hints');
 					});
-				$(".delete4").click(function() {
+			$(".delete4").click(function() {
 					return deleteForm3(this, 'scripts');
 					});
 				
@@ -532,6 +555,8 @@ a:active{color:#B22222}}
 			</div>
 		</span>
 		{{form.as_p}}	
+		 <p style=""><a class="delete" href="#">Delete</a></p>
+
 		</div>
 		{% endfor %}
 		<p><a id="add" href="#">Add another Variable</a></p>
@@ -771,6 +796,8 @@ a:active{color:#B22222}}
 			</div>
 		</span>
 	                 {{ form.as_p }}
+				 <p style=""><a class="delete2" href="#">Delete</a></p>
+
 		 </div>
 		 {% endfor %}
 		  <p><a id="add2" href="#">Add another Choice</a></p>
@@ -829,6 +856,8 @@ a:active{color:#B22222}}
 			</div>
 		</span>
 	                 {{ form.as_p }}
+ <p style=""><a class="delete3" href="#">Delete</a></p>
+
 		 </div>
 		 {% endfor %}
 		  <p><a id="add3" href="#">Add another Hint</a></p>
@@ -885,6 +914,8 @@ a:active{color:#B22222}}
 			</div>
 		</span>
 	                 {{ form.as_p }}
+ <p style=""><a class="delete4" href="#">Delete</a></p>
+
 		 </div>
 		 {% endfor %}
 		  <p><a id="add4" href="#">Add another Script tag</a></p>

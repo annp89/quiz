@@ -4,7 +4,7 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.core.context_processors import csrf
 from django.template import RequestContext, loader,Context
 from django.forms.formsets import formset_factory, BaseFormSet
-from django.forms.models import inlineformset_factory
+from django.forms.models import inlineformset_factory, BaseInlineFormSet
 from django.http import HttpResponse, HttpResponseRedirect
 from qtool.forms import *
 from qtool.models import *
@@ -90,61 +90,89 @@ def edit(request, problem_id):
 			super(RequiredFormSet, self).__init__(*args, **kwargs)
 			for form in self.forms:
 				form.empty_permitted = True
-	
-	class SensibleFormset(BaseFormSet):
-		def total_form_count(self):
-			"""Returns the total number of forms in this FormSet."""
-			if self.data or self.files:
-				return self.management_form.cleaned_data[TOTAL_FORM_COUNT]
-			else:
-				if self.initial_form_count() > 0:
-                			total_forms = self.initial_form_count()
-				else:
-                			total_forms = self.initial_form_count() + self.extra
-				if total_forms > self.max_num > 0:
-                			total_forms = self.max_num
-				return total_forms
-        		
-	
-	ProblemTemplateInlineFormSet = inlineformset_factory(Problem, ProblemTemplate)
-	
-	AnswerInlineFormSet = inlineformset_factory(Problem, Answer, max_num =1)
-	VariableInlineFormSet = inlineformset_factory(Problem, Variable)
-	CommonIntroductionFormSet =  inlineformset_factory(Problem, CommonIntroduction, max_num =1 )
-	ChoiceInlineFormSet = inlineformset_factory(Problem, Choice,)
+	class MyInline(BaseInlineFormSet): 
+   		def __init__(self, *args, **kwargs): 
+			super(MyInline, self).__init__(*args, **kwargs) 
+			self.can_delete = False 
 
-	HintInlineFormSet = inlineformset_factory(Problem, Hint)
-		
-	ScriptInlineFormSet = inlineformset_factory(Problem, Script)
+	
+	
+	maxpt = max(0, len(ProblemTemplate.objects.filter(problem=problem)))
+	ProblemTemplateInlineFormSet = inlineformset_factory(Problem, ProblemTemplate, max_num=maxpt)
+	maxa = max(0, len(Answer.objects.filter(problem=problem)))
+
+	AnswerInlineFormSet = inlineformset_factory(Problem, Answer, max_num =maxa)
+	maxv = max(0, len(Variable.objects.filter(problem=problem)))
+
+	VariableInlineFormSet = inlineformset_factory(Problem, Variable, max_num=maxv)
+	maxc = max(0, len(CommonIntroduction.objects.filter(problem=problem)))
+
+	CommonIntroductionFormSet =  inlineformset_factory(Problem, CommonIntroduction, max_num =maxc )
+	maxch = max(0, len(Choice.objects.filter(problem=problem)))
+
+	ChoiceInlineFormSet = inlineformset_factory(Problem, Choice, max_num=maxc, formset=MyInline)
+	maxh = max(0, len(Hint.objects.filter(problem=problem)))
+
+	HintInlineFormSet = inlineformset_factory(Problem, Hint, max_num=maxh)
+	maxs = max(0, len(Script.objects.filter(problem=problem)))
+
+	ScriptInlineFormSet = inlineformset_factory(Problem, Script, max_num=maxs)
+
 	if request.method == 'POST':
 		problem_form =ProblemForm(request.POST, instance=problem)
-		common_introduction_formset = CommonIntroductionForm(request.POST, instance=problem, prefix='common_intro')
 		problem_template_formset = ProblemTemplateInlineFormSet(request.POST,request.FILES, instance=problem, prefix='templates')
+		common_introduction_formset = CommonIntroductionForm(request.POST,  prefix='common_intro', instance =problem)
+
 		answer_formset = AnswerInlineFormSet(request.POST, instance=problem, prefix='answer')
+
 		hint_formset = HintInlineFormSet(request.POST, request.FILES, instance=problem,  prefix='hints')
-		choice_formset = ChoiceInlineFormSet(request.POST, request.FILES, instance=problem,  prefix='choices')
-		script_formset = ScriptInlineFormSet(request.POST, request.FILES, instance=problem,  prefix='scripts')
-		variable_formset = VariableInlineFormSet(request.POST, request.FILES, instance=problem,  prefix='variables')
-		if problem_form.is_valid() and variable_formset.is_valid() and problem_template_formset.is_valid() and choice_formset.is_valid() and hint_formset.is_valid() and answer_formset.is_valid() and script_formset.is_valid() and common_introduction_formset.is_valid():
+		choice_formset = ChoiceInlineFormSet(request.POST, request.FILES,  instance=problem, prefix='choices')
+		script_formset = ScriptInlineFormSet(request.POST, request.FILES,  instance=problem,  prefix='scripts')
+		variable_formset = VariableInlineFormSet(request.POST, request.FILES,instance=problem, prefix='variables')
+		
+		if problem_form.is_valid() and variable_formset.is_valid() and problem_template_formset.is_valid() and choice_formset.is_valid() and hint_formset.is_valid() and answer_formset.is_valid() and script_formset.is_valid() and common_introduction_formset.is_valid() :
 			problem = problem_form.save()
-			problem_template_formset.save()
-			answer_formset.save()
-			common_introduction_formset.save()
+			answer_formset.save(commit = False)
 			
-			variable_formset.save()
-			hint_formset.save()
-			script_formset.save()
-			choice_formset.save() # Redirect to a 'success' page
+			common_introduction_formset.save(commit = False)
+						
+			problem_template_formset.forms(commit =False)
+			variable_formset.forms(commit = False)
+
+
+			for form in hint_formset.forms:
+				hint = form.save(commit = False)
+				hint.problem = problem
+				hint.save()
+
+
+			for form in script_formset.forms:
+				script = form.save(commit = False)
+				script.problem = problem
+				script.save()
+
+
+			for form in choice_formset.forms:
+				choice = form.save(commit = False)
+				choice.problem = problem
+				choice.save()
+
 			return HttpResponseRedirect('/qtool/problems/')
 	else:
 		problem_form = ProblemForm(instance=problem)
-		choice_formset = ChoiceInlineFormSet(instance = problem, prefix='choices')
-		problem_template_formset = ProblemTemplateInlineFormSet(instance = problem, prefix='templates')
-		answer_formset = AnswerInlineFormSet(instance = problem, prefix='answer')
+		
+		problem_template_formset = ProblemTemplateInlineFormSet( instance=problem, prefix='templates')
+
+		choice_formset = ChoiceInlineFormSet(instance=problem, prefix='choices')
+		
+		answer_formset = AnswerInlineFormSet(instance=problem, prefix='answer')
+		
 		script_formset = ScriptInlineFormSet(instance=problem, prefix='scripts')
-		variable_formset = VariableInlineFormSet(instance = problem, prefix='variables')
-		common_introduction_formset = CommonIntroductionFormSet(instance = problem, prefix='common_intro')
-		hint_formset = HintInlineFormSet(instance=problem, prefix='hints')
+		variable_formset = VariableInlineFormSet(instance=problem, prefix='variables')
+		common_introduction_formset = CommonIntroductionFormSet(instance=problem, prefix='common_intro')
+		hint_formset = HintInlineFormSet( instance=problem, prefix='hints')
+
+		
 	c = {
 	'problem_form' : problem_form,
 	'choice_formset' : choice_formset,
@@ -153,7 +181,7 @@ def edit(request, problem_id):
 	'variable_formset' : variable_formset,
 	'script_formset' : script_formset,
 	'common_introduction_formset' : common_introduction_formset,
-	'hint_formset' : hint_formset,
+	'hint_formset' : hint_formset,	
     	}
 	c.update(csrf(request))
 	return render_to_response('qtool/edit.html', c)
@@ -182,9 +210,9 @@ def ka_details(request, problem_id):
 	s = Answer.objects.get(problem = p)
 #	c = Choice.objects.get(problem = p)
 	h = p.hint_set.all()
-
-	destination = open('/quiz/qtool/media/exercises/'+p.title+'.html', 'wb+')
-	str ="<!DOCTYPE html><html data-require=\"math math-format word-problems spin\"><head>"+"\n"+"<title>"+"\n"+p.title+"</title><script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js\"></script><script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js\"></script><script>urlBaseOverride = \"../qtool/\";</script><script src=\"../qtool/khan-exercise.js\"></script><script type=\"text/javascript\"src=\"http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML\"></script>"
+	
+	destination = open('/home/annp89/quiz/qtool/media/exercises/'+p.title+'.html', 'wb+')
+	str ="<!DOCTYPE html><html data-require=\"math math-format word-problems spin\"><head>"+"\n"+"<title>"+"\n"+p.title+"</title><script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js\"></script><script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js\"></script><script>urlBaseOverride = \"../home/ann89/qtool/\";</script><script src=\"../home/ann89/qtool/khan-exercise.js\"></script><script type=\"text/javascript\"src=\"http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML\"></script>"
 	for scr in p.script_set.all():
 		str += "<p>"
 		str += scr.script
@@ -219,7 +247,7 @@ def ka_details(request, problem_id):
 		str += h.hint
 	str += "</div>"
 	str += "</div></div></div></body></html>"	
-	destination.write(bytes(str,'UTF-8'))
+	destination.write(bytes(str))
 	destination.close()
 
 
@@ -240,7 +268,7 @@ def simple_details(request, problem_id):
 	s = Answer.objects.get(problem = p)
 #	c = Choice.objects.get(problem = p)
 	h = p.hint_set.all()
-	destination = open('/quiz/qtool/media/exercises/'+p.title+'.html', 'wb+')
+	destination = open('/home/annp89/quiz/qtool/media/exercises/'+p.title+'.html', 'wb+')
 	
 	str ="<!DOCTYPE html><html data-require=\"math\"><head>"+"\n"+"<title>"+"\n"+p.title+"</title><script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js\"></script><script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js\"></script><script>urlBaseOverride = \"../qtool/\";</script><script src=\"../qtool/khan-exercise.js\"></script></head><body><div class=\"exercise\"><div class=\"vars\"></div><div class=\"problems\"><div id=\"problem-type-or-description\"><p class=\"question\">"
 	str += q.question
@@ -262,7 +290,7 @@ def simple_details(request, problem_id):
 	str += "</div>"
 	str += "</div></div></div></body></html>"	
 
-	destination.write(bytes(str,'UTF-8'))
+	destination.write(bytes(str))
 	destination.close()
 
 	context = Context({
@@ -283,17 +311,17 @@ def summative_details(request, problem_id):
 #	s = Answer.objects.get(problem = p)
 #	c = Choice.objects.get(problem = p)
 #	h = p.hint_set.all()
-	destination = open('/quiz/qtool/media/exercises/'+p.title+'.html', 'wb+')
+	destination = open('/home/annp89/quiz/qtool/media/exercises/'+p.title+'.html', 'wb+')
 
-	str ="<!DOCTYPE html><html data-require=\"math\"><head>"+"\n"+"<title>"+"\n"+p.title+"</title><script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js\"></script><script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js\"></script><script>urlBaseOverride = \"../qtool/\";</script><script src=\"../qtool/khan-exercise.js\"></script></head><body>"
+	str ="<!DOCTYPE html><html data-require=\"math\"><head>"+"\n"+"<title>"+"\n"+p.title+"</title><script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js\"></script><script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js\"></script><script>urlBaseOverride = \"../home/ann89/qtool/\";</script><script src=\"../home/ann89/qtool/khan-exercise.js\"></script></head><body>"
 	
 	for c in p.problemtemplate_set.all():
 		str += "<div class=\"exercise\" data-name=\""
 		str += c.question
 		str += "\">"
 		str += "</div>"
-	str +="</body></html>"
-	destination.write(bytes(str,'UTF-8'))
+	str += "</body></html>"
+	destination.write(bytes(str))
 	destination.close()
 
 
@@ -316,9 +344,9 @@ def ka_gen(request, problem_id):
 #	s = Answer.objects.get(problem = p)
 #	c = Choice.objects.get(problem = p)
 #	h = p.hint_set.all()
-	destination = open('/quiz/qtool/media/exercises/'+p.title+'_View.html', 'wb+')
+	destination = open('/home/annp89/quiz/qtool/media/temp/'+p.title+'_View.html', 'wb+')
 
-	str ="<!DOCTYPE html><html data-require=\"math\"><head>"+"\n"+"<title>"+"\n"+p.title+"</title><script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js\"></script><script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js\"></script><script>urlBaseOverride = \"../qtool/\";</script><script src=\"../qtool/khan-exercise.js\"></script></script></head><body>"
+	str ="<!DOCTYPE html><html data-require=\"math\"><head>"+"\n"+"<title>"+"\n"+p.title+"</title><script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js\"></script><script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js\"></script><script>urlBaseOverride = \"../home/ann89/qtool/\";</script><script src=\"../home/ann89/qtool/khan-exercise.js\"></script></head><body>"
 	
 	
 	str += "<div class=\"exercise\" data-name=\""
@@ -326,7 +354,7 @@ def ka_gen(request, problem_id):
 	str += "\">"
 	str += "</div>"
 	str +="</body></html>"
-	destination.write(bytes(str,'UTF-8'))
+	destination.write(bytes(str))
 	destination.close()
 
 
@@ -348,7 +376,7 @@ def range_details(request, problem_id):
 	s = Answer.objects.get(problem = p)
 #	c = Choice.objects.get(problem = p)
 	h = p.hint_set.all()
-	destination = open('/quiz/qtool/media/exercises/'+p.title+'.html', 'wb+')
+	destination = open('/home/annp89/quiz/qtool/media/exercises/'+p.title+'.html', 'wb+')
 
 	str ="<!DOCTYPE html><html data-require=\"math\"><head>"+"\n"+"<title>"+"\n"+p.title+"</title><script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js\"></script><script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js\"></script><script>urlBaseOverride = \"../qtool/\";</script><script src=\"../qtool/khan-exercise.js\"></script></head><body><div class=\"exercise\"><div class=\"vars\">" 
 	for t in p.variable_set.all():
@@ -364,7 +392,7 @@ def range_details(request, problem_id):
 	str += s.solution
 	str += "</var></div></div></div></div></body></html>"
 
-	destination.write(bytes(str,'UTF-8'))
+	destination.write(bytes(str))
 
 	destination.close()
 
@@ -386,6 +414,74 @@ def list_details(request, problem_id):
 	s = Answer.objects.get(problem = p)
 #	c = Choice.objects.get(problem = p)
 	h = p.hint_set.all()
+
+	destination = open('/home/annp89/quiz/qtool/media/exercises/'+p.title+'.html', 'wb+')
+	str ="<!DOCTYPE html><html data-require=\"math\"><head>"+"\n"+"<title>"+"\n"+p.title+"</title><script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js\"></script><script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js\"></script><script>urlBaseOverride = \"../qtool/\";</script><script src=\"../qtool/khan-exercise.js\"></script></head><body><div class=\"exercise\"><div class=\"vars\">"
+
+	solution_list = (s.solution).split(",")
+	index = 1
+	for t in solution_list:
+		j = "A%d" %index
+		str += "<var id=\""
+		str += j
+		str += "\">"+t
+		str += "</var>"
+		index = index +1
+
+
+
+
+	count = 0
+	var_count_array = []
+	for t in p.variable_set.all():
+		str +="<var id=\""
+		str += t.var_id
+		str += "\">["	
+		str += t.var_value
+		str += "]</var>"
+
+		j = "x%d" %(count+1)
+		var_elements = (t.var_value).split(",")
+		var_count_array.append(len(var_elements))
+
+		str += "<var id=\""
+		str += j
+		str += "\">randRange(0,%d" %(len(var_elements) -1)
+		str += ")</var>"
+		count = count+1
+
+
+	eq = "x%d" % len(var_count_array)
+	var_count = count -1
+	coef = 1
+	while (var_count>0):
+		coef = coef * var_count_array[var_count]
+		eq = "%d*x%d"+eq %coef %var_count
+		var_count = var_count-1 
+		
+		
+		
+	str += "<var id =\"INDEX\">"
+	str += eq
+	str += "</var>"
+
+	str += "<var id=\"ANSWER\">["	
+	
+	str += s.solution
+	str += "]</var>"
+
+	str += "</div><div class=\"problems\"> <div id=\"problem-type-or-description\"><p class=\"problem\"><p class=\"question\">"
+	str += q.question
+	str += "</p><div class=\"solution\"><var>ANSWER</var></div></div></div></div></body></html>"
+
+
+
+	
+	destination.write(bytes(str))
+
+	destination.close()
+
+
 	context = Context({
 		'p':p,
 		'title':p.title,	
@@ -394,7 +490,7 @@ def list_details(request, problem_id):
 	#	'choice':c,
 #		'hint':h
 	})
-	return render_to_response('qtool/simple_details.html', context)
+	return render_to_response('qtool/list_details.html', context)
 
 def write_file(request, problem_id):
 	response = HttpResponse( content_type = 'text/csv')
@@ -538,7 +634,7 @@ def list(request):
 				choice.save()
 			return HttpResponseRedirect('/qtool/problems/')
 	else:
-		problem_form = ProblemForm()
+		problem_form = ListProblemForm()
 		problem_template_form = ProblemTemplateForm(prefix='template')
 		answer_form = AnswerForm(prefix='answer')	
 		variable_formset = VariableFormSet(prefix='variables')

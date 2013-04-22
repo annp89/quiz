@@ -32,7 +32,7 @@ urlpatterns = patterns('',
 	url(r'^help/', TemplateView.as_view(template_name = "qtool/question_setup.html")),
 
 	url(r'^(?P<path>.*)$', 'django.views.static.serve',
-        {'document_root': '/quiz/qtool/media/'}),
+        {'document_root': '/home/annp89/quiz/qtool/media/'}),
 	)
 
 

@@ -1,0 +1,1581 @@
+Unhandled exception in thread started by <bound method Command.inner_run of <django.contrib.staticfiles.management.commands.runserver.Command object at 0x2e46ad0>>
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8089/
+Quit the server with CONTROL-C.
+Error in sys.excepthook:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/apport_python_hook.py", line 50, in apport_excepthook
+    if not enabled():
+TypeError: 'NoneType' object is not callable
+
+Original exception was:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/management/commands/runserver.py", line 111, in inner_run
+    ipv6=self.use_ipv6, threading=threading)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/servers/basehttp.py", line 253, in run
+    httpd.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 225, in serve_forever
+    r, w, e = select.select([self], [], [], poll_interval)
+AttributeError: 'NoneType' object has no attribute 'select'
+Error: That port is already in use.
+Error: That port is already in use.
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8089/
+Quit the server with CONTROL-C.
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8089/
+Quit the server with CONTROL-C.
+[08/Apr/2013 08:41:45] "GET / HTTP/1.1" 404 2118
+[08/Apr/2013 08:41:52] "GET /qtool HTTP/1.1" 301 0
+[08/Apr/2013 08:41:52] "GET /qtool/ HTTP/1.1" 200 4785
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[08/Apr/2013 08:42:29] "GET /qtool/ HTTP/1.1" 200 4785
+[08/Apr/2013 08:42:57] "GET /qtool/ HTTP/1.1" 200 4785
+[08/Apr/2013 08:43:06] "GET /qtool/index HTTP/1.1" 301 0
+[08/Apr/2013 08:43:07] "GET /qtool/index/ HTTP/1.1" 200 6727
+[08/Apr/2013 08:43:08] "GET /qtool/list HTTP/1.1" 301 0
+[08/Apr/2013 08:43:08] "GET /qtool/list/ HTTP/1.1" 200 26144
+[08/Apr/2013 08:43:14] "GET /qtool/ HTTP/1.1" 200 4785
+[08/Apr/2013 08:43:15] "GET /qtool/problems HTTP/1.1" 301 0
+[08/Apr/2013 08:43:15] "GET /qtool/problems/ HTTP/1.1" 200 4897
+[08/Apr/2013 08:43:20] "GET /qtool/edit/1/ HTTP/1.1" 200 52085
+[08/Apr/2013 08:43:29] "POST /qtool/edit/1/ HTTP/1.1" 302 0
+[08/Apr/2013 08:43:29] "GET /qtool/problems HTTP/1.1" 301 0
+[08/Apr/2013 08:43:29] "GET /qtool/problems/ HTTP/1.1" 200 4897
+[08/Apr/2013 08:43:36] "GET /qtool/1/simple_details.html HTTP/1.1" 200 1471
+[08/Apr/2013 08:43:45] "GET /qtool/ HTTP/1.1" 200 4785
+[08/Apr/2013 08:44:24] "GET /qtool/ HTTP/1.1" 200 4792
+[08/Apr/2013 08:45:28] "GET /qtool/ HTTP/1.1" 200 4785
+[08/Apr/2013 08:45:32] "GET /qtool/problems HTTP/1.1" 301 0
+[08/Apr/2013 08:45:32] "GET /qtool/problems/ HTTP/1.1" 200 4897
+[08/Apr/2013 08:45:33] "GET /qtool/1/simple_details.html HTTP/1.1" 200 1449
+[08/Apr/2013 08:45:34] "GET /ODSAkhan-exercises/khan-exercise.js HTTP/1.1" 404 2223
+[08/Apr/2013 08:46:52] "GET / HTTP/1.1" 404 2118
+[08/Apr/2013 08:47:49] "GET /qtool/problems/ HTTP/1.1" 200 4897
+[08/Apr/2013 08:47:51] "GET /qtool/1/simple_details.html HTTP/1.1" 200 1449
+[08/Apr/2013 08:47:51] "GET /ODSAkhan-exercises/khan-exercise.js HTTP/1.1" 404 2223
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[08/Apr/2013 08:54:41] "GET /qtool/ HTTP/1.1" 200 4785
+[08/Apr/2013 08:54:48] "GET /qtool/index HTTP/1.1" 301 0
+[08/Apr/2013 08:54:48] "GET /qtool/index/ HTTP/1.1" 200 6728
+[08/Apr/2013 08:54:50] "GET /qtool/ HTTP/1.1" 200 4785
+[08/Apr/2013 08:54:51] "GET /qtool/problems/ HTTP/1.1" 200 4897
+[08/Apr/2013 08:54:54] "GET /qtool/ HTTP/1.1" 200 4785
+[08/Apr/2013 08:54:57] "GET / HTTP/1.1" 404 2118
+[08/Apr/2013 08:55:08] "GET / HTTP/1.1" 404 2118
+[08/Apr/2013 08:55:13] "GET /qtool/problems/ HTTP/1.1" 200 4897
+[08/Apr/2013 08:55:14] "GET /help HTTP/1.1" 404 2130
+[08/Apr/2013 08:55:19] "GET /qtool/ HTTP/1.1" 200 4785
+[08/Apr/2013 08:55:22] "GET /qtool/index/ HTTP/1.1" 200 6728
+[08/Apr/2013 08:55:27] "GET /qtool/add HTTP/1.1" 301 0
+[08/Apr/2013 08:55:27] "GET /qtool/add/ HTTP/1.1" 200 29671
+[08/Apr/2013 08:55:34] "GET /qtool/problems HTTP/1.1" 301 0
+[08/Apr/2013 08:55:34] "GET /qtool/problems/ HTTP/1.1" 200 4897
+[08/Apr/2013 08:55:36] "GET /qtool/ HTTP/1.1" 200 4785
+[08/Apr/2013 09:01:33] "GET /qtool/index/ HTTP/1.1" 200 6728
+[08/Apr/2013 09:02:43] "GET /qtool/simple HTTP/1.1" 301 0
+[08/Apr/2013 09:02:43] "GET /qtool/simple/ HTTP/1.1" 200 23551
+[08/Apr/2013 09:04:36] "POST /qtool/simple/ HTTP/1.1" 302 0
+[08/Apr/2013 09:04:37] "GET /qtool/problems HTTP/1.1" 301 0
+[08/Apr/2013 09:04:49] "GET /qtool/problems/ HTTP/1.1" 200 5258
+[08/Apr/2013 09:04:55] "GET /qtool/ HTTP/1.1" 200 4785
+[08/Apr/2013 09:04:57] "GET /qtool/index/ HTTP/1.1" 200 6728
+[08/Apr/2013 09:05:53] "GET /qtool/list HTTP/1.1" 301 0
+[08/Apr/2013 09:05:53] "GET /qtool/list/ HTTP/1.1" 200 26027
+[08/Apr/2013 09:08:55] "POST /qtool/list/ HTTP/1.1" 302 0
+[08/Apr/2013 09:08:55] "GET /qtool/problems HTTP/1.1" 301 0
+[08/Apr/2013 09:08:56] "GET /qtool/problems/ HTTP/1.1" 200 5614
+[08/Apr/2013 09:09:00] "GET /qtool/edit/3/ HTTP/1.1" 200 48616
+[08/Apr/2013 09:10:57] "GET /qtool/ HTTP/1.1" 200 4785
+[08/Apr/2013 09:11:01] "GET /qtool/index HTTP/1.1" 301 0
+[08/Apr/2013 09:11:01] "GET /qtool/index/ HTTP/1.1" 200 6728
+[08/Apr/2013 09:11:03] "GET /qtool/summative HTTP/1.1" 301 0
+[08/Apr/2013 09:11:03] "GET /qtool/summative/ HTTP/1.1" 200 22313
+[08/Apr/2013 09:11:03] "GET /qtool/problems_Summary HTTP/1.1" 301 0
+[08/Apr/2013 09:11:03] "GET /qtool/problems_Summary/ HTTP/1.1" 200 4395
+[08/Apr/2013 10:05:23] "GET /qtool/ HTTP/1.1" 200 4785
+[08/Apr/2013 10:05:34] "GET /qtool/problems HTTP/1.1" 301 0
+[08/Apr/2013 10:05:34] "GET /qtool/problems/ HTTP/1.1" 200 5614
+[08/Apr/2013 10:05:40] "GET /qtool/1/simple_details.html HTTP/1.1" 200 1255
+[08/Apr/2013 10:05:49] "GET /qtool/edit/1/ HTTP/1.1" 200 52085
+[08/Apr/2013 10:06:32] "GET /qtool/problems/ HTTP/1.1" 200 5614
+[08/Apr/2013 10:07:23] "GET /qtool/ HTTP/1.1" 200 4785
+[08/Apr/2013 10:07:26] "GET /qtool/index HTTP/1.1" 301 0
+[08/Apr/2013 10:07:26] "GET /qtool/index/ HTTP/1.1" 200 6728
+[08/Apr/2013 10:07:45] "GET /qtool/add HTTP/1.1" 301 0
+[08/Apr/2013 10:07:46] "GET /qtool/add/ HTTP/1.1" 200 29671
+[08/Apr/2013 10:07:50] "GET /qtool/simple HTTP/1.1" 301 0
+[08/Apr/2013 10:07:50] "GET /qtool/simple/ HTTP/1.1" 200 23551
+[08/Apr/2013 10:08:04] "GET /qtool/range HTTP/1.1" 301 0
+[08/Apr/2013 10:08:04] "GET /qtool/range/ HTTP/1.1" 200 24419
+[08/Apr/2013 10:08:10] "GET /qtool/simple/ HTTP/1.1" 200 23551
+[08/Apr/2013 10:08:19] "GET /qtool/simple/ HTTP/1.1" 200 23551
+[08/Apr/2013 10:08:24] "GET /qtool/list HTTP/1.1" 301 0
+[08/Apr/2013 10:08:24] "GET /qtool/list/ HTTP/1.1" 200 26027
+[08/Apr/2013 10:08:30] "GET / HTTP/1.1" 404 2118
+[08/Apr/2013 13:59:53] "GET /qtool HTTP/1.1" 301 0
+[08/Apr/2013 13:59:54] "GET /qtool/ HTTP/1.1" 200 4785
+[08/Apr/2013 14:00:02] "GET /qtool/problems HTTP/1.1" 301 0
+[08/Apr/2013 14:00:02] "GET /qtool/problems/ HTTP/1.1" 200 5614
+[08/Apr/2013 14:04:41] "GET /qtool/1/simple_details.html HTTP/1.1" 200 1255
+[08/Apr/2013 14:05:12] "GET /qtool/edit/2/ HTTP/1.1" 200 56176
+[08/Apr/2013 14:08:05] "GET /qtool/ HTTP/1.1" 200 4785
+[08/Apr/2013 14:08:08] "GET /qtool/index HTTP/1.1" 301 0
+[08/Apr/2013 14:08:08] "GET /qtool/index/ HTTP/1.1" 200 6728
+[08/Apr/2013 14:08:48] "GET /qtool/add HTTP/1.1" 301 0
+[08/Apr/2013 14:08:48] "GET /qtool/add/ HTTP/1.1" 200 29671
+[08/Apr/2013 14:09:46] "GET /qtool/simple HTTP/1.1" 301 0
+[08/Apr/2013 14:09:46] "GET /qtool/simple/ HTTP/1.1" 200 23551
+[08/Apr/2013 14:10:14] "GET /qtool/problems/ HTTP/1.1" 200 5614
+[08/Apr/2013 14:10:20] "GET /qtool/add/ HTTP/1.1" 200 29671
+[08/Apr/2013 14:13:00] "GET /qtool/add/ HTTP/1.1" 200 29671
+[08/Apr/2013 14:13:54] "GET /qtool/ HTTP/1.1" 200 4785
+[08/Apr/2013 14:13:55] "GET /qtool/problems/ HTTP/1.1" 200 5614
+[08/Apr/2013 14:14:19] "GET /qtool/edit/3/ HTTP/1.1" 200 48616
+[08/Apr/2013 14:15:13] "GET / HTTP/1.1" 404 2118
+[08/Apr/2013 14:15:47] "GET /qtool/ HTTP/1.1" 200 4785
+[08/Apr/2013 14:15:52] "GET /qtool/index/ HTTP/1.1" 200 6728
+[08/Apr/2013 14:16:02] "GET /qtool/list HTTP/1.1" 301 0
+[08/Apr/2013 14:16:02] "GET /qtool/list/ HTTP/1.1" 200 26027
+[08/Apr/2013 14:16:09] "GET /qtool/range HTTP/1.1" 301 0
+[08/Apr/2013 14:16:09] "GET /qtool/range/ HTTP/1.1" 200 24419
+[08/Apr/2013 14:17:19] "GET /qtool/list/ HTTP/1.1" 200 26027
+[08/Apr/2013 14:27:54] "GET /qtool/ HTTP/1.1" 200 4785
+[08/Apr/2013 14:28:00] "GET /qtool/index/ HTTP/1.1" 200 6728
+[08/Apr/2013 14:28:07] "GET /qtool/index/ HTTP/1.1" 200 6728
+[08/Apr/2013 14:28:29] "GET /qtool/problems/ HTTP/1.1" 200 5614
+[08/Apr/2013 14:28:31] "GET /qtool/ HTTP/1.1" 200 4785
+[08/Apr/2013 14:28:34] "GET /qtool/index/ HTTP/1.1" 200 6728
+[08/Apr/2013 14:28:39] "GET /qtool/summative HTTP/1.1" 301 0
+[08/Apr/2013 14:28:39] "GET /qtool/summative/ HTTP/1.1" 200 22313
+[08/Apr/2013 14:28:39] "GET /qtool/problems_Summary HTTP/1.1" 301 0
+[08/Apr/2013 14:28:39] "GET /qtool/problems_Summary/ HTTP/1.1" 200 4395
+[08/Apr/2013 14:29:47] "GET /qtool/edit/1/ HTTP/1.1" 200 52085
+[08/Apr/2013 14:30:39] "POST /qtool/edit/1/ HTTP/1.1" 302 0
+[08/Apr/2013 14:30:39] "GET /qtool/problems HTTP/1.1" 301 0
+[08/Apr/2013 14:30:39] "GET /qtool/problems/ HTTP/1.1" 200 5614
+[08/Apr/2013 14:31:32] "GET /qtool/edit/1/ HTTP/1.1" 200 52085
+[08/Apr/2013 14:32:36] "GET /qtool/ HTTP/1.1" 200 4785
+[08/Apr/2013 14:33:38] "GET /qtool/index/ HTTP/1.1" 200 6728
+[08/Apr/2013 14:34:35] "GET / HTTP/1.1" 404 2118
+[08/Apr/2013 14:35:12] "GET /qtool/problems/ HTTP/1.1" 200 5614
+[08/Apr/2013 14:35:32] "GET /qtool/1/ HTTP/1.1" 200 388
+[08/Apr/2013 14:37:36] "GET /qtool/1/ HTTP/1.1" 200 388
+[08/Apr/2013 14:38:02] "GET /qtool/3/ HTTP/1.1" 200 101
+[09/Apr/2013 21:17:45] "GET /qtool/ HTTP/1.1" 200 4785
+[09/Apr/2013 21:19:32] "GET /qtool/index HTTP/1.1" 301 0
+[09/Apr/2013 21:19:32] "GET /qtool/index/ HTTP/1.1" 200 6728
+[09/Apr/2013 21:24:45] "GET /qtool/problems HTTP/1.1" 301 0
+[09/Apr/2013 21:24:45] "GET /qtool/problems/ HTTP/1.1" 200 5614
+[09/Apr/2013 21:24:56] "GET /qtool/2/simple_details.html HTTP/1.1" 200 1698
+[09/Apr/2013 21:24:57] "GET /api/v1/exercises/?name=simple_details&book=&module=&key=phantom-key HTTP/1.1" 404 2231
+[09/Apr/2013 21:24:57] "GET /qtool/css/khan-site.css HTTP/1.1" 404 5200
+[09/Apr/2013 21:24:57] "GET /qtool/css/khan-exercise.css HTTP/1.1" 404 5212
+[09/Apr/2013 21:25:02] "GET /qtool/utils/answer-types.js HTTP/1.1" 404 5212
+[09/Apr/2013 21:25:08] "GET /qtool/utils/tmpl.js HTTP/1.1" 404 5188
+[09/Apr/2013 21:25:08] "GET /qtool/utils/math.js HTTP/1.1" 404 5188
+[09/Apr/2013 21:25:08] "GET /qtool/utils/jquery.adhesion.js HTTP/1.1" 404 5221
+[09/Apr/2013 21:25:08] "GET /qtool/utils/underscore.js HTTP/1.1" 404 5206
+[09/Apr/2013 21:40:34] "GET /api/v1/exercises/?name=simple_details&book=&module=&key=phantom-key HTTP/1.1" 404 2231
+[09/Apr/2013 21:42:59] "GET /qtool/2/simple_details.html HTTP/1.1" 200 1698
+[09/Apr/2013 21:43:00] "GET /qtool/css/khan-site.css HTTP/1.1" 404 5200
+[09/Apr/2013 21:43:00] "GET /qtool/css/khan-exercise.css HTTP/1.1" 404 5212
+[09/Apr/2013 21:43:00] "GET /api/v1/exercises/?name=simple_details&book=&module=&key=phantom-key HTTP/1.1" 404 2231
+[09/Apr/2013 21:43:00] "GET /qtool/utils/answer-types.js HTTP/1.1" 404 5212
+[09/Apr/2013 21:43:00] "GET /qtool/utils/tmpl.js HTTP/1.1" 404 5188
+[09/Apr/2013 21:43:00] "GET /qtool/utils/underscore.js HTTP/1.1" 404 5206
+[09/Apr/2013 21:43:00] "GET /qtool/utils/math.js HTTP/1.1" 404 5188
+[09/Apr/2013 21:43:00] "GET /qtool/utils/jquery.adhesion.js HTTP/1.1" 404 5221
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[10/Apr/2013 10:03:42] "GET /qtool/ HTTP/1.1" 200 4785
+[10/Apr/2013 10:03:44] "GET /qtool/index HTTP/1.1" 301 0
+[10/Apr/2013 10:03:44] "GET /qtool/index/ HTTP/1.1" 200 6728
+[10/Apr/2013 10:03:46] "GET /qtool/simple HTTP/1.1" 301 0
+[10/Apr/2013 10:03:46] "GET /qtool/simple/ HTTP/1.1" 200 23551
+[10/Apr/2013 10:04:00] "GET /qtool/summative HTTP/1.1" 301 0
+[10/Apr/2013 10:04:00] "GET /qtool/summative/ HTTP/1.1" 200 23661
+[10/Apr/2013 10:04:22] "GET /qtool/add HTTP/1.1" 301 0
+[10/Apr/2013 10:04:22] "GET /qtool/add/ HTTP/1.1" 200 29671
+[10/Apr/2013 10:04:25] "GET /qtool/problems HTTP/1.1" 301 0
+[10/Apr/2013 10:04:25] "GET /qtool/problems/ HTTP/1.1" 200 5614
+[10/Apr/2013 10:04:27] "GET /qtool/edit/1/ HTTP/1.1" 500 118151
+[10/Apr/2013 10:07:15] "GET /qtool/ HTTP/1.1" 200 4785
+[10/Apr/2013 10:07:17] "GET /qtool/index HTTP/1.1" 301 0
+[10/Apr/2013 10:07:17] "GET /qtool/index/ HTTP/1.1" 200 6728
+[10/Apr/2013 10:07:18] "GET /qtool/simple HTTP/1.1" 301 0
+[10/Apr/2013 10:07:18] "GET /qtool/simple/ HTTP/1.1" 200 23551
+[10/Apr/2013 10:07:52] "POST /qtool/simple/ HTTP/1.1" 302 0
+[10/Apr/2013 10:07:52] "GET /qtool/problems HTTP/1.1" 301 0
+[10/Apr/2013 10:07:52] "GET /qtool/problems/ HTTP/1.1" 200 4890
+[10/Apr/2013 10:08:02] "GET /qtool/edit/1/ HTTP/1.1" 200 52290
+[10/Apr/2013 10:09:26] "GET /qtool/edit/1/ HTTP/1.1" 200 52290
+[10/Apr/2013 10:09:30] "GET /qtool/edit/1/ HTTP/1.1" 200 52290
+[10/Apr/2013 10:11:48] "GET /qtool/index HTTP/1.1" 301 0
+[10/Apr/2013 10:11:48] "GET /qtool/index/ HTTP/1.1" 200 6728
+[10/Apr/2013 10:11:49] "GET /qtool/simple HTTP/1.1" 301 0
+[10/Apr/2013 10:11:49] "GET /qtool/simple/ HTTP/1.1" 200 23551
+[10/Apr/2013 10:11:59] "POST /qtool/simple/ HTTP/1.1" 302 0
+[10/Apr/2013 10:11:59] "GET /qtool/problems HTTP/1.1" 301 0
+[10/Apr/2013 10:11:59] "GET /qtool/problems/ HTTP/1.1" 200 5243
+[10/Apr/2013 10:12:06] "GET /qtool/edit/2/ HTTP/1.1" 200 50296
+[10/Apr/2013 10:17:52] "GET /qtool/edit/2/ HTTP/1.1" 200 50296
+[10/Apr/2013 10:17:59] "GET /qtool/ HTTP/1.1" 200 4785
+[10/Apr/2013 10:18:01] "GET /qtool/index HTTP/1.1" 301 0
+[10/Apr/2013 10:18:01] "GET /qtool/index/ HTTP/1.1" 200 6728
+[10/Apr/2013 10:18:03] "GET /qtool/simple/ HTTP/1.1" 200 23551
+[10/Apr/2013 10:18:13] "POST /qtool/simple/ HTTP/1.1" 302 0
+[10/Apr/2013 10:18:13] "GET /qtool/problems HTTP/1.1" 301 0
+[10/Apr/2013 10:18:13] "GET /qtool/problems/ HTTP/1.1" 200 5594
+[10/Apr/2013 10:18:15] "GET /qtool/edit/3/ HTTP/1.1" 200 50289
+[10/Apr/2013 10:18:44] "GET /qtool/edit/3/ HTTP/1.1" 200 50289
+[10/Apr/2013 10:18:52] "GET /qtool/simple/ HTTP/1.1" 200 23551
+[10/Apr/2013 10:18:59] "GET /qtool/ HTTP/1.1" 200 4785
+[10/Apr/2013 10:19:00] "GET /qtool/index HTTP/1.1" 301 0
+[10/Apr/2013 10:19:00] "GET /qtool/index/ HTTP/1.1" 200 6728
+[10/Apr/2013 10:19:02] "GET /qtool/simple/ HTTP/1.1" 200 23551
+[10/Apr/2013 10:19:13] "POST /qtool/simple/ HTTP/1.1" 302 0
+[10/Apr/2013 10:19:13] "GET /qtool/problems HTTP/1.1" 301 0
+[10/Apr/2013 10:19:13] "GET /qtool/problems/ HTTP/1.1" 200 5947
+[10/Apr/2013 10:19:15] "GET /qtool/edit/4/ HTTP/1.1" 200 50293
+[10/Apr/2013 10:21:37] "GET /qtool/edit/4/ HTTP/1.1" 200 50218
+[10/Apr/2013 10:21:42] "GET /qtool/ HTTP/1.1" 200 4785
+[10/Apr/2013 10:21:43] "GET /qtool/problems HTTP/1.1" 301 0
+[10/Apr/2013 10:21:43] "GET /qtool/problems/ HTTP/1.1" 200 5947
+[10/Apr/2013 10:21:46] "GET /qtool/delete/2/ HTTP/1.1" 302 0
+[10/Apr/2013 10:21:46] "GET /qtool/problems/ HTTP/1.1" 200 5594
+[10/Apr/2013 10:21:46] "GET /qtool/delete/4/ HTTP/1.1" 302 0
+[10/Apr/2013 10:21:46] "GET /qtool/problems/ HTTP/1.1" 200 5241
+[10/Apr/2013 10:21:48] "GET /qtool/delete/3/ HTTP/1.1" 302 0
+[10/Apr/2013 10:21:48] "GET /qtool/problems/ HTTP/1.1" 200 4890
+[10/Apr/2013 10:21:49] "GET /qtool/ HTTP/1.1" 200 4785
+[10/Apr/2013 10:54:28] "GET /qtool/ HTTP/1.1" 200 4785
+[10/Apr/2013 10:54:30] "GET /qtool/problems HTTP/1.1" 301 0
+[10/Apr/2013 10:54:30] "GET /qtool/problems/ HTTP/1.1" 200 4890
+[10/Apr/2013 10:54:34] "GET /qtool/ HTTP/1.1" 200 4785
+[10/Apr/2013 10:54:37] "GET /qtool/index HTTP/1.1" 301 0
+[10/Apr/2013 10:54:37] "GET /qtool/index/ HTTP/1.1" 200 6728
+[10/Apr/2013 10:54:39] "GET /qtool/list HTTP/1.1" 301 0
+[10/Apr/2013 10:54:39] "GET /qtool/list/ HTTP/1.1" 200 26027
+[10/Apr/2013 10:54:52] "POST /qtool/list/ HTTP/1.1" 302 0
+[10/Apr/2013 10:54:52] "GET /qtool/problems HTTP/1.1" 301 0
+[10/Apr/2013 10:54:52] "GET /qtool/problems/ HTTP/1.1" 200 5240
+[10/Apr/2013 10:54:54] "GET /qtool/index HTTP/1.1" 301 0
+[10/Apr/2013 10:54:54] "GET /qtool/index/ HTTP/1.1" 200 6728
+[10/Apr/2013 10:54:55] "GET /qtool/range HTTP/1.1" 301 0
+[10/Apr/2013 10:54:55] "GET /qtool/range/ HTTP/1.1" 200 24419
+[10/Apr/2013 10:55:03] "POST /qtool/range/ HTTP/1.1" 302 0
+[10/Apr/2013 10:55:03] "GET /qtool/problems HTTP/1.1" 301 0
+[10/Apr/2013 10:55:03] "GET /qtool/problems/ HTTP/1.1" 200 5591
+[10/Apr/2013 10:55:05] "GET /qtool/index/ HTTP/1.1" 200 6728
+[10/Apr/2013 10:55:06] "GET /qtool/summative HTTP/1.1" 301 0
+[10/Apr/2013 10:55:06] "GET /qtool/summative/ HTTP/1.1" 200 23621
+[10/Apr/2013 10:55:12] "POST /qtool/summative/ HTTP/1.1" 302 0
+[10/Apr/2013 10:55:12] "GET /qtool/problems HTTP/1.1" 301 0
+[10/Apr/2013 10:55:12] "GET /qtool/problems/ HTTP/1.1" 200 5942
+[10/Apr/2013 10:55:14] "GET /qtool/index/ HTTP/1.1" 200 6728
+[10/Apr/2013 10:55:16] "GET /qtool/add HTTP/1.1" 301 0
+[10/Apr/2013 10:55:16] "GET /qtool/add/ HTTP/1.1" 200 29671
+[10/Apr/2013 10:55:32] "POST /qtool/add/ HTTP/1.1" 302 0
+[10/Apr/2013 10:55:32] "GET /qtool/problems/ HTTP/1.1" 200 6293
+[10/Apr/2013 10:55:34] "GET /qtool/1/ HTTP/1.1" 200 63
+[10/Apr/2013 10:55:35] "GET /qtool/2/ HTTP/1.1" 200 36
+[10/Apr/2013 10:55:36] "GET /qtool/3/ HTTP/1.1" 200 32
+[10/Apr/2013 10:55:37] "GET /qtool/4/ HTTP/1.1" 500 70295
+[10/Apr/2013 10:58:16] "GET /qtool/4/ HTTP/1.1" 500 70536
+[10/Apr/2013 10:58:18] "GET /qtool/4/ HTTP/1.1" 500 70536
+[10/Apr/2013 11:02:48] "GET /qtool/4/ HTTP/1.1" 500 70295
+[10/Apr/2013 11:03:03] "GET /qtool/edit/4/ HTTP/1.1" 200 46355
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[10/Apr/2013 11:20:40] "GET /qtool/5/ HTTP/1.1" 200 100
+[10/Apr/2013 11:21:26] "GET /qtool/delete/2/ HTTP/1.1" 302 0
+[10/Apr/2013 11:21:26] "GET /qtool/problems HTTP/1.1" 301 0
+[10/Apr/2013 11:21:26] "GET /qtool/problems/ HTTP/1.1" 200 5943
+[10/Apr/2013 11:21:27] "GET /qtool/delete/4/ HTTP/1.1" 302 0
+[10/Apr/2013 11:21:27] "GET /qtool/problems/ HTTP/1.1" 200 5592
+[10/Apr/2013 11:21:28] "GET /qtool/delete/3/ HTTP/1.1" 302 0
+[10/Apr/2013 11:21:28] "GET /qtool/problems/ HTTP/1.1" 200 5241
+[10/Apr/2013 11:21:29] "GET /qtool/delete/5/ HTTP/1.1" 302 0
+[10/Apr/2013 11:21:29] "GET /qtool/problems/ HTTP/1.1" 200 4890
+[10/Apr/2013 12:16:11] "GET /qtool/ HTTP/1.1" 200 4785
+[10/Apr/2013 12:16:20] "GET /qtool/index HTTP/1.1" 301 0
+[10/Apr/2013 12:16:21] "GET /qtool/index/ HTTP/1.1" 200 6728
+[10/Apr/2013 12:17:34] "GET /qtool/list HTTP/1.1" 301 0
+[10/Apr/2013 12:17:34] "GET /qtool/list/ HTTP/1.1" 200 26027
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[10/Apr/2013 12:44:47] "GET /qtool/list/ HTTP/1.1" 200 29892
+[10/Apr/2013 12:45:01] "GET /qtool/problems/ HTTP/1.1" 200 4890
+[10/Apr/2013 12:53:02] "POST /qtool/list/ HTTP/1.1" 302 0
+[10/Apr/2013 12:53:02] "GET /qtool/problems HTTP/1.1" 301 0
+[10/Apr/2013 12:53:02] "GET /qtool/problems/ HTTP/1.1" 200 5244
+[10/Apr/2013 12:53:04] "GET /qtool/edit/2/ HTTP/1.1" 200 79421
+[10/Apr/2013 12:54:33] "GET /qtool/index HTTP/1.1" 301 0
+[10/Apr/2013 12:54:33] "GET /qtool/index/ HTTP/1.1" 200 6728
+[10/Apr/2013 12:54:39] "GET /qtool/add HTTP/1.1" 301 0
+[10/Apr/2013 12:54:39] "GET /qtool/add/ HTTP/1.1" 200 29671
+[10/Apr/2013 13:05:18] "POST /qtool/add/ HTTP/1.1" 302 0
+[10/Apr/2013 13:05:18] "GET /qtool/problems/ HTTP/1.1" 200 5599
+[10/Apr/2013 13:05:21] "GET /qtool/edit/2/ HTTP/1.1" 200 79421
+[10/Apr/2013 13:17:19] "GET /qtool/index HTTP/1.1" 301 0
+[10/Apr/2013 13:17:19] "GET /qtool/index/ HTTP/1.1" 200 6728
+[10/Apr/2013 13:17:21] "GET /qtool/simple HTTP/1.1" 301 0
+[10/Apr/2013 13:17:21] "GET /qtool/simple/ HTTP/1.1" 200 23551
+[10/Apr/2013 13:21:18] "POST /qtool/simple/ HTTP/1.1" 302 0
+[10/Apr/2013 13:21:18] "GET /qtool/problems HTTP/1.1" 301 0
+[10/Apr/2013 13:21:18] "GET /qtool/problems/ HTTP/1.1" 200 5960
+[10/Apr/2013 13:24:56] "GET /qtool/index HTTP/1.1" 301 0
+[10/Apr/2013 13:24:56] "GET /qtool/index/ HTTP/1.1" 200 6728
+[10/Apr/2013 13:28:29] "GET /qtool/simple/ HTTP/1.1" 200 23551
+[10/Apr/2013 13:30:39] "POST /qtool/simple/ HTTP/1.1" 302 0
+[10/Apr/2013 13:30:40] "GET /qtool/problems HTTP/1.1" 301 0
+[10/Apr/2013 13:30:40] "GET /qtool/problems/ HTTP/1.1" 200 6320
+[10/Apr/2013 13:30:43] "GET /qtool/ HTTP/1.1" 200 4785
+[10/Apr/2013 13:30:51] "GET /qtool/index/ HTTP/1.1" 200 6728
+[10/Apr/2013 13:30:53] "GET /qtool/summative HTTP/1.1" 301 0
+[10/Apr/2013 13:30:53] "GET /qtool/summative/ HTTP/1.1" 200 24311
+[10/Apr/2013 13:33:13] "POST /qtool/summative/ HTTP/1.1" 302 0
+[10/Apr/2013 13:33:13] "GET /qtool/problems HTTP/1.1" 301 0
+[10/Apr/2013 13:33:13] "GET /qtool/problems/ HTTP/1.1" 200 6680
+[10/Apr/2013 13:34:16] "GET /qtool/ HTTP/1.1" 200 4785
+[10/Apr/2013 13:34:19] "GET /qtool/problems HTTP/1.1" 301 0
+[10/Apr/2013 13:34:19] "GET /qtool/problems/ HTTP/1.1" 200 6680
+[10/Apr/2013 13:34:21] "GET /qtool/index HTTP/1.1" 301 0
+[10/Apr/2013 13:34:21] "GET /qtool/index/ HTTP/1.1" 200 6728
+[10/Apr/2013 13:34:24] "GET /qtool/range HTTP/1.1" 301 0
+[10/Apr/2013 13:34:24] "GET /qtool/range/ HTTP/1.1" 200 24419
+[10/Apr/2013 13:39:14] "POST /qtool/range/ HTTP/1.1" 302 0
+[10/Apr/2013 13:39:14] "GET /qtool/problems HTTP/1.1" 301 0
+[10/Apr/2013 13:39:14] "GET /qtool/problems/ HTTP/1.1" 200 7036
+[10/Apr/2013 13:41:38] "GET / HTTP/1.1" 404 2118
+[10/Apr/2013 14:27:56] "GET /qtool/problems/ HTTP/1.1" 200 7036
+[10/Apr/2013 14:28:02] "GET /qtool/1/simple_details.html HTTP/1.1" 200 1105
+[10/Apr/2013 14:28:28] "GET /qtool/css/khan-site.css HTTP/1.1" 404 5200
+[10/Apr/2013 14:28:28] "GET /api/v1/exercises/?name=simple_details&book=&module=&key=phantom-key HTTP/1.1" 404 2231
+[10/Apr/2013 14:28:28] "GET /qtool/css/khan-exercise.css HTTP/1.1" 404 5212
+[10/Apr/2013 14:28:28] "GET /qtool/utils/tmpl.js HTTP/1.1" 404 5188
+[10/Apr/2013 14:28:28] "GET /qtool/utils/answer-types.js HTTP/1.1" 404 5212
+[10/Apr/2013 14:28:28] "GET /qtool/utils/underscore.js HTTP/1.1" 404 5206
+[10/Apr/2013 14:28:28] "GET /qtool/utils/jquery.adhesion.js HTTP/1.1" 404 5221
+[10/Apr/2013 14:28:28] "GET /qtool/utils/math.js HTTP/1.1" 404 5188
+[10/Apr/2013 14:46:38] "GET /qtool/ HTTP/1.1" 200 4785
+[10/Apr/2013 14:46:42] "GET /qtool/problems HTTP/1.1" 301 0
+[10/Apr/2013 14:46:42] "GET /qtool/problems/ HTTP/1.1" 200 7036
+[10/Apr/2013 14:46:44] "GET /qtool/1/simple_details.html HTTP/1.1" 200 1105
+[10/Apr/2013 14:46:44] "GET /qtool/css/khan-site.css HTTP/1.1" 404 5200
+[10/Apr/2013 14:46:44] "GET /qtool/css/khan-exercise.css HTTP/1.1" 404 5212
+[10/Apr/2013 14:46:44] "GET /api/v1/exercises/?name=simple_details&book=&module=&key=phantom-key HTTP/1.1" 404 2231
+[10/Apr/2013 14:46:45] "GET /qtool/utils/answer-types.js HTTP/1.1" 404 5212
+[10/Apr/2013 14:46:45] "GET /qtool/utils/tmpl.js HTTP/1.1" 404 5188
+[10/Apr/2013 14:46:45] "GET /qtool/utils/underscore.js HTTP/1.1" 404 5206
+[10/Apr/2013 14:46:46] "GET /qtool/utils/math.js HTTP/1.1" 404 5188
+[10/Apr/2013 14:46:46] "GET /qtool/utils/jquery.adhesion.js HTTP/1.1" 404 5221
+[10/Apr/2013 14:49:19] "GET /qtool/ HTTP/1.1" 200 4785
+[10/Apr/2013 14:49:23] "GET / HTTP/1.1" 404 2118
+[10/Apr/2013 14:50:07] "GET / HTTP/1.1" 404 2118
+[10/Apr/2013 14:50:28] "GET /qtool/index HTTP/1.1" 301 0
+[10/Apr/2013 14:50:28] "GET /qtool/index/ HTTP/1.1" 200 6728
+[10/Apr/2013 14:50:37] "GET /qtool/edit/6/ HTTP/1.1" 200 46389
+[10/Apr/2013 14:51:01] "GET /qtool/range/ HTTP/1.1" 200 24419
+[10/Apr/2013 14:51:05] "GET /qtool/ HTTP/1.1" 200 4785
+Error: That port is already in use.
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://127.0.0.1:8082/
+Quit the server with CONTROL-C.
+Error: That port is already in use.
+Error: That port is already in use.
+[17/Apr/2013 03:20:59] "GET /qtool/ HTTP/1.1" 200 4959
+[17/Apr/2013 03:21:14] "GET /qtool/ HTTP/1.1" 200 4959
+[17/Apr/2013 03:21:16] "GET /qtool/index/ HTTP/1.1" 200 6971
+[21/Apr/2013 11:25:21] "GET /qtool/ HTTP/1.1" 200 4959
+[21/Apr/2013 11:25:23] "GET /qtool/index/ HTTP/1.1" 200 6971
+[21/Apr/2013 11:25:26] "GET /qtool/problems/ HTTP/1.1" 200 5803
+[21/Apr/2013 11:25:30] "GET /qtool/delete/5/ HTTP/1.1" 302 0
+[21/Apr/2013 11:25:30] "GET /qtool/problems/ HTTP/1.1" 200 5277
+[21/Apr/2013 11:25:31] "GET /qtool/delete/6/ HTTP/1.1" 302 0
+[21/Apr/2013 11:25:32] "GET /qtool/problems/ HTTP/1.1" 200 4751
+[21/Apr/2013 11:25:33] "GET /qtool/ HTTP/1.1" 200 4959
+[21/Apr/2013 11:25:35] "GET /qtool/index/ HTTP/1.1" 200 6971
+[21/Apr/2013 11:26:03] "GET /qtool/simple/ HTTP/1.1" 200 23551
+[21/Apr/2013 11:27:30] "POST /qtool/simple/ HTTP/1.1" 302 0
+[21/Apr/2013 11:27:32] "POST /qtool/simple/ HTTP/1.1" 302 0
+[21/Apr/2013 11:27:32] "GET /qtool/problems/ HTTP/1.1" 200 5813
+[21/Apr/2013 11:27:43] "GET /qtool/delete/2/ HTTP/1.1" 302 0
+[21/Apr/2013 11:27:43] "GET /qtool/problems/ HTTP/1.1" 200 5282
+[21/Apr/2013 11:27:45] "GET /qtool/1/simple_details.html HTTP/1.1" 200 4796
+[21/Apr/2013 11:27:46] "GET /qtool/1/ka_gen.html HTTP/1.1" 200 679
+[21/Apr/2013 11:27:47] "GET /qtool/khan-exercise.js HTTP/1.1" 200 93879
+[21/Apr/2013 11:27:47] "GET /qtool/css/khan-exercise.css HTTP/1.1" 200 10900
+[21/Apr/2013 11:27:47] "GET /qtool/css/khan-site.css HTTP/1.1" 200 298884
+[21/Apr/2013 11:27:47] "GET /qtool/exercises/SortMCQ1.html HTTP/1.1" 200 1035
+[21/Apr/2013 11:27:47] "GET /qtool/utils/answer-types.js HTTP/1.1" 200 34198
+[21/Apr/2013 11:27:47] "GET /qtool/utils/underscore.js HTTP/1.1" 200 34096
+[21/Apr/2013 11:27:47] "GET /qtool/utils/tmpl.js HTTP/1.1" 200 17197
+[21/Apr/2013 11:27:47] "GET /qtool/utils/jquery.adhesion.js HTTP/1.1" 200 2728
+[21/Apr/2013 11:27:47] "GET /qtool/utils/math.js HTTP/1.1" 200 12171
+[21/Apr/2013 11:27:47] "GET /qtool/utils/raphael.js HTTP/1.1" 200 154451
+[21/Apr/2013 11:27:47] "GET /qtool/exercises/khan-site.html HTTP/1.1" 200 656
+[21/Apr/2013 11:27:47] "GET /qtool/exercises/khan-exercise.html HTTP/1.1" 200 6503
+[21/Apr/2013 11:27:48] "GET /qtool/css/images/face-sad.gif HTTP/1.1" 200 1318
+[21/Apr/2013 11:27:48] "GET /qtool/css/images/face-smiley.gif HTTP/1.1" 200 1310
+[21/Apr/2013 11:27:48] "GET /qtool/css/images/throbber.gif HTTP/1.1" 200 673
+[21/Apr/2013 11:27:48] "GET /qtool/css/images/non-repeating-sprites.3.png HTTP/1.1" 200 67151
+[21/Apr/2013 11:28:22] "GET /qtool/index/ HTTP/1.1" 200 6971
+[21/Apr/2013 11:28:29] "GET /qtool/simple/ HTTP/1.1" 200 23551
+[21/Apr/2013 11:30:00] "POST /qtool/simple/ HTTP/1.1" 302 0
+[21/Apr/2013 11:30:00] "GET /qtool/problems/ HTTP/1.1" 200 5813
+[21/Apr/2013 11:30:05] "GET /qtool/2/simple_details.html HTTP/1.1" 200 4796
+[21/Apr/2013 11:30:06] "GET /qtool/2/ka_gen.html HTTP/1.1" 200 679
+[21/Apr/2013 11:30:06] "GET /qtool/exercises/SortMCQ2.html HTTP/1.1" 200 1158
+[21/Apr/2013 11:30:11] "GET /qtool/index/ HTTP/1.1" 200 6971
+[21/Apr/2013 11:30:12] "GET /qtool/summative/ HTTP/1.1" 200 24251
+[21/Apr/2013 11:30:42] "POST /qtool/summative/ HTTP/1.1" 302 0
+[21/Apr/2013 11:30:42] "GET /qtool/problems/ HTTP/1.1" 200 6353
+[21/Apr/2013 11:30:46] "GET /qtool/3/summative_details.html HTTP/1.1" 500 61845
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[21/Apr/2013 11:38:45] "GET /qtool/3/summative_details.html HTTP/1.1" 500 62259
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[21/Apr/2013 11:39:13] "GET /qtool/problems/ HTTP/1.1" 200 6353
+[21/Apr/2013 11:39:14] "GET /qtool/3/summative_details.html HTTP/1.1" 200 4795
+[21/Apr/2013 11:39:16] "GET /qtool/3/ka_gen.html HTTP/1.1" 200 677
+[21/Apr/2013 11:39:16] "GET /qtool/exercises/SortSum.html HTTP/1.1" 200 496
+[21/Apr/2013 11:39:16] "GET /qtool/exercises/SortMCQ1.html HTTP/1.1" 200 1035
+[21/Apr/2013 11:39:16] "GET /qtool/exercises/SortMCQ2.html HTTP/1.1" 200 1158
+[21/Apr/2013 11:46:11] "GET /qtool/index/ HTTP/1.1" 200 6971
+[21/Apr/2013 11:46:12] "GET /qtool/summative/ HTTP/1.1" 200 24610
+[21/Apr/2013 11:54:19] "GET /qtool/summative/ HTTP/1.1" 200 24610
+[21/Apr/2013 11:55:40] "GET /qtool/summative/ HTTP/1.1" 200 24610
+[21/Apr/2013 11:56:20] "GET /qtool/summative/ HTTP/1.1" 200 23658
+[21/Apr/2013 11:56:35] "POST /qtool/summative/ HTTP/1.1" 200 27099
+[21/Apr/2013 11:56:49] "POST /qtool/summative/ HTTP/1.1" 302 0
+[21/Apr/2013 11:56:50] "GET /qtool/problems/ HTTP/1.1" 200 6889
+[21/Apr/2013 11:56:51] "GET /qtool/4/summative_details.html HTTP/1.1" 200 4791
+[21/Apr/2013 11:56:53] "GET /qtool/4/ka_gen.html HTTP/1.1" 200 669
+[21/Apr/2013 11:56:53] "GET /qtool/exercises/New.html HTTP/1.1" 200 540
+[21/Apr/2013 11:56:53] "GET /qtool/exercises/SortMCQ1.html HTTP/1.1" 200 1035
+[21/Apr/2013 11:56:53] "GET /qtool/exercises/SortMCQ2.html HTTP/1.1" 200 1158
+[21/Apr/2013 11:56:53] "GET /qtool/exercises/SortSum.html HTTP/1.1" 200 496
+[21/Apr/2013 11:57:08] "GET /qtool/ HTTP/1.1" 200 4959
+[21/Apr/2013 11:57:09] "GET /qtool/problems/ HTTP/1.1" 200 6889
+[21/Apr/2013 11:57:11] "GET /qtool/delete/4/ HTTP/1.1" 302 0
+[21/Apr/2013 11:57:11] "GET /qtool/problems/ HTTP/1.1" 200 6353
+[21/Apr/2013 11:57:56] "GET /qtool/index/ HTTP/1.1" 200 6971
+[21/Apr/2013 11:57:58] "GET /qtool/simple/ HTTP/1.1" 200 23551
+[22/Apr/2013 04:34:26] "GET /qtool/problems HTTP/1.1" 404 1662
+[22/Apr/2013 04:36:38] "GET /qtool/simple/ HTTP/1.1" 200 23551
+[22/Apr/2013 04:36:40] "GET /qtool/ HTTP/1.1" 200 4959
+[22/Apr/2013 04:36:42] "GET /qtool/index/ HTTP/1.1" 200 6971
+[22/Apr/2013 04:36:45] "GET /qtool/add/ HTTP/1.1" 200 29685
+[22/Apr/2013 04:36:48] "GET / HTTP/1.1" 404 2118
+[22/Apr/2013 04:37:30] "GET /home/annp89/qtool/problems/ HTTP/1.1" 404 2199
+[22/Apr/2013 04:37:52] "GET /home/annp89/qtool/problems/ HTTP/1.1" 404 2199
+[22/Apr/2013 04:37:53] "GET /home/annp89/qtool/problems/ HTTP/1.1" 404 2199
+[22/Apr/2013 04:39:41] "GET /home/annp89/qtool/problems/ HTTP/1.1" 404 2199
+[22/Apr/2013 04:39:44] "GET /home/annp89/qtool/problems/ HTTP/1.1" 404 2199
+[22/Apr/2013 04:40:26] "GET /home/annp89/qtool/problems/ HTTP/1.1" 404 2199
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 04:42:24] "GET /home/annp89/qtool/problems/ HTTP/1.1" 200 6353
+[22/Apr/2013 04:42:32] "GET /qtool/ HTTP/1.1" 200 4959
+[22/Apr/2013 04:42:33] "GET /qtool/problems/ HTTP/1.1" 200 6353
+[22/Apr/2013 04:42:36] "GET /qtool/ HTTP/1.1" 200 4959
+[22/Apr/2013 04:42:40] "GET /qtool/index/ HTTP/1.1" 200 6971
+[22/Apr/2013 04:42:42] "GET /qtool/problems/ HTTP/1.1" 200 6353
+[22/Apr/2013 04:42:44] "GET /qtool/edit/3/ HTTP/1.1" 200 55648
+[22/Apr/2013 05:08:37] "POST /qtool/edit/3/ HTTP/1.1" 200 53292
+[22/Apr/2013 05:08:42] "POST /qtool/edit/3/ HTTP/1.1" 200 53292
+[22/Apr/2013 05:08:44] "GET /qtool/problems/ HTTP/1.1" 200 6353
+[22/Apr/2013 05:08:46] "GET /qtool/edit/3/ HTTP/1.1" 200 55648
+[22/Apr/2013 05:09:03] "POST /qtool/edit/3/ HTTP/1.1" 200 53293
+[22/Apr/2013 05:09:24] "POST /qtool/edit/3/ HTTP/1.1" 200 53530
+[22/Apr/2013 05:09:38] "POST /qtool/edit/3/ HTTP/1.1" 200 53414
+[22/Apr/2013 05:09:46] "POST /qtool/edit/3/ HTTP/1.1" 200 53443
+[22/Apr/2013 05:09:53] "GET /qtool/problems/ HTTP/1.1" 200 6353
+[22/Apr/2013 05:09:58] "GET /qtool/edit/3/ HTTP/1.1" 200 55648
+[22/Apr/2013 05:10:03] "POST /qtool/edit/3/ HTTP/1.1" 200 53292
+[22/Apr/2013 05:10:14] "POST /qtool/edit/3/ HTTP/1.1" 200 53292
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 05:14:45] "POST /qtool/edit/3/ HTTP/1.1" 500 81051
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 05:15:21] "POST /qtool/edit/3/ HTTP/1.1" 500 91293
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 05:19:17] "POST /qtool/edit/3/ HTTP/1.1" 200 54157
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 05:21:51] "POST /qtool/edit/3/ HTTP/1.1" 200 54157
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 05:22:38] "POST /qtool/edit/3/ HTTP/1.1" 500 91479
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 05:23:51] "POST /qtool/edit/3/ HTTP/1.1" 200 54361
+[22/Apr/2013 05:24:08] "POST /qtool/edit/3/ HTTP/1.1" 200 54125
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 05:29:16] "POST /qtool/edit/3/ HTTP/1.1" 500 90172
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 05:30:07] "POST /qtool/edit/3/ HTTP/1.1" 200 56741
+[22/Apr/2013 05:30:16] "POST /qtool/edit/3/ HTTP/1.1" 200 56742
+[22/Apr/2013 05:30:32] "POST /qtool/edit/3/ HTTP/1.1" 200 56746
+[22/Apr/2013 05:30:34] "GET /qtool/problems/ HTTP/1.1" 200 6353
+[22/Apr/2013 05:30:36] "GET /qtool/edit/3/ HTTP/1.1" 500 66935
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 05:32:30] "GET /qtool/edit/3/ HTTP/1.1" 200 54044
+[22/Apr/2013 05:32:36] "GET /qtool/edit/3/ HTTP/1.1" 200 54044
+[22/Apr/2013 05:32:38] "GET /qtool/problems/ HTTP/1.1" 200 6353
+[22/Apr/2013 05:32:40] "GET /qtool/edit/3/ HTTP/1.1" 200 54044
+[22/Apr/2013 06:04:52] "GET /qtool/edit/3/ HTTP/1.1" 200 54044
+[22/Apr/2013 11:51:33] "GET /qtool/problems/ HTTP/1.1" 200 6353
+[22/Apr/2013 11:51:35] "GET /qtool/edit/3/ HTTP/1.1" 200 54044
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 11:53:29] "GET /qtool/problems/ HTTP/1.1" 200 6353
+[22/Apr/2013 11:53:31] "GET /qtool/edit/3/ HTTP/1.1" 200 54044
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 11:54:22] "GET /qtool/edit/3/ HTTP/1.1" 500 67054
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 12:03:15] "GET /qtool/problems/ HTTP/1.1" 200 6353
+[22/Apr/2013 12:03:17] "GET /qtool/edit/3/ HTTP/1.1" 500 66789
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 12:04:05] "GET /qtool/edit/3/ HTTP/1.1" 500 63611
+[22/Apr/2013 12:04:06] "GET /qtool/edit/3/ HTTP/1.1" 500 63626
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 12:06:23] "GET /qtool/edit/3/ HTTP/1.1" 500 63358
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 12:06:33] "GET /qtool/edit/3/ HTTP/1.1" 500 63616
+[22/Apr/2013 12:06:35] "GET /qtool/edit/3/ HTTP/1.1" 500 63631
+[22/Apr/2013 12:06:35] "GET /qtool/edit/3/ HTTP/1.1" 500 63631
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 12:08:01] "GET /qtool/edit/3/ HTTP/1.1" 500 63576
+[22/Apr/2013 12:08:02] "GET /qtool/edit/3/ HTTP/1.1" 500 63591
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 12:08:16] "GET /qtool/edit/3/ HTTP/1.1" 500 77167
+[22/Apr/2013 12:08:33] "GET /qtool/edit/3/ HTTP/1.1" 500 64041
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 12:09:05] "GET /qtool/edit/3/ HTTP/1.1" 500 63632
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 12:18:09] "GET /qtool/edit/3/ HTTP/1.1" 500 61221
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 12:18:25] "GET /qtool/edit/3/ HTTP/1.1" 500 61352
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 12:19:15] "GET /qtool/edit/3/ HTTP/1.1" 500 61448
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 12:19:27] "GET /qtool/edit/3/ HTTP/1.1" 500 61448
+[22/Apr/2013 12:19:29] "GET /qtool/edit/3/ HTTP/1.1" 500 61463
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 12:19:59] "GET /qtool/edit/3/ HTTP/1.1" 500 64809
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 12:21:29] "GET /qtool/edit/3/ HTTP/1.1" 500 63188
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 12:47:40] "GET /qtool/edit/3/ HTTP/1.1" 500 91151
+[22/Apr/2013 12:49:05] "GET /qtool/edit/3/ HTTP/1.1" 200 24803
+[22/Apr/2013 12:49:14] "POST /qtool/edit/3/ HTTP/1.1" 302 0
+[22/Apr/2013 12:49:14] "GET /qtool/problems/ HTTP/1.1" 200 6353
+[22/Apr/2013 12:49:18] "GET /qtool/edit/3/ HTTP/1.1" 200 30776
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 13:15:56] "GET /qtool/edit/3/ HTTP/1.1" 200 61621
+[22/Apr/2013 13:16:07] "POST /qtool/edit/3/ HTTP/1.1" 200 59445
+[22/Apr/2013 13:16:37] "POST /qtool/edit/3/ HTTP/1.1" 500 86788
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 13:21:43] "POST /qtool/edit/3/ HTTP/1.1" 500 86571
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 13:22:39] "GET /qtool/edit/3/ HTTP/1.1" 200 67624
+[22/Apr/2013 13:22:46] "POST /qtool/edit/3/ HTTP/1.1" 500 90223
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 13:24:25] "POST /qtool/edit/3/ HTTP/1.1" 302 0
+[22/Apr/2013 13:24:25] "GET /qtool/problems/ HTTP/1.1" 200 6353
+[22/Apr/2013 13:24:27] "GET /qtool/edit/3/ HTTP/1.1" 200 98972
+[22/Apr/2013 13:24:39] "POST /qtool/edit/3/ HTTP/1.1" 200 97756
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 13:36:41] "GET /qtool/problems/ HTTP/1.1" 200 6353
+[22/Apr/2013 13:36:43] "GET /qtool/edit/2/ HTTP/1.1" 200 60131
+[22/Apr/2013 13:37:03] "GET /qtool/problems/ HTTP/1.1" 200 6353
+[22/Apr/2013 13:37:05] "GET /qtool/edit/1/ HTTP/1.1" 200 58055
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 13:37:50] "GET /qtool/problems/ HTTP/1.1" 200 6353
+[22/Apr/2013 13:37:52] "GET /qtool/edit/1/ HTTP/1.1" 200 56084
+[22/Apr/2013 13:38:01] "GET /qtool/problems/ HTTP/1.1" 200 6353
+[22/Apr/2013 13:38:02] "GET /qtool/edit/3/ HTTP/1.1" 200 93010
+[22/Apr/2013 13:38:09] "POST /qtool/edit/3/ HTTP/1.1" 200 91794
+[22/Apr/2013 13:38:19] "GET /qtool/problems/ HTTP/1.1" 200 6353
+[22/Apr/2013 13:38:21] "GET /qtool/edit/1/ HTTP/1.1" 200 56084
+[22/Apr/2013 13:38:29] "POST /qtool/edit/1/ HTTP/1.1" 302 0
+[22/Apr/2013 13:38:29] "GET /qtool/problems/ HTTP/1.1" 200 6353
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 13:41:31] "GET /qtool/problems/ HTTP/1.1" 200 6353
+[22/Apr/2013 13:41:33] "GET /qtool/edit/1/ HTTP/1.1" 200 54220
+[22/Apr/2013 13:41:58] "POST /qtool/edit/1/ HTTP/1.1" 500 95331
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 13:42:50] "POST /qtool/edit/1/ HTTP/1.1" 500 85273
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 13:43:10] "POST /qtool/edit/1/ HTTP/1.1" 200 54847
+[22/Apr/2013 14:10:17] "GET /qtool/ HTTP/1.1" 200 4959
+[22/Apr/2013 14:10:19] "GET /qtool/index/ HTTP/1.1" 200 6971
+[22/Apr/2013 14:10:20] "GET /qtool/simple/ HTTP/1.1" 200 23551
+[22/Apr/2013 14:10:34] "POST /qtool/simple/ HTTP/1.1" 302 0
+[22/Apr/2013 14:10:35] "GET /qtool/problems/ HTTP/1.1" 200 6879
+[22/Apr/2013 14:10:38] "GET /qtool/edit/4/ HTTP/1.1" 200 24486
+[22/Apr/2013 14:10:56] "GET /qtool/edit/3/ HTTP/1.1" 200 67829
+[22/Apr/2013 14:11:04] "GET /qtool/index/ HTTP/1.1" 200 6971
+[22/Apr/2013 14:11:06] "GET /qtool/summative/ HTTP/1.1" 200 23979
+[22/Apr/2013 14:11:22] "POST /qtool/summative/ HTTP/1.1" 302 0
+[22/Apr/2013 14:11:22] "GET /qtool/problems/ HTTP/1.1" 200 7416
+[22/Apr/2013 14:11:26] "GET /qtool/edit/5/ HTTP/1.1" 200 24563
+[22/Apr/2013 14:11:52] "GET /qtool/index/ HTTP/1.1" 200 6971
+[22/Apr/2013 14:11:54] "GET /qtool/add/ HTTP/1.1" 200 29672
+[22/Apr/2013 14:12:17] "POST /qtool/add/ HTTP/1.1" 302 0
+[22/Apr/2013 14:12:17] "GET /qtool/problems/ HTTP/1.1" 200 7940
+[22/Apr/2013 14:12:20] "GET /qtool/edit/6/ HTTP/1.1" 200 28940
+[22/Apr/2013 14:12:43] "POST /qtool/edit/6/ HTTP/1.1" 302 0
+[22/Apr/2013 14:12:43] "GET /qtool/problems/ HTTP/1.1" 200 7940
+[22/Apr/2013 14:12:46] "GET /qtool/edit/6/ HTTP/1.1" 200 28940
+[22/Apr/2013 14:12:56] "POST /qtool/edit/6/ HTTP/1.1" 302 0
+[22/Apr/2013 14:12:56] "GET /qtool/problems/ HTTP/1.1" 200 7940
+[22/Apr/2013 14:12:58] "GET /qtool/edit/6/ HTTP/1.1" 200 28941
+[22/Apr/2013 14:13:06] "POST /qtool/edit/6/ HTTP/1.1" 302 0
+[22/Apr/2013 14:13:06] "GET /qtool/problems/ HTTP/1.1" 200 7941
+[22/Apr/2013 14:13:14] "GET /qtool/delete/6/ HTTP/1.1" 302 0
+[22/Apr/2013 14:13:14] "GET /qtool/problems/ HTTP/1.1" 200 7416
+[22/Apr/2013 14:13:17] "GET /qtool/delete/5/ HTTP/1.1" 302 0
+[22/Apr/2013 14:13:17] "GET /qtool/problems/ HTTP/1.1" 200 6879
+[22/Apr/2013 14:13:18] "GET /qtool/delete/4/ HTTP/1.1" 302 0
+[22/Apr/2013 14:13:18] "GET /qtool/problems/ HTTP/1.1" 200 6353
+[22/Apr/2013 14:15:43] "GET /qtool/index/ HTTP/1.1" 200 6971
+[22/Apr/2013 14:15:45] "GET /qtool/simple/ HTTP/1.1" 200 23551
+[22/Apr/2013 14:15:58] "POST /qtool/simple/ HTTP/1.1" 302 0
+[22/Apr/2013 14:15:58] "GET /qtool/problems/ HTTP/1.1" 200 6878
+[22/Apr/2013 14:16:04] "GET /qtool/edit/4/ HTTP/1.1" 200 24486
+[22/Apr/2013 14:22:21] "POST /qtool/edit/4/ HTTP/1.1" 200 48369
+[22/Apr/2013 14:22:33] "POST /qtool/edit/4/ HTTP/1.1" 200 48398
+[22/Apr/2013 14:23:03] "GET /qtool/problems/ HTTP/1.1" 200 6878
+[22/Apr/2013 14:23:06] "GET /qtool/index/ HTTP/1.1" 200 6971
+[22/Apr/2013 14:23:07] "GET /qtool/simple/ HTTP/1.1" 200 23551
+[22/Apr/2013 14:28:40] "GET /qtool/simple/ HTTP/1.1" 200 23551
+[22/Apr/2013 14:28:45] "GET /qtool/problems/ HTTP/1.1" 200 6878
+[22/Apr/2013 14:28:47] "GET /qtool/edit/4/ HTTP/1.1" 200 23846
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 14:33:08] "GET /qtool/edit/4/ HTTP/1.1" 500 61080
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 14:33:44] "GET /qtool/edit/4/ HTTP/1.1" 500 91099
+[22/Apr/2013 14:34:39] "GET /qtool/edit/4/ HTTP/1.1" 500 91112
+[22/Apr/2013 14:35:31] "GET /qtool/edit/4/ HTTP/1.1" 500 60764
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 14:35:51] "GET /qtool/edit/4/ HTTP/1.1" 500 60749
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 14:37:17] "GET /qtool/edit/4/ HTTP/1.1" 500 60744
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 14:39:00] "GET /qtool/edit/4/ HTTP/1.1" 200 23846
+[22/Apr/2013 14:39:16] "GET /qtool/problems/ HTTP/1.1" 200 6878
+[22/Apr/2013 14:39:18] "GET /qtool/ HTTP/1.1" 200 4959
+[22/Apr/2013 14:39:19] "GET /qtool/index/ HTTP/1.1" 200 6971
+[22/Apr/2013 14:39:20] "GET /qtool/simple/ HTTP/1.1" 200 23551
+[22/Apr/2013 14:39:34] "POST /qtool/simple/ HTTP/1.1" 302 0
+[22/Apr/2013 14:39:34] "GET /qtool/problems/ HTTP/1.1" 200 7404
+[22/Apr/2013 14:39:36] "GET /qtool/edit/5/ HTTP/1.1" 200 23849
+[22/Apr/2013 14:56:34] "GET /qtool/edit/5/ HTTP/1.1" 200 24153
+[22/Apr/2013 14:57:09] "GET /qtool/edit/5/ HTTP/1.1" 200 24154
+[22/Apr/2013 15:02:29] "GET /qtool/ HTTP/1.1" 200 4959
+[22/Apr/2013 15:02:31] "GET /qtool/index/ HTTP/1.1" 200 6971
+[22/Apr/2013 15:02:33] "GET /qtool/problems/ HTTP/1.1" 200 7404
+[22/Apr/2013 15:02:36] "GET /qtool/edit/1/ HTTP/1.1" 200 54005
+[22/Apr/2013 15:02:44] "GET /qtool/ HTTP/1.1" 200 4959
+[22/Apr/2013 15:02:47] "GET /qtool/index/ HTTP/1.1" 200 6971
+[22/Apr/2013 15:02:49] "GET /qtool/simple/ HTTP/1.1" 200 23551
+[22/Apr/2013 15:03:04] "POST /qtool/simple/ HTTP/1.1" 302 0
+[22/Apr/2013 15:03:04] "GET /qtool/problems/ HTTP/1.1" 200 7930
+[22/Apr/2013 15:03:09] "GET /qtool/edit/6/ HTTP/1.1" 200 24157
+[22/Apr/2013 15:03:34] "GET /qtool/problems/ HTTP/1.1" 200 7930
+[22/Apr/2013 15:03:36] "GET /qtool/edit/1/ HTTP/1.1" 200 54005
+[22/Apr/2013 15:03:48] "GET /qtool/problems/ HTTP/1.1" 200 7930
+[22/Apr/2013 15:03:50] "GET /qtool/edit/3/ HTTP/1.1" 200 67042
+[22/Apr/2013 15:04:22] "GET /qtool/problems/ HTTP/1.1" 200 7930
+[22/Apr/2013 15:04:24] "GET /qtool/edit/4/ HTTP/1.1" 200 24151
+[22/Apr/2013 15:04:57] "GET /qtool/problems/ HTTP/1.1" 200 7930
+[22/Apr/2013 15:04:59] "GET /qtool/edit/1/ HTTP/1.1" 200 54005
+[22/Apr/2013 15:05:43] "GET /qtool/edit/6/ HTTP/1.1" 200 24157
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 15:08:25] "GET /qtool/edit/6/ HTTP/1.1" 200 24157
+[22/Apr/2013 15:08:29] "GET /qtool/ HTTP/1.1" 200 4959
+[22/Apr/2013 15:08:32] "GET /qtool/index/ HTTP/1.1" 200 6971
+[22/Apr/2013 15:08:33] "GET /qtool/simple/ HTTP/1.1" 200 23551
+[22/Apr/2013 15:08:49] "POST /qtool/simple/ HTTP/1.1" 302 0
+[22/Apr/2013 15:08:49] "GET /qtool/problems/ HTTP/1.1" 200 8456
+[22/Apr/2013 15:08:52] "GET /qtool/edit/7/ HTTP/1.1" 200 24150
+[22/Apr/2013 15:10:59] "GET /qtool/edit/7/ HTTP/1.1" 200 24219
+[22/Apr/2013 15:12:34] "GET /qtool/edit/7/ HTTP/1.1" 200 24281
+[22/Apr/2013 15:12:40] "GET /qtool/edit/7/ HTTP/1.1" 200 24281
+[22/Apr/2013 15:12:45] "GET /qtool/problems/ HTTP/1.1" 200 8456
+[22/Apr/2013 15:12:48] "GET /qtool/edit/6/ HTTP/1.1" 200 24288
+[22/Apr/2013 15:13:06] "GET /qtool/edit/6/ HTTP/1.1" 200 24221
+[22/Apr/2013 15:15:42] "GET /qtool/edit/6/ HTTP/1.1" 200 24362
+[22/Apr/2013 15:16:27] "GET /qtool/edit/6/ HTTP/1.1" 200 24361
+[22/Apr/2013 15:16:28] "GET /qtool/edit/6/ HTTP/1.1" 200 24361
+[22/Apr/2013 15:16:29] "GET /qtool/edit/6/ HTTP/1.1" 200 24361
+[22/Apr/2013 15:16:29] "GET /qtool/edit/6/ HTTP/1.1" 200 24361
+[22/Apr/2013 15:16:29] "GET /qtool/edit/6/ HTTP/1.1" 200 24361
+[22/Apr/2013 15:16:29] "GET /qtool/edit/6/ HTTP/1.1" 200 24361
+[22/Apr/2013 15:16:29] "GET /qtool/edit/6/ HTTP/1.1" 200 24361
+[22/Apr/2013 15:16:30] "GET /qtool/edit/6/ HTTP/1.1" 200 24361
+[22/Apr/2013 15:16:34] "GET /qtool/edit/7/ HTTP/1.1" 200 24354
+[22/Apr/2013 15:17:17] "GET /qtool/edit/7/ HTTP/1.1" 200 24354
+[22/Apr/2013 15:18:13] "GET /qtool/edit/7/ HTTP/1.1" 200 24354
+[22/Apr/2013 15:19:07] "GET /qtool/edit/7/ HTTP/1.1" 200 24362
+[22/Apr/2013 15:19:36] "GET /qtool/edit/7/ HTTP/1.1" 200 24167
+[22/Apr/2013 15:19:43] "GET /qtool/problems/ HTTP/1.1" 200 8456
+[22/Apr/2013 15:19:46] "GET /qtool/edit/3/ HTTP/1.1" 200 67059
+[22/Apr/2013 15:24:08] "GET /qtool/ HTTP/1.1" 200 4959
+[22/Apr/2013 15:24:10] "GET /qtool/problems/ HTTP/1.1" 200 8456
+[22/Apr/2013 15:24:13] "GET /qtool/ HTTP/1.1" 200 4959
+[22/Apr/2013 15:24:32] "GET /qtool/index/ HTTP/1.1" 200 6971
+[22/Apr/2013 15:24:34] "GET /qtool/list/ HTTP/1.1" 200 30994
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 16:43:33] "POST /qtool/list/ HTTP/1.1" 302 0
+[22/Apr/2013 16:43:33] "GET /qtool/problems/ HTTP/1.1" 200 8979
+[22/Apr/2013 16:43:36] "GET /qtool/index/ HTTP/1.1" 200 6971
+[22/Apr/2013 16:43:38] "GET /qtool/range/ HTTP/1.1" 200 24422
+[22/Apr/2013 16:43:48] "GET /qtool/list/ HTTP/1.1" 200 30994
+[22/Apr/2013 16:44:35] "GET /qtool/problems/ HTTP/1.1" 200 8979
+[22/Apr/2013 16:44:49] "GET /qtool/problems/ HTTP/1.1" 200 8979
+[22/Apr/2013 16:44:52] "GET /qtool/8/ka_details.html HTTP/1.1" 200 4790
+[22/Apr/2013 16:44:53] "GET /qtool/8/ka_gen.html HTTP/1.1" 200 667
+[22/Apr/2013 16:44:53] "GET /qtool/khan-exercise.js HTTP/1.1" 200 93879
+[22/Apr/2013 16:44:53] "GET /qtool/exercises/sa.html HTTP/1.1" 200 815
+[22/Apr/2013 16:44:53] "GET /qtool/utils/tmpl.js HTTP/1.1" 200 17197
+[22/Apr/2013 16:44:54] "GET /qtool/utils/answer-types.js HTTP/1.1" 200 34198
+[22/Apr/2013 16:44:54] "GET /qtool/utils/math.js HTTP/1.1" 200 12171
+[22/Apr/2013 16:44:54] "GET /qtool/utils/underscore.js HTTP/1.1" 200 34096
+[22/Apr/2013 16:44:54] "GET /qtool/utils/math-format.js HTTP/1.1" 200 15266
+[22/Apr/2013 16:44:54] "GET /qtool/utils/jquery.adhesion.js HTTP/1.1" 200 2728
+[22/Apr/2013 16:44:54] "GET /qtool/utils/expressions.js HTTP/1.1" 200 10102
+[22/Apr/2013 16:44:54] "GET /qtool/utils/spin.js HTTP/1.1" 200 1280
+[22/Apr/2013 16:44:54] "GET /qtool/utils/word-problems.js HTTP/1.1" 200 11269
+[22/Apr/2013 16:44:54] "GET /qtool/exercises/khan-site.html HTTP/1.1" 200 656
+[22/Apr/2013 16:44:54] "GET /qtool/exercises/khan-exercise.html HTTP/1.1" 200 6503
+[22/Apr/2013 16:46:44] "GET /qtool/ HTTP/1.1" 200 4959
+[22/Apr/2013 16:46:45] "GET /qtool/index/ HTTP/1.1" 200 6971
+[22/Apr/2013 16:46:46] "GET /qtool/list/ HTTP/1.1" 200 30994
+[22/Apr/2013 16:47:13] "POST /qtool/list/ HTTP/1.1" 302 0
+[22/Apr/2013 16:47:13] "GET /qtool/problems/ HTTP/1.1" 200 9505
+[22/Apr/2013 16:47:19] "GET /qtool/9/ka_details.html HTTP/1.1" 200 4793
+[22/Apr/2013 16:47:21] "GET /qtool/9/ka_gen.html HTTP/1.1" 200 673
+[22/Apr/2013 16:47:21] "GET /qtool/exercises/NJNKJ.html HTTP/1.1" 200 815
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 16:51:31] "GET /qtool/index/ HTTP/1.1" 200 6971
+[22/Apr/2013 16:51:34] "GET /qtool/list/ HTTP/1.1" 500 76714
+[22/Apr/2013 16:52:33] "GET /qtool/list/ HTTP/1.1" 200 30994
+[22/Apr/2013 16:52:52] "POST /qtool/list/ HTTP/1.1" 302 0
+[22/Apr/2013 16:52:52] "GET /qtool/problems/ HTTP/1.1" 200 10038
+[22/Apr/2013 16:52:59] "GET /qtool/10/ka_details.html HTTP/1.1" 200 4796
+[22/Apr/2013 16:53:00] "GET /qtool/10/ka_gen.html HTTP/1.1" 200 677
+[22/Apr/2013 16:53:00] "GET /qtool/exercises/TTTTTTT.html HTTP/1.1" 200 826
+[22/Apr/2013 17:06:38] "GET /qtool/index/ HTTP/1.1" 200 6971
+[22/Apr/2013 17:06:40] "GET /qtool/range/ HTTP/1.1" 200 24422
+[22/Apr/2013 17:06:52] "POST /qtool/range/ HTTP/1.1" 302 0
+[22/Apr/2013 17:06:52] "GET /qtool/problems/ HTTP/1.1" 200 10569
+[22/Apr/2013 17:06:59] "GET /qtool/range/ HTTP/1.1" 200 24422
+[22/Apr/2013 17:07:03] "GET /qtool/6/simple_details.html HTTP/1.1" 200 4791
+[22/Apr/2013 17:07:05] "GET /qtool/6/ka_gen.html HTTP/1.1" 200 669
+[22/Apr/2013 17:07:05] "GET /qtool/exercises/dsa.html HTTP/1.1" 200 656
+[22/Apr/2013 17:07:18] "POST /qtool/range/ HTTP/1.1" 302 0
+[22/Apr/2013 17:07:18] "GET /qtool/problems/ HTTP/1.1" 200 11105
+[22/Apr/2013 17:07:21] "GET /qtool/12/range_details.html HTTP/1.1" 500 62169
+[22/Apr/2013 17:08:28] "GET /qtool/12/range_details.html HTTP/1.1" 500 62410
+[22/Apr/2013 17:08:54] "GET /qtool/12/range_details.html HTTP/1.1" 500 62395
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 17:10:10] "GET /qtool/12/range_details.html HTTP/1.1" 500 63145
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 17:10:29] "GET /qtool/12/range_details.html HTTP/1.1" 500 62666
+[22/Apr/2013 17:10:44] "GET /qtool/12/range_details.html HTTP/1.1" 200 4797
+[22/Apr/2013 17:10:46] "GET /qtool/12/ka_gen.html HTTP/1.1" 200 679
+[22/Apr/2013 17:10:46] "GET /qtool/exercises/dsaGghhh.html HTTP/1.1" 200 613
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 17:11:49] "GET /qtool/ HTTP/1.1" 200 4959
+[22/Apr/2013 17:11:50] "GET /qtool/problems/ HTTP/1.1" 200 11105
+[22/Apr/2013 17:12:21] "GET /qtool/10/ka_details.html HTTP/1.1" 200 4796
+[22/Apr/2013 17:12:23] "GET /qtool/10/ka_gen.html HTTP/1.1" 200 677
+[22/Apr/2013 17:12:23] "GET /qtool/exercises/TTTTTTT.html HTTP/1.1" 200 826
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 17:13:25] "GET /qtool/10/ka_details.html HTTP/1.1" 200 4796
+[22/Apr/2013 17:13:26] "GET /qtool/10/ka_gen.html HTTP/1.1" 200 677
+[22/Apr/2013 17:13:26] "GET /qtool/exercises/TTTTTTT.html HTTP/1.1" 200 826
+[22/Apr/2013 17:13:43] "GET /qtool/12/range_details.html HTTP/1.1" 200 4797
+[22/Apr/2013 17:13:45] "GET /qtool/12/ka_gen.html HTTP/1.1" 200 679
+[22/Apr/2013 17:13:45] "GET /qtool/exercises/dsaGghhh.html HTTP/1.1" 200 613
+[22/Apr/2013 17:13:58] "GET /qtool/10/ka_details.html HTTP/1.1" 200 4796
+[22/Apr/2013 17:14:02] "GET /qtool/8/ka_details.html HTTP/1.1" 200 4790
+[22/Apr/2013 17:17:08] "GET /qtool/12/range_details.html HTTP/1.1" 200 4797
+[22/Apr/2013 17:17:14] "GET /qtool/index/ HTTP/1.1" 200 6971
+[22/Apr/2013 17:17:15] "GET /qtool/list/ HTTP/1.1" 200 30994
+[22/Apr/2013 17:17:36] "POST /qtool/list/ HTTP/1.1" 302 0
+[22/Apr/2013 17:17:36] "GET /qtool/problems/ HTTP/1.1" 200 11635
+[22/Apr/2013 17:17:39] "GET /qtool/13/ka_details.html HTTP/1.1" 200 4793
+[22/Apr/2013 17:36:46] "GET /qtool/index/ HTTP/1.1" 200 6971
+[22/Apr/2013 17:36:48] "GET /qtool/list/ HTTP/1.1" 200 30994
+[22/Apr/2013 17:37:09] "POST /qtool/list/ HTTP/1.1" 302 0
+[22/Apr/2013 17:37:11] "POST /qtool/list/ HTTP/1.1" 302 0
+[22/Apr/2013 17:37:11] "GET /qtool/problems/ HTTP/1.1" 200 12699
+[22/Apr/2013 17:37:11] "GET /qtool/5/simple_details.html HTTP/1.1" 200 4791
+[22/Apr/2013 17:37:20] "GET /qtool/14/ka_details.html HTTP/1.1" 200 4795
+[22/Apr/2013 17:38:18] "GET /qtool/index/ HTTP/1.1" 200 6971
+[22/Apr/2013 17:38:20] "GET /qtool/list/ HTTP/1.1" 200 30994
+[22/Apr/2013 17:38:38] "POST /qtool/list/ HTTP/1.1" 302 0
+[22/Apr/2013 17:38:38] "GET /qtool/problems/ HTTP/1.1" 200 13235
+[22/Apr/2013 17:38:42] "GET /qtool/16/ka_details.html HTTP/1.1" 200 4799
+[22/Apr/2013 17:38:43] "GET /qtool/16/ka_gen.html HTTP/1.1" 200 683
+[22/Apr/2013 17:38:43] "GET /qtool/exercises/dasererere.html HTTP/1.1" 200 812
+[22/Apr/2013 17:42:23] "GET /qtool/index/ HTTP/1.1" 200 6971
+[22/Apr/2013 17:42:25] "GET /qtool/list/ HTTP/1.1" 200 30994
+[22/Apr/2013 17:42:35] "POST /qtool/list/ HTTP/1.1" 302 0
+[22/Apr/2013 17:42:35] "GET /qtool/problems/ HTTP/1.1" 200 13768
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 17:45:14] "GET /qtool/problems/ HTTP/1.1" 200 13768
+[22/Apr/2013 17:45:15] "GET /qtool/list/ HTTP/1.1" 500 72780
+[22/Apr/2013 17:45:23] "GET /qtool/list/ HTTP/1.1" 500 73945
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 17:45:34] "GET /qtool/list/ HTTP/1.1" 200 30996
+[22/Apr/2013 17:45:44] "POST /qtool/list/ HTTP/1.1" 302 0
+[22/Apr/2013 17:45:44] "GET /qtool/problems/ HTTP/1.1" 200 14298
+[22/Apr/2013 17:45:48] "GET /qtool/18/list_details.html HTTP/1.1" 200 4793
+[22/Apr/2013 17:45:50] "GET /qtool/18/ka_gen.html HTTP/1.1" 200 671
+[22/Apr/2013 17:45:50] "GET /qtool/exercises/%20njk.html HTTP/1.1" 200 599
+[22/Apr/2013 17:47:52] "GET /qtool/list/ HTTP/1.1" 200 30996
+[22/Apr/2013 17:48:04] "POST /qtool/list/ HTTP/1.1" 302 0
+[22/Apr/2013 17:48:04] "GET /qtool/problems/ HTTP/1.1" 200 14835
+[22/Apr/2013 17:48:08] "GET /qtool/19/list_details.html HTTP/1.1" 200 4800
+[22/Apr/2013 17:48:10] "GET /qtool/19/ka_gen.html HTTP/1.1" 200 685
+[22/Apr/2013 17:48:10] "GET /qtool/exercises/%20njkjjjANNN.html HTTP/1.1" 200 606
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 17:52:28] "GET /qtool/19/list_details.html HTTP/1.1" 500 63136
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 17:52:44] "GET /qtool/19/list_details.html HTTP/1.1" 200 4800
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 17:54:22] "GET /qtool/19/list_details.html HTTP/1.1" 200 4800
+[22/Apr/2013 17:54:31] "GET /qtool/19/list_details.html HTTP/1.1" 200 4800
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 19:33:13] "GET /qtool/ HTTP/1.1" 200 4959
+[22/Apr/2013 19:33:14] "GET /qtool/problems/ HTTP/1.1" 200 14835
+[22/Apr/2013 19:33:19] "GET /qtool/19/list_details.html HTTP/1.1" 200 4800
+[22/Apr/2013 19:33:21] "GET /qtool/19/ka_gen.html HTTP/1.1" 200 685
+[22/Apr/2013 19:33:22] "GET /qtool/exercises/%20njkjjjANNN.html HTTP/1.1" 200 609
+[22/Apr/2013 19:33:57] "GET /qtool/18/list_details.html HTTP/1.1" 200 4793
+[22/Apr/2013 19:33:58] "GET /qtool/18/ka_gen.html HTTP/1.1" 200 671
+[22/Apr/2013 19:33:58] "GET /qtool/exercises/%20njk.html HTTP/1.1" 200 602
+[22/Apr/2013 19:35:05] "GET /qtool/index/ HTTP/1.1" 200 6971
+[22/Apr/2013 19:35:07] "GET /qtool/list/ HTTP/1.1" 200 30996
+[22/Apr/2013 19:35:27] "POST /qtool/list/ HTTP/1.1" 302 0
+[22/Apr/2013 19:35:28] "POST /qtool/list/ HTTP/1.1" 302 0
+[22/Apr/2013 19:35:31] "GET /qtool/problems/ HTTP/1.1" 200 15895
+[22/Apr/2013 19:35:35] "GET /qtool/20/list_details.html HTTP/1.1" 200 4793
+[22/Apr/2013 19:35:38] "GET /qtool/20/ka_gen.html HTTP/1.1" 200 671
+[22/Apr/2013 19:35:38] "GET /qtool/exercises/LISR.html HTTP/1.1" 200 620
+[22/Apr/2013 19:36:18] "GET /qtool/20/ka_gen.html HTTP/1.1" 200 671
+[22/Apr/2013 19:36:18] "GET /qtool/exercises/LISR.html HTTP/1.1" 200 620
+[22/Apr/2013 19:37:04] "GET /qtool/list/ HTTP/1.1" 200 30996
+[22/Apr/2013 19:37:15] "POST /qtool/list/ HTTP/1.1" 302 0
+[22/Apr/2013 19:37:15] "GET /qtool/problems/ HTTP/1.1" 200 16432
+[22/Apr/2013 19:37:19] "GET /qtool/22/list_details.html HTTP/1.1" 200 4800
+[22/Apr/2013 19:37:22] "GET /qtool/22/ka_gen.html HTTP/1.1" 200 685
+[22/Apr/2013 19:37:22] "GET /qtool/exercises/LIS]]]sdasd.html HTTP/1.1" 200 627
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 19:52:59] "GET /qtool/index/ HTTP/1.1" 200 6971
+[22/Apr/2013 19:53:03] "GET /qtool/problems/ HTTP/1.1" 500 74701
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 19:54:14] "GET /qtool/problems/ HTTP/1.1" 200 16432
+[22/Apr/2013 19:54:21] "GET /qtool/22/list_details.html HTTP/1.1" 500 63004
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 19:54:51] "GET /qtool/22/list_details.html HTTP/1.1" 500 63592
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 19:55:40] "GET /qtool/22/list_details.html HTTP/1.1" 500 63740
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 19:56:35] "GET /qtool/22/list_details.html HTTP/1.1" 500 63674
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 19:57:43] "GET /qtool/22/list_details.html HTTP/1.1" 500 63667
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 19:58:11] "GET /qtool/22/list_details.html HTTP/1.1" 500 63708
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 19:58:25] "GET /qtool/22/list_details.html HTTP/1.1" 500 63646
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 20:01:37] "GET /qtool/22/list_details.html HTTP/1.1" 200 4800
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 20:10:51] "GET /qtool/index/ HTTP/1.1" 200 6741
+[22/Apr/2013 20:10:54] "GET /qtool/list/ HTTP/1.1" 200 30996
+[22/Apr/2013 20:11:58] "POST /qtool/list/ HTTP/1.1" 302 0
+[22/Apr/2013 20:11:58] "GET /qtool/problems/ HTTP/1.1" 200 16960
+[22/Apr/2013 20:12:03] "GET /qtool/23/list_details.html HTTP/1.1" 500 63574
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 20:12:54] "GET /qtool/23/list_details.html HTTP/1.1" 200 4791
+[22/Apr/2013 20:12:56] "GET /qtool/23/ka_gen.html HTTP/1.1" 200 667
+[22/Apr/2013 20:12:56] "GET /qtool/exercises/DS.html HTTP/1.1" 200 742
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 20:44:28] "GET /qtool/index/ HTTP/1.1" 200 6741
+[22/Apr/2013 20:44:30] "GET /annp89/qtool/problems/ HTTP/1.1" 404 2303
+[22/Apr/2013 20:44:37] "GET /qtool/list/ HTTP/1.1" 500 74335
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+Unhandled exception in thread started by <bound method Command.inner_run of <django.contrib.staticfiles.management.commands.runserver.Command object at 0x1d13bd0>>
+Error in sys.excepthook:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/apport_python_hook.py", line 50, in apport_excepthook
+    if not enabled():
+TypeError: 'NoneType' object is not callable
+
+Original exception was:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/management/commands/runserver.py", line 111, in inner_run
+    ipv6=self.use_ipv6, threading=threading)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/servers/basehttp.py", line 253, in run
+    httpd.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 225, in serve_forever
+    r, w, e = select.select([self], [], [], poll_interval)
+AttributeError: 'NoneType' object has no attribute 'select'
+[22/Apr/2013 20:45:30] "GET /annp89/qtool/problems/ HTTP/1.1" 404 2303
+[22/Apr/2013 20:45:39] "GET /annp89/qtool/problems/ HTTP/1.1" 404 2303
+[22/Apr/2013 20:45:39] "GET /annp89/qtool/problems/ HTTP/1.1" 404 2303
+[22/Apr/2013 20:45:42] "GET /qtool/index/ HTTP/1.1" 200 6746
+[22/Apr/2013 20:45:43] "GET /home/annp89/qtool/problems/ HTTP/1.1" 500 77803
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/wsgiref/handlers.py", line 86, in run
+    self.finish_response()
+  File "/usr/lib/python2.7/wsgiref/handlers.py", line 127, in finish_response
+    self.write(data)
+  File "/usr/lib/python2.7/wsgiref/handlers.py", line 215, in write
+    self._write(data)
+  File "/usr/lib/python2.7/socket.py", line 324, in write
+    self.flush()
+  File "/usr/lib/python2.7/socket.py", line 303, in flush
+    self._sock.sendall(view[write_offset:write_offset+buffer_size])
+error: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/SocketServer.py", line 582, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python2.7/SocketServer.py", line 323, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/servers/basehttp.py", line 139, in __init__
+    super(WSGIRequestHandler, self).__init__(*args, **kwargs)
+  File "/usr/lib/python2.7/SocketServer.py", line 640, in __init__
+    self.finish()
+  File "/usr/lib/python2.7/SocketServer.py", line 693, in finish
+    self.wfile.flush()
+  File "/usr/lib/python2.7/socket.py", line 303, in flush
+    self._sock.sendall(view[write_offset:write_offset+buffer_size])
+error: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/wsgiref/handlers.py", line 86, in run
+    self.finish_response()
+  File "/usr/lib/python2.7/wsgiref/handlers.py", line 127, in finish_response
+    self.write(data)
+  File "/usr/lib/python2.7/wsgiref/handlers.py", line 215, in write
+    self._write(data)
+  File "/usr/lib/python2.7/socket.py", line 324, in write
+    self.flush()
+  File "/usr/lib/python2.7/socket.py", line 303, in flush
+    self._sock.sendall(view[write_offset:write_offset+buffer_size])
+error: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/SocketServer.py", line 582, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python2.7/SocketServer.py", line 323, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/servers/basehttp.py", line 139, in __init__
+    super(WSGIRequestHandler, self).__init__(*args, **kwargs)
+  File "/usr/lib/python2.7/SocketServer.py", line 640, in __init__
+    self.finish()
+  File "/usr/lib/python2.7/SocketServer.py", line 693, in finish
+    self.wfile.flush()
+  File "/usr/lib/python2.7/socket.py", line 303, in flush
+    self._sock.sendall(view[write_offset:write_offset+buffer_size])
+error: [Errno 32] Broken pipe
+[22/Apr/2013 20:47:35] "GET /home/annp89/qtool/problems/ HTTP/1.1" 500 77803
+[22/Apr/2013 20:48:04] "GET /home/annp89/qtool/problems/ HTTP/1.1" 500 77981
+[22/Apr/2013 20:48:06] "GET /home/annp89/qtool/problems/ HTTP/1.1" 500 77991
+[22/Apr/2013 20:48:56] "GET /home/annp89/qtool/problems/ HTTP/1.1" 500 77991
+[22/Apr/2013 20:49:48] "GET /home/annp89/qtool/problems/ HTTP/1.1" 500 77991
+[22/Apr/2013 20:49:51] "GET /home/annp89/qtool/problems/ HTTP/1.1" 500 77991
+[22/Apr/2013 20:50:08] "GET /home/annp89/qtool/problems/ HTTP/1.1" 500 77692
+[22/Apr/2013 20:51:00] "GET /home/annp89/qtool/problems/ HTTP/1.1" 500 77692
+[22/Apr/2013 20:51:05] "GET /qtool/list/ HTTP/1.1" 500 76719
+[22/Apr/2013 20:51:20] "GET /qtool/list/ HTTP/1.1" 500 76722
+[22/Apr/2013 20:52:45] "GET /qtool/list/ HTTP/1.1" 500 76712
+[22/Apr/2013 20:52:51] "GET /qtool/list/ HTTP/1.1" 500 76722
+[22/Apr/2013 20:52:55] "GET /qtool/list/ HTTP/1.1" 500 76776
+[22/Apr/2013 20:53:48] "GET /qtool/list/ HTTP/1.1" 500 76722
+[22/Apr/2013 20:54:30] "GET /qtool/list/ HTTP/1.1" 500 76722
+[22/Apr/2013 20:54:59] "GET /qtool/list/ HTTP/1.1" 200 30996
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+----------------------------------------
+Exception happened during processing of request from ('204.111.163.202', 63042)
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('204.111.163.202', 63044)
+----------------------------------------
+[22/Apr/2013 20:55:16] "GET /qtool/list/ HTTP/1.1" 500 76690
+[22/Apr/2013 20:55:49] "GET /qtool/list/ HTTP/1.1" 500 76723
+[22/Apr/2013 20:56:01] "GET /qtool/list/ HTTP/1.1" 200 30996
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 20:56:23] "GET /qtool/list/ HTTP/1.1" 500 76713
+[22/Apr/2013 20:56:45] "GET /qtool/list/ HTTP/1.1" 500 76723
+[22/Apr/2013 20:57:50] "GET /qtool/list/ HTTP/1.1" 200 30996
+[22/Apr/2013 20:58:05] "GET /qtool/list/ HTTP/1.1" 200 30996
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 20:58:19] "GET /qtool/list/ HTTP/1.1" 200 30996
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 20:58:28] "GET /qtool/list/ HTTP/1.1" 200 30996
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 20:58:35] "GET /qtool/list/ HTTP/1.1" 200 30996
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 21:01:39] "POST /qtool/list/ HTTP/1.1" 302 0
+[22/Apr/2013 21:01:39] "GET /qtool/problems/ HTTP/1.1" 200 17491
+[22/Apr/2013 21:01:43] "GET /qtool/24/list_details.html HTTP/1.1" 500 63510
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 21:02:26] "GET /qtool/24/list_details.html HTTP/1.1" 500 63530
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 21:05:39] "GET /qtool/24/list_details.html HTTP/1.1" 200 4794
+[22/Apr/2013 21:05:40] "GET /qtool/24/ka_gen.html HTTP/1.1" 200 673
+[22/Apr/2013 21:05:40] "GET /qtool/exercises/TRIAL.html HTTP/1.1" 200 790
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 21:09:25] "GET /qtool/24/ka_gen.html HTTP/1.1" 200 673
+[22/Apr/2013 21:09:25] "GET /qtool/khan-exercise.js HTTP/1.1" 304 0
+[22/Apr/2013 21:09:25] "GET /qtool/css/khan-exercise.css HTTP/1.1" 304 0
+[22/Apr/2013 21:09:25] "GET /qtool/css/khan-site.css HTTP/1.1" 304 0
+[22/Apr/2013 21:09:25] "GET /qtool/exercises/TRIAL.html HTTP/1.1" 200 788
+[22/Apr/2013 21:09:25] "GET /qtool/utils/answer-types.js HTTP/1.1" 304 0
+[22/Apr/2013 21:09:25] "GET /qtool/utils/tmpl.js HTTP/1.1" 304 0
+[22/Apr/2013 21:09:25] "GET /qtool/utils/underscore.js HTTP/1.1" 304 0
+[22/Apr/2013 21:09:25] "GET /qtool/utils/math.js HTTP/1.1" 304 0
+[22/Apr/2013 21:09:25] "GET /qtool/utils/jquery.adhesion.js HTTP/1.1" 304 0
+[22/Apr/2013 21:09:25] "GET /qtool/exercises/khan-site.html HTTP/1.1" 304 0
+[22/Apr/2013 21:11:07] "GET /qtool/24/list_details.html HTTP/1.1" 200 4794
+[22/Apr/2013 21:11:10] "GET /qtool/24/ka_gen.html HTTP/1.1" 200 673
+[22/Apr/2013 21:11:10] "GET /qtool/khan-exercise.js HTTP/1.1" 304 0
+[22/Apr/2013 21:11:11] "GET /qtool/css/khan-exercise.css HTTP/1.1" 304 0
+[22/Apr/2013 21:11:11] "GET /qtool/css/khan-site.css HTTP/1.1" 304 0
+[22/Apr/2013 21:11:11] "GET /qtool/exercises/TRIAL.html HTTP/1.1" 200 788
+[22/Apr/2013 21:11:11] "GET /qtool/utils/jquery.adhesion.js HTTP/1.1" 304 0
+[22/Apr/2013 21:11:11] "GET /qtool/utils/underscore.js HTTP/1.1" 304 0
+[22/Apr/2013 21:11:11] "GET /qtool/utils/raphael.js HTTP/1.1" 304 0
+[22/Apr/2013 21:11:11] "GET /qtool/utils/math.js HTTP/1.1" 304 0
+[22/Apr/2013 21:11:11] "GET /qtool/utils/tmpl.js HTTP/1.1" 304 0
+[22/Apr/2013 21:11:11] "GET /qtool/utils/answer-types.js HTTP/1.1" 304 0
+[22/Apr/2013 21:11:11] "GET /qtool/exercises/khan-site.html HTTP/1.1" 304 0
+[22/Apr/2013 21:11:23] "GET /qtool/24/ka_gen.html HTTP/1.1" 200 673
+[22/Apr/2013 21:11:23] "GET /qtool/khan-exercise.js HTTP/1.1" 304 0
+[22/Apr/2013 21:11:23] "GET /qtool/khan-exercise.js HTTP/1.1" 304 0
+[22/Apr/2013 21:11:23] "GET /qtool/css/khan-exercise.css HTTP/1.1" 304 0
+[22/Apr/2013 21:11:23] "GET /qtool/css/khan-site.css HTTP/1.1" 304 0
+[22/Apr/2013 21:11:24] "GET /qtool/exercises/TRIAL.html HTTP/1.1" 200 788
+[22/Apr/2013 21:11:24] "GET /qtool/utils/answer-types.js HTTP/1.1" 304 0
+[22/Apr/2013 21:11:24] "GET /qtool/utils/tmpl.js HTTP/1.1" 304 0
+[22/Apr/2013 21:11:24] "GET /qtool/utils/jquery.adhesion.js HTTP/1.1" 304 0
+[22/Apr/2013 21:11:24] "GET /qtool/utils/math.js HTTP/1.1" 304 0
+[22/Apr/2013 21:11:24] "GET /qtool/utils/raphael.js HTTP/1.1" 304 0
+[22/Apr/2013 21:11:24] "GET /qtool/utils/underscore.js HTTP/1.1" 304 0
+[22/Apr/2013 21:11:24] "GET /qtool/exercises/khan-site.html HTTP/1.1" 304 0
+[22/Apr/2013 21:11:33] "GET /qtool/24/ka_gen.html HTTP/1.1" 200 673
+[22/Apr/2013 21:11:33] "GET /qtool/khan-exercise.js HTTP/1.1" 304 0
+[22/Apr/2013 21:11:33] "GET /qtool/khan-exercise.js HTTP/1.1" 304 0
+[22/Apr/2013 21:11:34] "GET /qtool/css/khan-exercise.css HTTP/1.1" 304 0
+[22/Apr/2013 21:11:34] "GET /qtool/css/khan-site.css HTTP/1.1" 304 0
+[22/Apr/2013 21:11:34] "GET /qtool/exercises/TRIAL.html HTTP/1.1" 200 792
+[22/Apr/2013 21:11:34] "GET /qtool/utils/answer-types.js HTTP/1.1" 304 0
+[22/Apr/2013 21:11:34] "GET /qtool/utils/tmpl.js HTTP/1.1" 304 0
+[22/Apr/2013 21:11:34] "GET /qtool/utils/jquery.adhesion.js HTTP/1.1" 304 0
+[22/Apr/2013 21:11:34] "GET /qtool/utils/math.js HTTP/1.1" 304 0
+[22/Apr/2013 21:11:34] "GET /qtool/utils/raphael.js HTTP/1.1" 304 0
+[22/Apr/2013 21:11:34] "GET /qtool/utils/underscore.js HTTP/1.1" 304 0
+[22/Apr/2013 21:11:34] "GET /qtool/exercises/khan-site.html HTTP/1.1" 304 0
+[22/Apr/2013 21:11:55] "GET /qtool/index/ HTTP/1.1" 200 6746
+[22/Apr/2013 21:11:58] "GET /qtool/list/ HTTP/1.1" 200 30996
+[22/Apr/2013 21:12:00] "GET /qtool/problems/ HTTP/1.1" 200 17491
+[22/Apr/2013 21:12:04] "GET /qtool/edit/24/ HTTP/1.1" 200 26650
+[22/Apr/2013 21:12:14] "POST /qtool/edit/24/ HTTP/1.1" 200 26472
+[22/Apr/2013 21:12:21] "POST /qtool/edit/24/ HTTP/1.1" 200 26472
+[22/Apr/2013 21:12:29] "GET /qtool/ HTTP/1.1" 200 4959
+[22/Apr/2013 21:12:34] "GET /qtool/index/ HTTP/1.1" 200 6746
+[22/Apr/2013 21:12:42] "GET /qtool/list/ HTTP/1.1" 200 30996
+[22/Apr/2013 21:13:47] "POST /qtool/list/ HTTP/1.1" 302 0
+[22/Apr/2013 21:13:47] "GET /qtool/problems/ HTTP/1.1" 200 18022
+[22/Apr/2013 21:13:50] "GET /qtool/25/list_details.html HTTP/1.1" 200 4794
+[22/Apr/2013 21:13:51] "GET /qtool/25/ka_gen.html HTTP/1.1" 200 673
+[22/Apr/2013 21:13:51] "GET /qtool/exercises/Trial.html HTTP/1.1" 200 789
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings 'quiz.settings'
+Development server is running at http://0.0.0.0:8082/
+Quit the server with CONTROL-C.
+[22/Apr/2013 22:43:35] "GET /qtool/ HTTP/1.1" 200 4959
+[22/Apr/2013 22:43:38] "GET /qtool/problems/ HTTP/1.1" 200 18022
+[22/Apr/2013 22:43:44] "GET /qtool/25/list_details.html HTTP/1.1" 200 4794
+[22/Apr/2013 22:43:46] "GET /qtool/25/ka_gen.html HTTP/1.1" 500 61643
+[22/Apr/2013 22:44:35] "GET /qtool/25/list_details.html HTTP/1.1" 200 4794
+[22/Apr/2013 22:44:37] "GET /qtool/25/ka_gen.html HTTP/1.1" 200 645
+[22/Apr/2013 22:44:37] "GET /qtool/css/khan-exercise.css HTTP/1.1" 200 10900
+[22/Apr/2013 22:44:37] "GET /qtool/exercises/Trial.html HTTP/1.1" 200 789
+[22/Apr/2013 22:44:37] "GET /qtool/css/images/face-smiley.gif HTTP/1.1" 200 1310
+[22/Apr/2013 22:44:37] "GET /qtool/css/images/throbber.gif HTTP/1.1" 200 673
+[22/Apr/2013 22:44:37] "GET /qtool/css/images/face-sad.gif HTTP/1.1" 200 1318
+[22/Apr/2013 22:44:37] "GET /qtool/css/images/non-repeating-sprites.3.png HTTP/1.1" 200 67151
+[22/Apr/2013 22:45:54] "GET /qtool/index/ HTTP/1.1" 200 6746
+[22/Apr/2013 22:45:57] "GET /home/annp89/qtool/problems/ HTTP/1.1" 200 18022
+[22/Apr/2013 22:46:00] "GET /qtool/delete/4/ HTTP/1.1" 302 0
+[22/Apr/2013 22:46:00] "GET /qtool/problems/ HTTP/1.1" 200 17497
+[22/Apr/2013 22:46:02] "GET /qtool/delete/5/ HTTP/1.1" 302 0
+[22/Apr/2013 22:46:02] "GET /qtool/problems/ HTTP/1.1" 200 16971
+[22/Apr/2013 22:46:04] "GET /qtool/delete/6/ HTTP/1.1" 302 0
+[22/Apr/2013 22:46:04] "GET /qtool/problems/ HTTP/1.1" 200 16445
+[22/Apr/2013 22:46:04] "GET /qtool/delete/7/ HTTP/1.1" 302 0
+[22/Apr/2013 22:46:04] "GET /qtool/problems/ HTTP/1.1" 200 15919
+[22/Apr/2013 22:46:05] "GET /qtool/delete/18/ HTTP/1.1" 302 0
+[22/Apr/2013 22:46:05] "GET /qtool/problems/ HTTP/1.1" 200 15389
+[22/Apr/2013 22:46:06] "GET /qtool/edit/19/ HTTP/1.1" 200 26548
+[22/Apr/2013 22:46:13] "GET /qtool/edit/24/ HTTP/1.1" 200 26650
+[22/Apr/2013 22:46:21] "GET /qtool/edit/19/ HTTP/1.1" 200 26548
+[22/Apr/2013 22:46:25] "GET /qtool/delete/19/ HTTP/1.1" 302 0
+[22/Apr/2013 22:46:25] "GET /qtool/problems/ HTTP/1.1" 200 14852
+[22/Apr/2013 22:46:26] "GET /qtool/delete/20/ HTTP/1.1" 302 0
+[22/Apr/2013 22:46:27] "GET /qtool/problems/ HTTP/1.1" 200 14322
+[22/Apr/2013 22:46:27] "GET /qtool/delete/21/ HTTP/1.1" 302 0
+[22/Apr/2013 22:46:28] "GET /qtool/problems/ HTTP/1.1" 200 13792
+[22/Apr/2013 22:46:29] "GET /qtool/delete/22/ HTTP/1.1" 302 0
+[22/Apr/2013 22:46:29] "GET /qtool/problems/ HTTP/1.1" 200 13255
+[22/Apr/2013 22:46:32] "GET /qtool/delete/23/ HTTP/1.1" 302 0
+[22/Apr/2013 22:46:32] "GET /qtool/problems/ HTTP/1.1" 200 12727
+[22/Apr/2013 22:46:34] "GET /qtool/delete/24/ HTTP/1.1" 302 0
+[22/Apr/2013 22:46:34] "GET /qtool/problems/ HTTP/1.1" 200 12196
+[22/Apr/2013 22:46:35] "GET /qtool/delete/25/ HTTP/1.1" 302 0
+[22/Apr/2013 22:46:35] "GET /qtool/problems/ HTTP/1.1" 200 11665
+[22/Apr/2013 22:46:36] "GET /qtool/delete/11/ HTTP/1.1" 302 0
+[22/Apr/2013 22:46:36] "GET /qtool/problems/ HTTP/1.1" 200 11134
+[22/Apr/2013 22:46:38] "GET /qtool/delete/12/ HTTP/1.1" 302 0
+[22/Apr/2013 22:46:38] "GET /qtool/problems/ HTTP/1.1" 200 10598
+[22/Apr/2013 22:46:39] "GET /qtool/delete/8/ HTTP/1.1" 302 0
+[22/Apr/2013 22:46:40] "GET /qtool/problems/ HTTP/1.1" 200 10075
+[22/Apr/2013 22:46:41] "GET /qtool/delete/9/ HTTP/1.1" 302 0
+[22/Apr/2013 22:46:41] "GET /qtool/problems/ HTTP/1.1" 200 9549
+[22/Apr/2013 22:46:42] "GET /qtool/delete/10/ HTTP/1.1" 302 0
+[22/Apr/2013 22:46:42] "GET /qtool/problems/ HTTP/1.1" 200 9016
+[22/Apr/2013 22:46:44] "GET /qtool/delete/13/ HTTP/1.1" 302 0
+[22/Apr/2013 22:46:44] "GET /qtool/problems/ HTTP/1.1" 200 8486
+[22/Apr/2013 22:46:45] "GET /qtool/delete/14/ HTTP/1.1" 302 0
+[22/Apr/2013 22:46:45] "GET /qtool/problems/ HTTP/1.1" 200 7954
+[22/Apr/2013 22:46:47] "GET /qtool/delete/15/ HTTP/1.1" 302 0
+[22/Apr/2013 22:46:47] "GET /qtool/problems/ HTTP/1.1" 200 7422
+[22/Apr/2013 22:46:49] "GET /qtool/delete/16/ HTTP/1.1" 302 0
+[22/Apr/2013 22:46:49] "GET /qtool/problems/ HTTP/1.1" 200 6886
+[22/Apr/2013 22:46:50] "GET /qtool/delete/3/ HTTP/1.1" 302 0
+[22/Apr/2013 22:46:50] "GET /qtool/problems/ HTTP/1.1" 200 6346
+[22/Apr/2013 22:46:51] "GET /qtool/delete/17/ HTTP/1.1" 302 0
+[22/Apr/2013 22:46:51] "GET /qtool/problems/ HTTP/1.1" 200 5813
