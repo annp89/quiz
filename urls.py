@@ -3,6 +3,7 @@ from django.views.generic import TemplateView
 
 urlpatterns = patterns('',
 	url(r'^$', TemplateView.as_view(template_name = "qtool/splashpage.html")),
+	url(r'^/$', TemplateView.as_view(template_name = "qtool/splashpage.html")),
 	url(r'^add/$',  'qtool.views.index'),
 	url(r'^simple/$',  'qtool.views.simple'),	
 	url(r'^list/$',  'qtool.views.list'),
