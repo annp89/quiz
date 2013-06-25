@@ -9,18 +9,23 @@ from django.core.management.base import BaseCommand, CommandError
 from django.forms.models import inlineformset_factory, BaseInlineFormSet
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+from django.core.servers.basehttp import FileWrapper
+
 from qbank.forms import *
 from qbank.models import *
 
 import mimetypes
-from django.core.servers.basehttp import FileWrapper
 import csv
 import os
 
+def splashpage(request):
+	#This class redirects the user to the initial QBank home page.
+	return HttpResponseRedirect('splashpage')
 
+#Remove the comment on the following line when login ids are made with Apache.
 #@login_required
 def index(request):
-    # This class is used to make empty formset forms required
+    # This class is the form for a Khan Academy exercise problem
 	class RequiredFormSet(BaseFormSet):
 		def __init__(self, *args, **kwargs):
 			super(RequiredFormSet, self).__init__(*args, **kwargs)
@@ -90,7 +95,7 @@ def index(request):
 
 #@login_required
 def edit(request, problem_id):
-
+	#This class is for editing forms for any problem type
 	problem = get_object_or_404(Problem, id=problem_id)
 
 	class RequiredFormSet(BaseFormSet):
@@ -191,33 +196,30 @@ def edit(request, problem_id):
 	c.update(csrf(request))
 	return render_to_response('edit.html', c)
 
-def splashpage(request):
-	return HttpResponseRedirect('splashpage')
+	
 
 
 
 def problems(request):
+	#This class shows the user all the authored problems in QBank
 	problems = Problem.objects.all()
 	context = Context({'problems':problems})
 	return render_to_response('problems.html', context, context_instance=RequestContext(request))
 
 
 def ka_error(request, problem_id):
+	#This class redirects to an error page if the authored problem isnt written correctly
 	problems = Problem.objects.all()
 	p = get_object_or_404(Problem, id=problem_id)
 	context = Context({'p':p})
 	return render_to_response('ka_error.html', context)
 
 def export(request):
+	#This class shows the user all the problems in QBank that can be exported to Khan Academy format or CSV
 	problems = Problem.objects.all()
 	context = Context({'problems':problems})
 	return render_to_response('export.html', context)
 
-
-def problems_Summary(request):
-	problems = Problem.objects.all()
-	context = Context({'problems':problems})
-	return render_to_response('problems_Summary.html', context)
 
 def ka_details(request, problem_id):
 	p = get_object_or_404(Problem, id=problem_id)
@@ -312,52 +314,6 @@ def ka_details(request, problem_id):
 #		'hint':h
 	})
 	return render_to_response('ka_details.html', context)
-
-
-
-#@login_required
-def simple_details(request, problem_id):
-	p = get_object_or_404(Problem, id=problem_id)
-	q = ProblemTemplate.objects.get(problem = p)
-#	v = Variable.objects.get(problem = p)
-	s = Answer.objects.get(problem = p)
-#	c = Choice.objects.get(problem = p)
-	h = p.hint_set.all()
-	destination = open("/home/OpenDSA/exercises/"+p.title+".html", 'wb+')
-	
-	str ="<!DOCTYPE html><html data-require=\"math math-format word-problems spin\"><head>"+"\n"+"<title>"+"\n"+p.title+"</title>"+"\n"+"<script src=\"../../lib/jquery.min.js\">"+"\n"+"</script>"+"\n"+"<script src=\"../../lib/jquery-ui.min.js\">"+"\n"+"</script>"+"\n"+"<script>urlBaseOverride = \"../../ODSAkhan-exercises/\";</script>"+"\n"+"<script src=\"../../lib/khan-exercise-min.js\">"+"\n"+"</script>"+"\n"+"</head><body><div class=\"exercise\"><div class=\"vars\"></div><div class=\"problems\"><div id=\"problem-type-or-description\"><p class=\"question\">"
-	str += q.question
-	str += "</p>"
-	str += "<div class=\"solution\"><var>\""
-	str += s.solution
-	str += "\"</var></div>"
-	str += "<ul class =\"choices\">"
-	for c in p.choice_set.all():
-		str += "<li><var>\""
-		str += c.choice
-		str += "\"</var></li>"
-	str += "</ul>"
-	str += "<div class=\"hints\">"
-	for h in p.hint_set.all():
-		str += "<p>\""
-		str += h.hint
-		str += "\"</p>"
-	str += "</div>"
-	str += "</div></div></div></body>"+"\n"+"<script type=\"text/javascript\"src=\"http://cdn.mathjax.org/mathjax/1.1-latest/MathJax.js?config=http://algoviz.org/OpenDSA/ODSAkhan-exercises/KAthJax-77111459c7d82564a705f9c5480e2c88.js\">"+"\n"+"</script>"+"</html>"	
-
-	destination.write(bytes(str))
-	destination.close()
-
-	context = Context({
-		'p':p,
-		'title':p.title,	
-		'question':q,
-		'solution':s,
-	#	'choice':c,
-#		'hint':h
-	})
-	return render_to_response('simple_details.html', context)
-
 
 def edit_ka(request, problem_id):
 
@@ -462,6 +418,52 @@ def edit_ka(request, problem_id):
 	return render_to_response('edit.html', c)
 
 
+#@login_required
+def simple_details(request, problem_id):
+	p = get_object_or_404(Problem, id=problem_id)
+	q = ProblemTemplate.objects.get(problem = p)
+#	v = Variable.objects.get(problem = p)
+	s = Answer.objects.get(problem = p)
+#	c = Choice.objects.get(problem = p)
+	h = p.hint_set.all()
+	destination = open("/home/OpenDSA/exercises/"+p.title+".html", 'wb+')
+	
+	str ="<!DOCTYPE html><html data-require=\"math math-format word-problems spin\"><head>"+"\n"+"<title>"+"\n"+p.title+"</title>"+"\n"+"<script src=\"../../lib/jquery.min.js\">"+"\n"+"</script>"+"\n"+"<script src=\"../../lib/jquery-ui.min.js\">"+"\n"+"</script>"+"\n"+"<script>urlBaseOverride = \"../../ODSAkhan-exercises/\";</script>"+"\n"+"<script src=\"../../lib/khan-exercise-min.js\">"+"\n"+"</script>"+"\n"+"</head><body><div class=\"exercise\"><div class=\"vars\"></div><div class=\"problems\"><div id=\"problem-type-or-description\"><p class=\"question\">"
+	str += q.question
+	str += "</p>"
+	str += "<div class=\"solution\"><var>\""
+	str += s.solution
+	str += "\"</var></div>"
+	str += "<ul class =\"choices\">"
+	for c in p.choice_set.all():
+		str += "<li><var>\""
+		str += c.choice
+		str += "\"</var></li>"
+	str += "</ul>"
+	str += "<div class=\"hints\">"
+	for h in p.hint_set.all():
+		str += "<p>\""
+		str += h.hint
+		str += "\"</p>"
+	str += "</div>"
+	str += "</div></div></div></body>"+"\n"+"<script type=\"text/javascript\"src=\"http://cdn.mathjax.org/mathjax/1.1-latest/MathJax.js?config=http://algoviz.org/OpenDSA/ODSAkhan-exercises/KAthJax-77111459c7d82564a705f9c5480e2c88.js\">"+"\n"+"</script>"+"</html>"	
+
+	destination.write(bytes(str))
+	destination.close()
+
+	context = Context({
+		'p':p,
+		'title':p.title,	
+		'question':q,
+		'solution':s,
+	#	'choice':c,
+#		'hint':h
+	})
+	return render_to_response('simple_details.html', context)
+
+
+
+
 def edit_simple(request, problem_id):
 
 	problem = get_object_or_404(Problem, id=problem_id)
@@ -537,266 +539,9 @@ def edit_simple(request, problem_id):
 	c.update(csrf(request))
 	return render_to_response('simple.html', c)
 
-def edit_list(request, problem_id):
-
-	problem = get_object_or_404(Problem, id=problem_id)
-
-	class RequiredFormSet(BaseFormSet):
-		def __init__(self, *args, **kwargs):
-			super(RequiredFormSet, self).__init__(*args, **kwargs)
-			for form in self.forms:
-				form.empty_permitted = True
-	class MyInline(BaseInlineFormSet): 
-   		def __init__(self, *args, **kwargs): 
-			super(MyInline, self).__init__(*args, **kwargs) 
-			self.can_delete = False 
-
 	
 	
-	maxpt = max(0, len(ProblemTemplate.objects.filter(problem=problem)))
-	ProblemTemplateInlineFormSet = inlineformset_factory(Problem, ProblemTemplate, max_num=maxpt)
-	maxa = max(0, len(Answer.objects.filter(problem=problem)))
-
-	AnswerInlineFormSet = inlineformset_factory(Problem, Answer, max_num =maxa)
-	maxv = max(0, len(Variable.objects.filter(problem=problem)))
-
-	VariableInlineFormSet = inlineformset_factory(Problem, Variable, max_num=maxv)
-		
-	maxh = max(0, len(Hint.objects.filter(problem=problem)))
-
-	HintInlineFormSet = inlineformset_factory(Problem, Hint, max_num=maxh)
-	if request.method == 'POST':
-		problem_form =ProblemForm(request.POST, instance=problem)
-		problem_template_formset = ProblemTemplateInlineFormSet(request.POST,request.FILES, instance=problem, prefix='templates')
-
-		answer_formset = AnswerInlineFormSet(request.POST, instance=problem, prefix='answer')
-
-		hint_formset = HintInlineFormSet(request.POST, request.FILES, instance=problem,  prefix='hints')
-		variable_formset = VariableInlineFormSet(request.POST, request.FILES,instance=problem, prefix='variables')
-		
-		if problem_form.is_valid() and variable_formset.is_valid() and problem_template_formset.is_valid() and hint_formset.is_valid() and answer_formset.is_valid():
-			problem = problem_form.save()
-			answer_formset.save(commit = False)
-			problem_template_formset.save(commit =False)
-			variable_formset.save(commit = False)
-
-
-			for form in hint_formset.forms:
-				hint = form.save(commit = False)
-				hint.problem = problem
-				hint.save()
-
-
-			return HttpResponseRedirect('/qbank/problems/')
-	else:
-		problem_form = ProblemForm(instance=problem)
-		
-		problem_template_formset = ProblemTemplateInlineFormSet( instance=problem, prefix='templates')
-
-		answer_formset = AnswerInlineFormSet(instance=problem, prefix='answer')
-		
-		variable_formset = VariableInlineFormSet(instance=problem, prefix='variables')
-		hint_formset = HintInlineFormSet( instance=problem, prefix='hints')
-
-		
-	c = {
-	'problem_form' : problem_form,
-	'problem_template_formset' :problem_template_formset,
-	'answer_formset': answer_formset,
-	'variable_formset' : variable_formset,
-	'hint_formset' : hint_formset,	
-    	}
-	c.update(csrf(request))
-	return render_to_response('list.html', c, context_instance=RequestContext(request))
-
-
-def edit_range(request, problem_id):
-
-	problem = get_object_or_404(Problem, id=problem_id)
-
-	class RequiredFormSet(BaseFormSet):
-		def __init__(self, *args, **kwargs):
-			super(RequiredFormSet, self).__init__(*args, **kwargs)
-			for form in self.forms:
-				form.empty_permitted = True
-	class MyInline(BaseInlineFormSet): 
-   		def __init__(self, *args, **kwargs): 
-			super(MyInline, self).__init__(*args, **kwargs) 
-			self.can_delete = False 
-
 	
-	
-	maxpt = max(0, len(ProblemTemplate.objects.filter(problem=problem)))
-	ProblemTemplateInlineFormSet = inlineformset_factory(Problem, ProblemTemplate, max_num=maxpt)
-	maxa = max(0, len(Answer.objects.filter(problem=problem)))
-
-	AnswerInlineFormSet = inlineformset_factory(Problem, Answer, max_num =maxa)
-	maxv = max(0, len(Variable.objects.filter(problem=problem)))
-
-	VariableInlineFormSet = inlineformset_factory(Problem, Variable, max_num=maxv)
-		
-	
-	if request.method == 'POST':
-		problem_form =ProblemForm(request.POST, instance=problem)
-		problem_template_formset = ProblemTemplateInlineFormSet(request.POST,request.FILES, instance=problem, prefix='templates')
-
-		answer_formset = AnswerInlineFormSet(request.POST, instance=problem, prefix='answer')
-
-		variable_formset = VariableInlineFormSet(request.POST, request.FILES, prefix='variables', instance=problem)
-		
-		if problem_form.is_valid() and variable_formset.is_valid() and problem_template_formset.is_valid() and answer_formset.is_valid():
-			problem = problem_form.save()
-			answer_formset.save(commit = False)
-			problem_template_formset.save(commit =False)
-
-			for form in variable_formset.forms:
-				variable = form.save(commit = False)
-				variable.problem = problem
-				variable.save()
-
-			return HttpResponseRedirect('/qbank/problems/')
-	else:
-		problem_form = ProblemForm(instance=problem)
-		
-		problem_template_formset = ProblemTemplateInlineFormSet(instance=problem, prefix='templates')
-
-		answer_formset = AnswerInlineFormSet(instance=problem, prefix='answer')
-		
-		variable_formset = VariableInlineFormSet(instance=problem, prefix='variables')
-
-
-		
-	c = {
-	'problem_form' : problem_form,
-	'problem_template_formset' :problem_template_formset,
-	'answer_formset': answer_formset,
-	'variable_formset' : variable_formset,
-    	}
-	c.update(csrf(request))
-	return render_to_response('range.html', c)
-
-
-def edit_summative(request, problem_id):
-
-	problem = get_object_or_404(Problem, id=problem_id)
-
-	class RequiredFormSet(BaseFormSet):
-		def __init__(self, *args, **kwargs):
-			super(RequiredFormSet, self).__init__(*args, **kwargs)
-			for form in self.forms:
-				form.empty_permitted = True
-	class MyInline(BaseInlineFormSet): 
-   		def __init__(self, *args, **kwargs): 
-			super(MyInline, self).__init__(*args, **kwargs) 
-			self.can_delete = False 
-
-	
-	problems = Problem.objects.all()
-	maxpt = max(0, len(ProblemTemplate.objects.filter(problem=problem)))
-	ProblemTemplateInlineFormSet = inlineformset_factory(Problem, ProblemTemplate, max_num=maxpt)
-	maxc = max(0, len(CommonIntroduction.objects.filter(problem=problem)))
-
-	CommonIntroductionFormSet =  inlineformset_factory(Problem, CommonIntroduction, max_num =maxc )
-
-	if request.method == 'POST':
-		problem_form =ProblemForm(request.POST, instance=problem)
-		problem_template_formset = ProblemTemplateInlineFormSet(request.POST,request.FILES, prefix='templates', instance=problem )
-		common_introduction_formset = CommonIntroductionFormSet(request.POST, request.FILES, prefix='common_intro', instance =problem)
-		
-		if problem_form.is_valid() and problem_template_formset.is_valid() and common_introduction_formset.is_valid() :
-			problem = problem_form.save()
-			
-			common_introduction_formset.save(commit = False)
-			
-			for form in problem_template_formset.forms:
-				problem_template = form.save(commit = False)
-				problem_template.problem = problem
-				problem_template.save()
-
-			
-			return HttpResponseRedirect('/qbank/problems/')
-	else:
-		problem_form = ProblemForm(instance=problem)
-		
-		problem_template_formset = ProblemTemplateInlineFormSet(instance=problem, prefix='templates')
-		common_introduction_formset = CommonIntroductionFormSet(instance=problem, prefix='common_intro')
-
-		
-	c = {
-	'problem_form' : problem_form,
-	'problem_template_formset' :problem_template_formset,
-	'common_introduction_formset' : common_introduction_formset,
-	'problems' : problems,
-    	}
-	c.update(csrf(request))
-	return render_to_response('summative.html', c)
-
-
-#@login_required
-def summative_details(request, problem_id):
-	p = get_object_or_404(Problem, id=problem_id)
-	q = ProblemTemplate.objects.filter(problem = p)
-#	v = Variable.objects.get(problem = p)
-#	s = Answer.objects.get(problem = p)
-#	c = Choice.objects.get(problem = p)
-#	h = p.hint_set.all()
-	destination = open('/home/OpenDSA/exercises/'+p.title+'.html', 'wb+')
-
-	str ="<!DOCTYPE html>"+"\n"+"<html data-require=\"math math-format word-problems spin\">"+"\n"+"<head>"+"\n"+"<title>"+"\n"+p.title+"</title>"+"\n"+"<script src=\"../../lib/jquery.min.js\">"+"\n"+"</script>"+"\n"+"<script src=\"../../lib/jquery-ui.min.js\">"+"\n"+"</script>"+"\n"+"<script>urlBaseOverride = \"../../ODSAkhan-exercises/\";</script>"+"\n"+"<script src=\"../../lib/khan-exercise-min.js\">"+"\n"+"</script>"+"\n"+"</head>"+"\n"+"<body>"+"\n"
-	
-	for c in p.problemtemplate_set.all():
-		str += "<div class=\"exercise\" data-name=\"exercises/"
-		str += c.question
-		str += "\">"
-		str += "</div>"+"\n"
-	str += "</body>"+"\n"+"<script type=\"text/javascript\"src=\"http://cdn.mathjax.org/mathjax/1.1-latest/MathJax.js?config=http://algoviz.org/OpenDSA/ODSAkhan-exercises/KAthJax-77111459c7d82564a705f9c5480e2c88.js\">"+"\n"+"</script>"+"</html>"
-	destination.write(bytes(str))
-	destination.close()
-
-
-	context = Context({
-		'p':p,
-		'title':p.title,	
-		'question':q,
-	#	'solution':s,
-	#	'choice':c,
-#		'hint':h
-	})
-	return render_to_response('summative_details.html', context)
-
-#@login_required
-def ka_gen(request, problem_id):
-
-	p = get_object_or_404(Problem, id=problem_id)
-	q = ProblemTemplate.objects.filter(problem = p)
-#	v = Variable.objects.get(problem = p)
-#	s = Answer.objects.get(problem = p)
-#	c = Choice.objects.get(problem = p)
-#	h = p.hint_set.all()
-	destination = open('/home/OpenDSA/temp/'+p.title+'_View.html', 'wb+')
-
-	str ="<!DOCTYPE html>"+"\n"+"<html data-require=\"math math-format word-problems spin\">"+"\n"+"<head>"+"\n"+"<title>"+"\n"+p.title+"</title>"+"\n"+"<script src=\"../../lib/jquery.min.js\">"+"\n"+"</script>"+"\n"+"<script src=\"../../lib/jquery-ui.min.js\">"+"\n"+"</script>"+"\n"+"<script>urlBaseOverride = \"../../ODSAkhan-exercises/\";</script>"+"\n"+"<script src=\"../../lib/khan-exercise-min.js\">"+"\n"+"</script>"+"\n"+"</head>"+"\n"+"<body>"+"\n"
-	
-	
-	str += "<div class=\"exercise\" data-name=\"/exercises/"
-	str += p.title
-	str += "\">"
-	str += "\n"+"</div>"
-	str +="</body>"+"\n"+"<script type=\"text/javascript\" src=\"http://cdn.mathjax.org/mathjax/1.1-latest/MathJax.js?config=http://algoviz.org/OpenDSA/ODSAkhan-exercises/KAthJax-77111459c7d82564a705f9c5480e2c88.js\">"+"</script>"+"</html>"
-	destination.write(bytes(str))
-	destination.close()
-
-
-	context = Context({
-		'p':p,
-		'title':p.title,	
-		'question':q,
-	#	'solution':s,
-	#	'choice':c,
-#		'hint':h
-	})
-	return render_to_response('ka_gen.html', context)
-
 #@login_required
 def range_details(request, problem_id):
 	p = get_object_or_404(Problem, id=problem_id)
@@ -949,6 +694,271 @@ def list_details(request, problem_id):
 	})
 	return render_to_response('list_details.html', context, context_instance=RequestContext(request))
 
+	
+	
+	
+def edit_list(request, problem_id):
+
+	problem = get_object_or_404(Problem, id=problem_id)
+
+	class RequiredFormSet(BaseFormSet):
+		def __init__(self, *args, **kwargs):
+			super(RequiredFormSet, self).__init__(*args, **kwargs)
+			for form in self.forms:
+				form.empty_permitted = True
+	class MyInline(BaseInlineFormSet): 
+   		def __init__(self, *args, **kwargs): 
+			super(MyInline, self).__init__(*args, **kwargs) 
+			self.can_delete = False 
+
+	
+	
+	maxpt = max(0, len(ProblemTemplate.objects.filter(problem=problem)))
+	ProblemTemplateInlineFormSet = inlineformset_factory(Problem, ProblemTemplate, max_num=maxpt)
+	maxa = max(0, len(Answer.objects.filter(problem=problem)))
+
+	AnswerInlineFormSet = inlineformset_factory(Problem, Answer, max_num =maxa)
+	maxv = max(0, len(Variable.objects.filter(problem=problem)))
+
+	VariableInlineFormSet = inlineformset_factory(Problem, Variable, max_num=maxv)
+		
+	maxh = max(0, len(Hint.objects.filter(problem=problem)))
+
+	HintInlineFormSet = inlineformset_factory(Problem, Hint, max_num=maxh)
+	if request.method == 'POST':
+		problem_form =ProblemForm(request.POST, instance=problem)
+		problem_template_formset = ProblemTemplateInlineFormSet(request.POST,request.FILES, instance=problem, prefix='templates')
+
+		answer_formset = AnswerInlineFormSet(request.POST, instance=problem, prefix='answer')
+
+		hint_formset = HintInlineFormSet(request.POST, request.FILES, instance=problem,  prefix='hints')
+		variable_formset = VariableInlineFormSet(request.POST, request.FILES,instance=problem, prefix='variables')
+		
+		if problem_form.is_valid() and variable_formset.is_valid() and problem_template_formset.is_valid() and hint_formset.is_valid() and answer_formset.is_valid():
+			problem = problem_form.save()
+			answer_formset.save(commit = False)
+			problem_template_formset.save(commit =False)
+			variable_formset.save(commit = False)
+
+
+			for form in hint_formset.forms:
+				hint = form.save(commit = False)
+				hint.problem = problem
+				hint.save()
+
+
+			return HttpResponseRedirect('/qbank/problems/')
+	else:
+		problem_form = ProblemForm(instance=problem)
+		
+		problem_template_formset = ProblemTemplateInlineFormSet( instance=problem, prefix='templates')
+
+		answer_formset = AnswerInlineFormSet(instance=problem, prefix='answer')
+		
+		variable_formset = VariableInlineFormSet(instance=problem, prefix='variables')
+		hint_formset = HintInlineFormSet( instance=problem, prefix='hints')
+
+		
+	c = {
+	'problem_form' : problem_form,
+	'problem_template_formset' :problem_template_formset,
+	'answer_formset': answer_formset,
+	'variable_formset' : variable_formset,
+	'hint_formset' : hint_formset,	
+    	}
+	c.update(csrf(request))
+	return render_to_response('list.html', c, context_instance=RequestContext(request))
+
+
+def edit_range(request, problem_id):
+
+	problem = get_object_or_404(Problem, id=problem_id)
+
+	class RequiredFormSet(BaseFormSet):
+		def __init__(self, *args, **kwargs):
+			super(RequiredFormSet, self).__init__(*args, **kwargs)
+			for form in self.forms:
+				form.empty_permitted = True
+	class MyInline(BaseInlineFormSet): 
+   		def __init__(self, *args, **kwargs): 
+			super(MyInline, self).__init__(*args, **kwargs) 
+			self.can_delete = False 
+
+	
+	
+	maxpt = max(0, len(ProblemTemplate.objects.filter(problem=problem)))
+	ProblemTemplateInlineFormSet = inlineformset_factory(Problem, ProblemTemplate, max_num=maxpt)
+	maxa = max(0, len(Answer.objects.filter(problem=problem)))
+
+	AnswerInlineFormSet = inlineformset_factory(Problem, Answer, max_num =maxa)
+	maxv = max(0, len(Variable.objects.filter(problem=problem)))
+
+	VariableInlineFormSet = inlineformset_factory(Problem, Variable, max_num=maxv)
+		
+	
+	if request.method == 'POST':
+		problem_form =ProblemForm(request.POST, instance=problem)
+		problem_template_formset = ProblemTemplateInlineFormSet(request.POST,request.FILES, instance=problem, prefix='templates')
+
+		answer_formset = AnswerInlineFormSet(request.POST, instance=problem, prefix='answer')
+
+		variable_formset = VariableInlineFormSet(request.POST, request.FILES, prefix='variables', instance=problem)
+		
+		if problem_form.is_valid() and variable_formset.is_valid() and problem_template_formset.is_valid() and answer_formset.is_valid():
+			problem = problem_form.save()
+			answer_formset.save(commit = False)
+			problem_template_formset.save(commit =False)
+
+			for form in variable_formset.forms:
+				variable = form.save(commit = False)
+				variable.problem = problem
+				variable.save()
+
+			return HttpResponseRedirect('/qbank/problems/')
+	else:
+		problem_form = ProblemForm(instance=problem)
+		
+		problem_template_formset = ProblemTemplateInlineFormSet(instance=problem, prefix='templates')
+
+		answer_formset = AnswerInlineFormSet(instance=problem, prefix='answer')
+		
+		variable_formset = VariableInlineFormSet(instance=problem, prefix='variables')
+
+
+		
+	c = {
+	'problem_form' : problem_form,
+	'problem_template_formset' :problem_template_formset,
+	'answer_formset': answer_formset,
+	'variable_formset' : variable_formset,
+    	}
+	c.update(csrf(request))
+	return render_to_response('range.html', c)
+
+#@login_required
+def summative_details(request, problem_id):
+	p = get_object_or_404(Problem, id=problem_id)
+	q = ProblemTemplate.objects.filter(problem = p)
+#	v = Variable.objects.get(problem = p)
+#	s = Answer.objects.get(problem = p)
+#	c = Choice.objects.get(problem = p)
+#	h = p.hint_set.all()
+	destination = open('/home/OpenDSA/exercises/'+p.title+'.html', 'wb+')
+
+	str ="<!DOCTYPE html>"+"\n"+"<html data-require=\"math math-format word-problems spin\">"+"\n"+"<head>"+"\n"+"<title>"+"\n"+p.title+"</title>"+"\n"+"<script src=\"../../lib/jquery.min.js\">"+"\n"+"</script>"+"\n"+"<script src=\"../../lib/jquery-ui.min.js\">"+"\n"+"</script>"+"\n"+"<script>urlBaseOverride = \"../../ODSAkhan-exercises/\";</script>"+"\n"+"<script src=\"../../lib/khan-exercise-min.js\">"+"\n"+"</script>"+"\n"+"</head>"+"\n"+"<body>"+"\n"
+	
+	for c in p.problemtemplate_set.all():
+		str += "<div class=\"exercise\" data-name=\"exercises/"
+		str += c.question
+		str += "\">"
+		str += "</div>"+"\n"
+	str += "</body>"+"\n"+"<script type=\"text/javascript\"src=\"http://cdn.mathjax.org/mathjax/1.1-latest/MathJax.js?config=http://algoviz.org/OpenDSA/ODSAkhan-exercises/KAthJax-77111459c7d82564a705f9c5480e2c88.js\">"+"\n"+"</script>"+"</html>"
+	destination.write(bytes(str))
+	destination.close()
+
+
+	context = Context({
+		'p':p,
+		'title':p.title,	
+		'question':q,
+	#	'solution':s,
+	#	'choice':c,
+#		'hint':h
+	})
+	return render_to_response('summative_details.html', context)
+
+	
+def edit_summative(request, problem_id):
+
+	problem = get_object_or_404(Problem, id=problem_id)
+
+	class RequiredFormSet(BaseFormSet):
+		def __init__(self, *args, **kwargs):
+			super(RequiredFormSet, self).__init__(*args, **kwargs)
+			for form in self.forms:
+				form.empty_permitted = True
+	class MyInline(BaseInlineFormSet): 
+   		def __init__(self, *args, **kwargs): 
+			super(MyInline, self).__init__(*args, **kwargs) 
+			self.can_delete = False 
+
+	
+	problems = Problem.objects.all()
+	maxpt = max(0, len(ProblemTemplate.objects.filter(problem=problem)))
+	ProblemTemplateInlineFormSet = inlineformset_factory(Problem, ProblemTemplate, max_num=maxpt)
+	maxc = max(0, len(CommonIntroduction.objects.filter(problem=problem)))
+
+	CommonIntroductionFormSet =  inlineformset_factory(Problem, CommonIntroduction, max_num =maxc )
+
+	if request.method == 'POST':
+		problem_form =ProblemForm(request.POST, instance=problem)
+		problem_template_formset = ProblemTemplateInlineFormSet(request.POST,request.FILES, prefix='templates', instance=problem )
+		common_introduction_formset = CommonIntroductionFormSet(request.POST, request.FILES, prefix='common_intro', instance =problem)
+		
+		if problem_form.is_valid() and problem_template_formset.is_valid() and common_introduction_formset.is_valid() :
+			problem = problem_form.save()
+			
+			common_introduction_formset.save(commit = False)
+			
+			for form in problem_template_formset.forms:
+				problem_template = form.save(commit = False)
+				problem_template.problem = problem
+				problem_template.save()
+
+			
+			return HttpResponseRedirect('/qbank/problems/')
+	else:
+		problem_form = ProblemForm(instance=problem)
+		
+		problem_template_formset = ProblemTemplateInlineFormSet(instance=problem, prefix='templates')
+		common_introduction_formset = CommonIntroductionFormSet(instance=problem, prefix='common_intro')
+
+		
+	c = {
+	'problem_form' : problem_form,
+	'problem_template_formset' :problem_template_formset,
+	'common_introduction_formset' : common_introduction_formset,
+	'problems' : problems,
+    	}
+	c.update(csrf(request))
+	return render_to_response('summative.html', c)
+
+
+
+#@login_required
+def ka_gen(request, problem_id):
+
+	p = get_object_or_404(Problem, id=problem_id)
+	q = ProblemTemplate.objects.filter(problem = p)
+#	v = Variable.objects.get(problem = p)
+#	s = Answer.objects.get(problem = p)
+#	c = Choice.objects.get(problem = p)
+#	h = p.hint_set.all()
+	destination = open('/home/OpenDSA/temp/'+p.title+'_View.html', 'wb+')
+
+	str ="<!DOCTYPE html>"+"\n"+"<html data-require=\"math math-format word-problems spin\">"+"\n"+"<head>"+"\n"+"<title>"+"\n"+p.title+"</title>"+"\n"+"<script src=\"../../lib/jquery.min.js\">"+"\n"+"</script>"+"\n"+"<script src=\"../../lib/jquery-ui.min.js\">"+"\n"+"</script>"+"\n"+"<script>urlBaseOverride = \"../../ODSAkhan-exercises/\";</script>"+"\n"+"<script src=\"../../lib/khan-exercise-min.js\">"+"\n"+"</script>"+"\n"+"</head>"+"\n"+"<body>"+"\n"
+	
+	
+	str += "<div class=\"exercise\" data-name=\"/exercises/"
+	str += p.title
+	str += "\">"
+	str += "\n"+"</div>"
+	str +="</body>"+"\n"+"<script type=\"text/javascript\" src=\"http://cdn.mathjax.org/mathjax/1.1-latest/MathJax.js?config=http://algoviz.org/OpenDSA/ODSAkhan-exercises/KAthJax-77111459c7d82564a705f9c5480e2c88.js\">"+"</script>"+"</html>"
+	destination.write(bytes(str))
+	destination.close()
+
+
+	context = Context({
+		'p':p,
+		'title':p.title,	
+		'question':q,
+	#	'solution':s,
+	#	'choice':c,
+#		'hint':h
+	})
+	return render_to_response('ka_gen.html', context)
+
+
 #@login_required
 def write_file(request, problem_id):
 	response = HttpResponse( content_type = 'text/csv')
@@ -1065,6 +1075,7 @@ def list(request):
 
 
 	if request.method == 'POST': # If the form has been submitted...
+	
 		problem_form = ListProblemForm(request.POST)
 		problem_template_form = ProblemTemplateForm(request.POST, prefix='template')
 		answer_form = AnswerForm(request.POST, prefix='answer')
@@ -1154,12 +1165,7 @@ def range(request):
 	return render_to_response('range.html', c)
 
 
-
-
-
 def summative(request):
-    # This class is used to make empty formset forms required
-    # See http://stackoverflow.com/questions/2406537/django-formsets-make-first-required/4951032#4951032
 	class RequiredFormSet(BaseFormSet):
 		def __init__(self, *args, **kwargs):
 			super(RequiredFormSet, self).__init__(*args, **kwargs)
@@ -1197,6 +1203,7 @@ def summative(request):
 
 
 def d(request, problem_id):
+	#The class for downloading the exercises exported as Khan Academy Exercise format
     p = get_object_or_404(Problem, id=problem_id)
     file_path = "/home/OpenDSA/exercises/"+p.title+".html"
     try:
@@ -1211,6 +1218,4 @@ def d(request, problem_id):
     return response
 
 
-def server_error(request, template_name = '500.html'):
-	return render_to_response(template_name,context_instance = RequestContext(request)) 
 
