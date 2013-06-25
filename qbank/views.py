@@ -92,10 +92,204 @@ def index(request):
 	c.update(csrf(request))
 	return render_to_response('add.html', c)
 
+	
+
+#@login_required
+def simple(request):
+    # This class is the form for simple problems in QBank
+	class RequiredFormSet(BaseFormSet):
+		def __init__(self, *args, **kwargs):
+			super(RequiredFormSet, self).__init__(*args, **kwargs)
+			for form in self.forms:
+				form.empty_permitted = True
+	HintFormSet = formset_factory(HintForm, max_num = 10, formset = RequiredFormSet)
+	ChoiceFormSet = formset_factory(ChoiceForm, max_num = 10, formset = RequiredFormSet)
+
+
+	if request.method == 'POST': # If the form has been submitted...
+		problem_form = SimpleProblemForm(request.POST)
+		problem_template_form = ProblemTemplateForm(request.POST, prefix='template')
+		answer_form = AnswerForm(request.POST, prefix='answer')
+
+		hint_formset = HintFormSet(request.POST, request.FILES, prefix='hints')
+		
+		choice_formset = ChoiceFormSet(request.POST, request.FILES, prefix='choices')
+		if problem_form.is_valid() and problem_template_form.is_valid() and choice_formset.is_valid() and hint_formset.is_valid() and answer_form.is_valid():
+			problem = problem_form.save()
+			problem_template = problem_template_form.save(commit = False)
+			problem_template.problem = problem
+			problem_template.save()
+
+			answer = answer_form.save(commit = False)
+			answer.problem = problem
+			answer.save()
+			for form in hint_formset.forms:
+				hint = form.save(commit = False)
+				hint.problem = problem
+				hint.save()
+			for form in choice_formset.forms:
+				choice = form.save(commit = False)
+				choice.problem = problem
+				choice.save() # Redirect to a 'success' page
+			return HttpResponseRedirect('/qbank/problems/')
+	else:
+		problem_form = SimpleProblemForm()
+		choice_formset = ChoiceFormSet(prefix='choices')
+		problem_template_form = ProblemTemplateForm(prefix='template')
+		answer_form = AnswerForm(prefix='answer')
+		hint_formset = HintFormSet(prefix='hints')
+	c = {'problem_form' : problem_form,
+	     'choice_formset' : choice_formset,
+	     'problem_template_form' : problem_template_form,
+	     'answer_form': answer_form,
+	     'hint_formset' : hint_formset,
+	}
+	c.update(csrf(request))
+	return render_to_response('simple.html', c)
+
+#@login_required
+def list(request):
+    # This class is for list type of dynamic problems in QBank
+	class RequiredFormSet(BaseFormSet):
+		def __init__(self, *args, **kwargs):
+			super(RequiredFormSet, self).__init__(*args, **kwargs)
+			for form in self.forms:
+				form.empty_permitted = True
+	VariableFormSet = formset_factory(VariableForm, max_num = 10, formset = RequiredFormSet)
+	HintFormSet = formset_factory(HintForm, max_num = 10, formset = RequiredFormSet)
+	#ChoiceFormSet = formset_factory(ChoiceForm, max_num = 10, formset = RequiredFormSet)
+
+
+	if request.method == 'POST': # If the form has been submitted...
+	
+		problem_form = ListProblemForm(request.POST)
+		problem_template_form = ProblemTemplateForm(request.POST, prefix='template')
+		answer_form = AnswerForm(request.POST, prefix='answer')
+		variable_formset = VariableFormSet(request.POST,request.FILES, prefix='variables')
+		hint_formset = HintFormSet(request.POST, request.FILES, prefix='hints')
+		#choice_formset = ChoiceFormSet(request.POST, request.FILES, prefix='choices')
+		if problem_form.is_valid() and problem_template_form.is_valid() and variable_formset.is_valid() and hint_formset.is_valid() and answer_form.is_valid():
+			problem = problem_form.save()
+			problem_template = problem_template_form.save(commit = False)
+			problem_template.problem = problem
+			problem_template.save()
+
+			answer = answer_form.save(commit = False)
+			answer.problem = problem
+			answer.save()
+
+            	
+			for form in variable_formset.forms:
+				variable = form.save(commit = False)
+				variable.problem = problem
+				variable.save() # Redirect to a 'success' page
+			for form in hint_formset.forms:
+				hint = form.save(commit = False)
+				hint.problem = problem
+				hint.save()
+			
+			return HttpResponseRedirect('/qbank/problems/')
+	else:
+		problem_form = ListProblemForm()
+		problem_template_form = ProblemTemplateForm(prefix='template')
+		answer_form = AnswerForm(prefix='answer')	
+		variable_formset = VariableFormSet(prefix='variables')
+		#choice_formset = ChoiceFormSet(prefix='choices')
+		hint_formset = HintFormSet(prefix='hints')
+	c = {'problem_form' : problem_form,
+	     'problem_template_form' : problem_template_form,
+	     'answer_form': answer_form,
+	     'variable_formset' : variable_formset,
+	     #'choice_formset': choice_formset,
+	     'hint_formset' : hint_formset,
+	}
+	c.update(csrf(request))
+	return render_to_response('list.html', c)
+
+#@login_required
+def range(request):
+    # This class is for rnage type of dynamic problems in QBank
+	class RequiredFormSet(BaseFormSet):
+		def __init__(self, *args, **kwargs):
+			super(RequiredFormSet, self).__init__(*args, **kwargs)
+			for form in self.forms:
+				form.empty_permitted = True
+	VariableFormSet = formset_factory(VariableForm, max_num = 10, formset = RequiredFormSet)
+	if request.method == 'POST': # If the form has been submitted...
+		problem_form = RangeProblemForm(request.POST)
+		problem_template_form = ProblemTemplateForm(request.POST, prefix='template')
+		answer_form = AnswerForm(request.POST, prefix='answer')
+		variable_formset = VariableFormSet(request.POST,request.FILES, prefix='variables')
+		if problem_form.is_valid() and problem_template_form.is_valid() and variable_formset.is_valid() and answer_form.is_valid():
+			problem = problem_form.save()
+			problem_template = problem_template_form.save(commit = False)
+			problem_template.problem = problem
+			problem_template.save()
+
+			answer = answer_form.save(commit = False)
+			answer.problem = problem
+			answer.save()
+
+            	
+			for form in variable_formset.forms:
+				variable = form.save(commit = False)
+				variable.problem = problem
+				variable.save() # Redirect to a 'success' page
+			return HttpResponseRedirect('/qbank/problems/')
+	else:
+		problem_form = RangeProblemForm()
+		problem_template_form = ProblemTemplateForm(prefix='template')
+		answer_form = AnswerForm(prefix='answer')	
+		variable_formset = VariableFormSet(prefix='variables')
+	c = {'problem_form' : problem_form,
+	     'problem_template_form' : problem_template_form,
+	     'answer_form': answer_form,
+	     'variable_formset' : variable_formset,
+	}
+	c.update(csrf(request))
+	return render_to_response('range.html', c)
+
+
+def summative(request):
+	#This class is the form for summative problems in QBank
+	class RequiredFormSet(BaseFormSet):
+		def __init__(self, *args, **kwargs):
+			super(RequiredFormSet, self).__init__(*args, **kwargs)
+			for form in self.forms:
+				form.empty_permitted = True
+
+	problems = Problem.objects.all()
+	ProblemTemplateFormSet = formset_factory(ProblemTemplateForm, max_num = 10, formset = RequiredFormSet)
+	if request.method == 'POST': # If the form has been submitted...
+		problem_form = SummativeProblemForm(request.POST)
+		common_introduction_form = CommonIntroductionForm(request.POST, prefix='common_intro')
+		problem_template_formset = ProblemTemplateFormSet(request.POST, request.FILES, prefix='templates')
+		if problem_form.is_valid() and common_introduction_form.is_valid() and problem_template_formset.is_valid():
+			problem = problem_form.save()
+			common_intro = common_introduction_form.save(commit=False)
+			common_intro.problem = problem
+			common_intro.save()
+
+			for form in problem_template_formset.forms:
+				problem_template = form.save(commit=False)
+				problem_template.problem = problem
+				problem_template.save() # Redirect to a 'success' page
+			return HttpResponseRedirect('/qbank/problems/')
+	else:
+		problem_form = SummativeProblemForm()
+		common_introduction_form = CommonIntroductionForm(prefix='common_intro')
+		problem_template_formset = ProblemTemplateFormSet(prefix='templates')
+	c = {'problem_form' : problem_form,
+		'common_introduction_form' : common_introduction_form,
+		'problem_template_formset' : problem_template_formset,
+		'problems':problems,
+	}
+	c.update(csrf(request))
+	return render_to_response('summative.html', c)
 
 #@login_required
 def edit(request, problem_id):
-	#This class is for editing forms for any problem type
+	#This class is for editing forms for Khan Academy tool specific problem type
 	problem = get_object_or_404(Problem, id=problem_id)
 
 	class RequiredFormSet(BaseFormSet):
@@ -222,6 +416,7 @@ def export(request):
 
 
 def ka_details(request, problem_id):
+	#This class parses problems to Khan Academy Exercise format and write on a file.
 	p = get_object_or_404(Problem, id=problem_id)
 	q = ProblemTemplate.objects.get(problem = p)
 #	v = Variable.objects.get(problem = p)
@@ -316,7 +511,7 @@ def ka_details(request, problem_id):
 	return render_to_response('ka_details.html', context)
 
 def edit_ka(request, problem_id):
-
+	#This class retreives the information from the database for a Khan Academy tool specific problem to be edited
 	problem = get_object_or_404(Problem, id=problem_id)
 
 	class RequiredFormSet(BaseFormSet):
@@ -420,6 +615,7 @@ def edit_ka(request, problem_id):
 
 #@login_required
 def simple_details(request, problem_id):
+	#This class parses simple MCQ problems to Khan Academy Exercise format
 	p = get_object_or_404(Problem, id=problem_id)
 	q = ProblemTemplate.objects.get(problem = p)
 #	v = Variable.objects.get(problem = p)
@@ -465,7 +661,8 @@ def simple_details(request, problem_id):
 
 
 def edit_simple(request, problem_id):
-
+	
+	#This class retreives the information from the database for a simple MCQ problem to be edited
 	problem = get_object_or_404(Problem, id=problem_id)
 
 	class RequiredFormSet(BaseFormSet):
@@ -544,6 +741,7 @@ def edit_simple(request, problem_id):
 	
 #@login_required
 def range_details(request, problem_id):
+	#This class parses range type of dynamic problem to the Khan Academy Exercise format and write on file.
 	p = get_object_or_404(Problem, id=problem_id)
 	q = ProblemTemplate.objects.get(problem = p)
 #	v = Variable.objects.get(problem = p)
@@ -583,8 +781,10 @@ def range_details(request, problem_id):
 	})
 	return render_to_response('range_details.html', context)
 
+	
 #@login_required
 def list_details(request, problem_id):
+	#This class parses range type of dynamic problem to the Khan Academy Exercise format and write on file.
 	p = get_object_or_404(Problem, id=problem_id)
 	q = ProblemTemplate.objects.get(problem = p)
 #	v = Variable.objects.get(problem = p)
@@ -698,7 +898,7 @@ def list_details(request, problem_id):
 	
 	
 def edit_list(request, problem_id):
-
+#This class retreives the information from the database for a list type of dynamic problem to be edited
 	problem = get_object_or_404(Problem, id=problem_id)
 
 	class RequiredFormSet(BaseFormSet):
@@ -771,6 +971,7 @@ def edit_list(request, problem_id):
 
 
 def edit_range(request, problem_id):
+#This class retreives the information from the database for a range type of dynamic problem to be edited
 
 	problem = get_object_or_404(Problem, id=problem_id)
 
@@ -837,6 +1038,7 @@ def edit_range(request, problem_id):
 
 #@login_required
 def summative_details(request, problem_id):
+#This class parses a summative problem into the Khan Academy Exercise format and writes on file.
 	p = get_object_or_404(Problem, id=problem_id)
 	q = ProblemTemplate.objects.filter(problem = p)
 #	v = Variable.objects.get(problem = p)
@@ -869,6 +1071,7 @@ def summative_details(request, problem_id):
 
 	
 def edit_summative(request, problem_id):
+#This class retreives the information from the database for a summative problem to be edited
 
 	problem = get_object_or_404(Problem, id=problem_id)
 
@@ -927,7 +1130,7 @@ def edit_summative(request, problem_id):
 
 #@login_required
 def ka_gen(request, problem_id):
-
+	#This class generates an intermediate file for all problems to be viewed in the browser using the Khan Academy exercise syntax.
 	p = get_object_or_404(Problem, id=problem_id)
 	q = ProblemTemplate.objects.filter(problem = p)
 #	v = Variable.objects.get(problem = p)
@@ -961,6 +1164,7 @@ def ka_gen(request, problem_id):
 
 #@login_required
 def write_file(request, problem_id):
+	#This class generates the csv file for all authored problems.
 	response = HttpResponse( content_type = 'text/csv')
 	p = get_object_or_404(Problem, id=problem_id)
 	response['Content-Disposition'] = 'attachment; filename="'+p.title+'.csv"'
@@ -1006,200 +1210,6 @@ def delete(request, problem_id):
    p.delete()
    return HttpResponseRedirect('/qbank/problems/')
 
-#@login_required
-def simple(request):
-    # This class is used to make empty formset forms required
-    # See http://stackoverflow.com/questions/2406537/django-formsets-make-first-required/4951032#4951032
-	class RequiredFormSet(BaseFormSet):
-		def __init__(self, *args, **kwargs):
-			super(RequiredFormSet, self).__init__(*args, **kwargs)
-			for form in self.forms:
-				form.empty_permitted = True
-	HintFormSet = formset_factory(HintForm, max_num = 10, formset = RequiredFormSet)
-	ChoiceFormSet = formset_factory(ChoiceForm, max_num = 10, formset = RequiredFormSet)
-
-
-	if request.method == 'POST': # If the form has been submitted...
-		problem_form = SimpleProblemForm(request.POST)
-		problem_template_form = ProblemTemplateForm(request.POST, prefix='template')
-		answer_form = AnswerForm(request.POST, prefix='answer')
-
-		hint_formset = HintFormSet(request.POST, request.FILES, prefix='hints')
-		
-		choice_formset = ChoiceFormSet(request.POST, request.FILES, prefix='choices')
-		if problem_form.is_valid() and problem_template_form.is_valid() and choice_formset.is_valid() and hint_formset.is_valid() and answer_form.is_valid():
-			problem = problem_form.save()
-			problem_template = problem_template_form.save(commit = False)
-			problem_template.problem = problem
-			problem_template.save()
-
-			answer = answer_form.save(commit = False)
-			answer.problem = problem
-			answer.save()
-			for form in hint_formset.forms:
-				hint = form.save(commit = False)
-				hint.problem = problem
-				hint.save()
-			for form in choice_formset.forms:
-				choice = form.save(commit = False)
-				choice.problem = problem
-				choice.save() # Redirect to a 'success' page
-			return HttpResponseRedirect('/qbank/problems/')
-	else:
-		problem_form = SimpleProblemForm()
-		choice_formset = ChoiceFormSet(prefix='choices')
-		problem_template_form = ProblemTemplateForm(prefix='template')
-		answer_form = AnswerForm(prefix='answer')
-		hint_formset = HintFormSet(prefix='hints')
-	c = {'problem_form' : problem_form,
-	     'choice_formset' : choice_formset,
-	     'problem_template_form' : problem_template_form,
-	     'answer_form': answer_form,
-	     'hint_formset' : hint_formset,
-	}
-	c.update(csrf(request))
-	return render_to_response('simple.html', c)
-
-#@login_required
-def list(request):
-    # This class is used to make empty formset forms required
-    # See http://stackoverflow.com/questions/2406537/django-formsets-make-first-required/4951032#4951032
-	class RequiredFormSet(BaseFormSet):
-		def __init__(self, *args, **kwargs):
-			super(RequiredFormSet, self).__init__(*args, **kwargs)
-			for form in self.forms:
-				form.empty_permitted = True
-	VariableFormSet = formset_factory(VariableForm, max_num = 10, formset = RequiredFormSet)
-	HintFormSet = formset_factory(HintForm, max_num = 10, formset = RequiredFormSet)
-	#ChoiceFormSet = formset_factory(ChoiceForm, max_num = 10, formset = RequiredFormSet)
-
-
-	if request.method == 'POST': # If the form has been submitted...
-	
-		problem_form = ListProblemForm(request.POST)
-		problem_template_form = ProblemTemplateForm(request.POST, prefix='template')
-		answer_form = AnswerForm(request.POST, prefix='answer')
-		variable_formset = VariableFormSet(request.POST,request.FILES, prefix='variables')
-		hint_formset = HintFormSet(request.POST, request.FILES, prefix='hints')
-		#choice_formset = ChoiceFormSet(request.POST, request.FILES, prefix='choices')
-		if problem_form.is_valid() and problem_template_form.is_valid() and variable_formset.is_valid() and hint_formset.is_valid() and answer_form.is_valid():
-			problem = problem_form.save()
-			problem_template = problem_template_form.save(commit = False)
-			problem_template.problem = problem
-			problem_template.save()
-
-			answer = answer_form.save(commit = False)
-			answer.problem = problem
-			answer.save()
-
-            	
-			for form in variable_formset.forms:
-				variable = form.save(commit = False)
-				variable.problem = problem
-				variable.save() # Redirect to a 'success' page
-			for form in hint_formset.forms:
-				hint = form.save(commit = False)
-				hint.problem = problem
-				hint.save()
-			
-			return HttpResponseRedirect('/qbank/problems/')
-	else:
-		problem_form = ListProblemForm()
-		problem_template_form = ProblemTemplateForm(prefix='template')
-		answer_form = AnswerForm(prefix='answer')	
-		variable_formset = VariableFormSet(prefix='variables')
-		#choice_formset = ChoiceFormSet(prefix='choices')
-		hint_formset = HintFormSet(prefix='hints')
-	c = {'problem_form' : problem_form,
-	     'problem_template_form' : problem_template_form,
-	     'answer_form': answer_form,
-	     'variable_formset' : variable_formset,
-	     #'choice_formset': choice_formset,
-	     'hint_formset' : hint_formset,
-	}
-	c.update(csrf(request))
-	return render_to_response('list.html', c)
-
-#@login_required
-def range(request):
-    # This class is used to make empty formset forms required
-    # See http://stackoverflow.com/questions/2406537/django-formsets-make-first-required/4951032#4951032
-	class RequiredFormSet(BaseFormSet):
-		def __init__(self, *args, **kwargs):
-			super(RequiredFormSet, self).__init__(*args, **kwargs)
-			for form in self.forms:
-				form.empty_permitted = True
-	VariableFormSet = formset_factory(VariableForm, max_num = 10, formset = RequiredFormSet)
-	if request.method == 'POST': # If the form has been submitted...
-		problem_form = RangeProblemForm(request.POST)
-		problem_template_form = ProblemTemplateForm(request.POST, prefix='template')
-		answer_form = AnswerForm(request.POST, prefix='answer')
-		variable_formset = VariableFormSet(request.POST,request.FILES, prefix='variables')
-		if problem_form.is_valid() and problem_template_form.is_valid() and variable_formset.is_valid() and answer_form.is_valid():
-			problem = problem_form.save()
-			problem_template = problem_template_form.save(commit = False)
-			problem_template.problem = problem
-			problem_template.save()
-
-			answer = answer_form.save(commit = False)
-			answer.problem = problem
-			answer.save()
-
-            	
-			for form in variable_formset.forms:
-				variable = form.save(commit = False)
-				variable.problem = problem
-				variable.save() # Redirect to a 'success' page
-			return HttpResponseRedirect('/qbank/problems/')
-	else:
-		problem_form = RangeProblemForm()
-		problem_template_form = ProblemTemplateForm(prefix='template')
-		answer_form = AnswerForm(prefix='answer')	
-		variable_formset = VariableFormSet(prefix='variables')
-	c = {'problem_form' : problem_form,
-	     'problem_template_form' : problem_template_form,
-	     'answer_form': answer_form,
-	     'variable_formset' : variable_formset,
-	}
-	c.update(csrf(request))
-	return render_to_response('range.html', c)
-
-
-def summative(request):
-	class RequiredFormSet(BaseFormSet):
-		def __init__(self, *args, **kwargs):
-			super(RequiredFormSet, self).__init__(*args, **kwargs)
-			for form in self.forms:
-				form.empty_permitted = True
-
-	problems = Problem.objects.all()
-	ProblemTemplateFormSet = formset_factory(ProblemTemplateForm, max_num = 10, formset = RequiredFormSet)
-	if request.method == 'POST': # If the form has been submitted...
-		problem_form = SummativeProblemForm(request.POST)
-		common_introduction_form = CommonIntroductionForm(request.POST, prefix='common_intro')
-		problem_template_formset = ProblemTemplateFormSet(request.POST, request.FILES, prefix='templates')
-		if problem_form.is_valid() and common_introduction_form.is_valid() and problem_template_formset.is_valid():
-			problem = problem_form.save()
-			common_intro = common_introduction_form.save(commit=False)
-			common_intro.problem = problem
-			common_intro.save()
-
-			for form in problem_template_formset.forms:
-				problem_template = form.save(commit=False)
-				problem_template.problem = problem
-				problem_template.save() # Redirect to a 'success' page
-			return HttpResponseRedirect('/qbank/problems/')
-	else:
-		problem_form = SummativeProblemForm()
-		common_introduction_form = CommonIntroductionForm(prefix='common_intro')
-		problem_template_formset = ProblemTemplateFormSet(prefix='templates')
-	c = {'problem_form' : problem_form,
-		'common_introduction_form' : common_introduction_form,
-		'problem_template_formset' : problem_template_formset,
-		'problems':problems,
-	}
-	c.update(csrf(request))
-	return render_to_response('summative.html', c)
 
 
 def d(request, problem_id):
